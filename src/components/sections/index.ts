@@ -1,0 +1,20 @@
+// Section Components exports
+export { default as Header } from './Header';
+export { default as Hero } from './Hero';
+export { default as TrustBar } from './TrustBar';
+export { default as HowItWorks } from './HowItWorks';
+export { default as CoreFeatures } from './CoreFeatures';
+export { default as Comparison } from './Comparison';
+export { default as TargetAudience } from './TargetAudience';
+export { default as SocialProof } from './SocialProof';
+export { default as Testimonial } from './Testimonial';
+export { default as Pricing } from './Pricing';
+export { default as FAQ } from './FAQ';
+export { default as FinalCTA } from './FinalCTA';
+export { default as TwoAMScenario } from './TwoAMScenario';
+export { default as Footer } from './Footer';
+export { default as ContactSection } from './ContactSection';
+export { default as Benefits } from './Benefits';
+export { default as VideoExamples } from './VideoExamples';
+export { default as SocialProofSection } from './SocialProofSection';
+export { default as GettingStarted } from './GettingStarted';

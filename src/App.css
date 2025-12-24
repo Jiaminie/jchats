@@ -1,0 +1,27 @@
+/* App globally scoped styles */
+
+#root {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0A0A0A 0%, #1F1F1F 100%);
+  position: relative;
+}
+
+/* Smooth transitions for theme-aware components */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+/* Prevent transition on page load */
+.preload * {
+  transition: none !important;
+}
+
+/* App container */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
