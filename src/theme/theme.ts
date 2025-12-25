@@ -16,7 +16,7 @@ export const theme = createTheme({
       contrastText: '#F5F5F5',
     },
     background: {
-      default: '#0A0A0A',
+      default: '#000',
       paper: '#141414',
     },
     text: {

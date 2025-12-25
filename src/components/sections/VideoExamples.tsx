@@ -72,7 +72,7 @@ const VideoExamples: React.FC = () => {
       component="section"
       sx={{
         py: { xs: 6, md: 8 },
-        background: '#000000',
+        backgroundColor: "background.default",
       }}
     >
       <Container maxWidth="lg">
@@ -87,31 +87,31 @@ const VideoExamples: React.FC = () => {
             variant="h2"
             align="center"
             sx={{
-              color: '#FFFFFF',
+              color: "text.primary",
               fontWeight: 700,
               mb: { xs: 6, md: 12 },
             }}
           >
-            See How JChats Works for Businesses Like Yours
+            How JChats Works for Businesses Like Yours
           </Typography>
         </motion.div>
       </Container>
 
       {/* Video Examples - Stacked Vertically */}
-      <Box>
-        {examples.map((example, index) => (
-          <VideoExample
-            key={index}
-            category={example.category}
-            valueProposition={example.valueProposition}
-            scenarioIntro={example.scenarioIntro}
-            bulletPoints={example.bulletPoints}
-            resultStatement={example.resultStatement}
-            videoPlaceholder={example.videoPlaceholder}
-            layout={example.layout}
-            delay={index * 0.2}
-          />
-        ))}
+      <Box>      
+          {examples.map((example, index) => (
+            <VideoExample
+              key={index}
+              category={example.category}
+              valueProposition={example.valueProposition}
+              scenarioIntro={example.scenarioIntro}
+              bulletPoints={example.bulletPoints}
+              resultStatement={example.resultStatement}
+              videoPlaceholder={example.videoPlaceholder}
+              layout={example.layout}
+              delay={index * 0.2}
+            />
+          ))}
       </Box>
     </Box>
   );

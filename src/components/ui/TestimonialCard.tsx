@@ -41,7 +41,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           backgroundColor: 'rgba(20, 20, 20, 0.6)',
           backdropFilter: 'blur(12px)',
           border: '1px solid rgba(255, 255, 255, 0.08)',
-          borderRadius: 2,
+          borderRadius: 0,
           position: 'relative',
           overflow: 'hidden',
           transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',

@@ -1,48 +1,51 @@
-import React from 'react';
-import { Container, Typography, Box, Grid, CardContent } from '@mui/material';
-import { motion } from 'framer-motion';
-import { GlassCard } from '../ui';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import BuildIcon from '@mui/icons-material/Build';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
+import React from "react";
+import { Container, Typography, Box, Grid, CardContent } from "@mui/material";
+import { motion } from "framer-motion";
+import { GlassCard } from "../ui";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import BuildIcon from "@mui/icons-material/Build";
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 
 const GettingStarted: React.FC = () => {
   const steps = [
     {
-      day: 'Day 1',
+      day: "Day 1",
       icon: CalendarTodayIcon,
-      title: 'Share Your Business Details',
-      description: 'Tell us about your business, products/services, and how you currently operate. A quick 15-minute call is all we need.',
+      title: "Share Your Business Details",
+      description:
+        "Tell us about your business, products/services, and how you currently operate. A quick 15-minute call is all we need.",
       details: [
-        'What you sell or offer',
-        'Your current process',
-        'Your WhatsApp number',
-        'Your M-Pesa till number',
+        "What you sell or offer",
+        "Your current process",
+        "Your WhatsApp number",
+        "Your M-Pesa till number",
       ],
     },
     {
-      day: 'Days 2-3',
+      day: "Days 2-3",
       icon: BuildIcon,
-      title: 'We Set Everything Up',
-      description: 'Our team builds your custom catalog, configures payments, and sets up automated messages. You focus on your business.',
+      title: "We Set Everything Up",
+      description:
+        "Our team builds your custom catalog, configures payments, and sets up automated messages. You focus on your business.",
       details: [
-        'Product catalog with photos & prices',
-        'M-Pesa payment integration',
-        'Automated order confirmations',
-        'Custom WhatsApp messages',
+        "Product catalog with photos & prices",
+        "M-Pesa payment integration",
+        "Automated order confirmations",
+        "Custom WhatsApp messages",
       ],
     },
     {
-      day: 'Day 3',
+      day: "Day 3",
       icon: RocketLaunchIcon,
-      title: 'Go Live & Start Selling',
-      description: 'We train you on the system (30 minutes), test everything together, then you start taking orders immediately.',
+      title: "Go Live & Start Selling",
+      description:
+        "We train you on the system (30 minutes), test everything together, then you start taking orders immediately.",
       details: [
-        'Live training session',
-        'Test orders together',
-        'Launch to your customers',
-        'Ongoing support included',
+        "Live training session",
+        "Test orders together",
+        "Launch to your customers",
+        "Ongoing support included",
       ],
     },
   ];
@@ -52,7 +55,7 @@ const GettingStarted: React.FC = () => {
       component="section"
       sx={{
         py: { xs: 8, md: 12 },
-        background: '#000000',
+        background: "#000000",
       }}
     >
       <Container maxWidth="lg">
@@ -67,24 +70,25 @@ const GettingStarted: React.FC = () => {
             variant="h2"
             align="center"
             sx={{
-              color: '#FFFFFF',
+              color: "#FFFFFF",
               fontWeight: 700,
               mb: 2,
             }}
           >
-            Get Started in 3 Days
+            Let Us Set You Up Real Quick
           </Typography>
           <Typography
             variant="h6"
             align="center"
             sx={{
-              color: '#FFFFFF',
+              color: "#FFFFFF",
               mb: { xs: 6, md: 8 },
-              maxWidth: '700px',
-              mx: 'auto',
+              maxWidth: "700px",
+              mx: "auto",
             }}
           >
-            From first call to first sale in 72 hours. No technical knowledge required.
+            From first call to first sale in 72 hours. No technical knowledge
+            required.
           </Typography>
         </motion.div>
 
@@ -104,31 +108,33 @@ const GettingStarted: React.FC = () => {
                     glow={false}
                     hover={true}
                     sx={{
-                      height: '100%',
+                      height: "100%",
                       p: 4,
-                      background: '#000000',
-                      border: '2px solid',
-                      borderColor: '#E5E7EB',
-                      '&:hover': {
-                        borderColor: '#25D366',
-                        transform: 'translateY(-8px)',
-                        boxShadow: '0 12px 32px rgba(37, 211, 102, 0.15)',
+                      backgroundColor: "rgba(20, 20, 20, 0.6)",
+                      border: "1px solid rgba(255, 255, 255, 0.08)",
+                      borderRadius: 0,
+                      position: "relative",
+                      overflow: "hidden",
+                      "&:hover": {
+                        borderColor: "#25D366",
+                        transform: "translateY(-8px)",
+                        boxShadow: "0 12px 32px rgba(37, 211, 102, 0.15)",
                       },
                     }}
                   >
                     {/* Day Badge */}
                     <Box
                       sx={{
-                        position: 'absolute',
+                        position: "absolute",
                         top: -16,
                         left: 24,
-                        backgroundColor: '#25D366',
-                        color: '#FFFFFF',
+                        backgroundColor: "#25D366",
+                        color: "#FFFFFF",
                         px: 3,
                         py: 1,
                         borderRadius: 0,
                         fontWeight: 600,
-                        fontSize: '0.875rem',
+                        fontSize: "0.875rem",
                       }}
                     >
                       {step.day}
@@ -138,11 +144,11 @@ const GettingStarted: React.FC = () => {
                       {/* Icon */}
                       <Box
                         sx={{
-                          display: 'inline-flex',
+                          display: "inline-flex",
                           p: 2,
                           borderRadius: 0,
-                          backgroundColor: 'rgba(37, 211, 102, 0.1)',
-                          color: '#25D366',
+                          backgroundColor: "rgba(37, 211, 102, 0.1)",
+                          color: "#25D366",
                           mb: 3,
                         }}
                       >
@@ -153,7 +159,7 @@ const GettingStarted: React.FC = () => {
                       <Typography
                         variant="h5"
                         sx={{
-                          color: '#FFFFFF',
+                          color: "#FFFFFF",
                           fontWeight: 600,
                           mb: 2,
                         }}
@@ -165,7 +171,7 @@ const GettingStarted: React.FC = () => {
                       <Typography
                         variant="body1"
                         sx={{
-                          color: '#FFFFFF',
+                          color: "#FFFFFF",
                           lineHeight: 1.7,
                           mb: 3,
                         }}
@@ -174,27 +180,33 @@ const GettingStarted: React.FC = () => {
                       </Typography>
 
                       {/* Details */}
-                      <Box component="ul" sx={{ pl: 0, m: 0, listStyle: 'none' }}>
+                      <Box
+                        component="ul"
+                        sx={{ pl: 0, m: 0, listStyle: "none" }}
+                      >
                         {step.details.map((detail, idx) => (
                           <Box
                             component="li"
                             key={idx}
                             sx={{
-                              display: 'flex',
-                              alignItems: 'flex-start',
+                              display: "flex",
+                              alignItems: "flex-start",
                               gap: 1,
                               mb: 1,
                             }}
                           >
                             <CheckCircleIcon
                               sx={{
-                                color: '#25D366',
-                                fontSize: '1.25rem',
+                                color: "#25D366",
+                                fontSize: "1.25rem",
                                 mt: 0.25,
                                 flexShrink: 0,
                               }}
                             />
-                            <Typography variant="body2" sx={{ color: '#FFFFFF' }}>
+                            <Typography
+                              variant="body2"
+                              sx={{ color: "#FFFFFF" }}
+                            >
                               {detail}
                             </Typography>
                           </Box>

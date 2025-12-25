@@ -1,4 +1,5 @@
 # Jiaminie Tech - Complete Implementation Guide
+
 ## All Pages, Components, Forms, and Utilities
 
 ---
@@ -8,11 +9,10 @@
 1. [Design System Foundation](#design-system-foundation)
 2. [Reusable Components](#reusable-components)
 3. [Page Implementations](#page-implementations)
-4. [Forms & Validation](#forms--validation)
-5. [Notifications & Feedback](#notifications--feedback)
-6. [Animations & Transitions](#animations--transitions)
-7. [Utilities & Helpers](#utilities--helpers)
-8. [Integration Code](#integration-code)
+4. [Notifications & Feedback](#notifications--feedback)
+5. [Animations & Transitions](#animations--transitions)
+6. [Utilities & Helpers](#utilities--helpers)
+7. [Integration Code](#integration-code)
 
 ---
 
@@ -22,158 +22,159 @@
 
 ```javascript
 // theme.js
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
     primary: {
-      main: '#50C878',      // Jiaminie Green
-      light: '#70D890',
-      dark: '#3DA860',
-      contrastText: '#000000',
+      main: "#50C878", // Jiaminie Green
+      light: "#70D890",
+      dark: "#3DA860",
+      contrastText: "#000000",
     },
     secondary: {
-      main: '#00D9FF',      // Accent Blue (for info states)
-      light: '#33E1FF',
-      dark: '#00B8D9',
-      contrastText: '#000000',
+      main: "#00D9FF", // Accent Blue (for info states)
+      light: "#33E1FF",
+      dark: "#00B8D9",
+      contrastText: "#000000",
     },
     background: {
-      default: '#000000',
-      paper: '#0a0a0a',
-      elevated: '#141414',
-      glass: 'rgba(20, 20, 20, 0.8)',
+      default: "#000000",
+      paper: "#0a0a0a",
+      elevated: "#141414",
+      glass: "rgba(20, 20, 20, 0.8)",
     },
     text: {
-      primary: '#FFFFFF',
-      secondary: '#9CA3AF',
-      disabled: '#6B7280',
+      primary: "#FFFFFF",
+      secondary: "#9CA3AF",
+      disabled: "#6B7280",
     },
     success: {
-      main: '#50C878',
-      light: '#70D890',
-      dark: '#3DA860',
+      main: "#50C878",
+      light: "#70D890",
+      dark: "#3DA860",
     },
     error: {
-      main: '#EF4444',
-      light: '#F87171',
-      dark: '#DC2626',
+      main: "#EF4444",
+      light: "#F87171",
+      dark: "#DC2626",
     },
     warning: {
-      main: '#F59E0B',
-      light: '#FBB040',
-      dark: '#D97706',
+      main: "#F59E0B",
+      light: "#FBB040",
+      dark: "#D97706",
     },
     info: {
-      main: '#00D9FF',
-      light: '#33E1FF',
-      dark: '#00B8D9',
+      main: "#00D9FF",
+      light: "#33E1FF",
+      dark: "#00B8D9",
     },
-    divider: 'rgba(80, 200, 120, 0.1)',
+    divider: "rgba(80, 200, 120, 0.1)",
   },
   typography: {
-    fontFamily: '"SF Pro Display", "Inter", -apple-system, system-ui, sans-serif',
+    fontFamily:
+      '"SF Pro Display", "Inter", -apple-system, system-ui, sans-serif',
     h1: {
-      fontSize: '3.5rem',
+      fontSize: "3.5rem",
       fontWeight: 700,
       lineHeight: 1.2,
-      letterSpacing: '-0.02em',
-      '@media (max-width:600px)': {
-        fontSize: '2.5rem',
+      letterSpacing: "-0.02em",
+      "@media (max-width:600px)": {
+        fontSize: "2.5rem",
       },
     },
     h2: {
-      fontSize: '3rem',
+      fontSize: "3rem",
       fontWeight: 700,
       lineHeight: 1.3,
-      letterSpacing: '-0.01em',
-      '@media (max-width:600px)': {
-        fontSize: '2rem',
+      letterSpacing: "-0.01em",
+      "@media (max-width:600px)": {
+        fontSize: "2rem",
       },
     },
     h3: {
-      fontSize: '2rem',
+      fontSize: "2rem",
       fontWeight: 600,
       lineHeight: 1.4,
-      '@media (max-width:600px)': {
-        fontSize: '1.5rem',
+      "@media (max-width:600px)": {
+        fontSize: "1.5rem",
       },
     },
     h4: {
-      fontSize: '1.5rem',
+      fontSize: "1.5rem",
       fontWeight: 600,
       lineHeight: 1.5,
     },
     h5: {
-      fontSize: '1.25rem',
+      fontSize: "1.25rem",
       fontWeight: 600,
       lineHeight: 1.5,
     },
     h6: {
-      fontSize: '1.125rem',
+      fontSize: "1.125rem",
       fontWeight: 600,
       lineHeight: 1.6,
     },
     body1: {
-      fontSize: '1rem',
+      fontSize: "1rem",
       lineHeight: 1.7,
-      letterSpacing: '0.01em',
+      letterSpacing: "0.01em",
     },
     body2: {
-      fontSize: '0.875rem',
+      fontSize: "0.875rem",
       lineHeight: 1.6,
     },
     button: {
-      fontSize: '1rem',
+      fontSize: "1rem",
       fontWeight: 600,
-      textTransform: 'none',
-      letterSpacing: '0.02em',
+      textTransform: "none",
+      letterSpacing: "0.02em",
     },
     caption: {
-      fontSize: '0.75rem',
+      fontSize: "0.75rem",
       lineHeight: 1.5,
-      letterSpacing: '0.03em',
-      textTransform: 'uppercase',
+      letterSpacing: "0.03em",
+      textTransform: "uppercase",
     },
   },
   shape: {
     borderRadius: 12,
   },
   shadows: [
-    'none',
-    '0 2px 4px rgba(0, 0, 0, 0.2)',
-    '0 4px 8px rgba(0, 0, 0, 0.3)',
-    '0 8px 16px rgba(0, 0, 0, 0.4)',
-    '0 12px 24px rgba(0, 0, 0, 0.5)',
-    '0 16px 32px rgba(0, 0, 0, 0.6)',
-    '0 20px 40px rgba(0, 0, 0, 0.7)',
-    '0 24px 48px rgba(0, 0, 0, 0.8)',
+    "none",
+    "0 2px 4px rgba(0, 0, 0, 0.2)",
+    "0 4px 8px rgba(0, 0, 0, 0.3)",
+    "0 8px 16px rgba(0, 0, 0, 0.4)",
+    "0 12px 24px rgba(0, 0, 0, 0.5)",
+    "0 16px 32px rgba(0, 0, 0, 0.6)",
+    "0 20px 40px rgba(0, 0, 0, 0.7)",
+    "0 24px 48px rgba(0, 0, 0, 0.8)",
     // Glowing shadows for primary color
-    '0 0 20px rgba(80, 200, 120, 0.3)',
-    '0 0 30px rgba(80, 200, 120, 0.4)',
-    '0 0 40px rgba(80, 200, 120, 0.5)',
+    "0 0 20px rgba(80, 200, 120, 0.3)",
+    "0 0 30px rgba(80, 200, 120, 0.4)",
+    "0 0 40px rgba(80, 200, 120, 0.5)",
   ],
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
           borderRadius: 8,
-          padding: '12px 24px',
-          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          padding: "12px 24px",
+          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         },
         contained: {
-          boxShadow: '0 4px 12px rgba(80, 200, 120, 0.3)',
-          '&:hover': {
-            boxShadow: '0 8px 24px rgba(80, 200, 120, 0.4)',
-            transform: 'translateY(-2px)',
+          boxShadow: "0 4px 12px rgba(80, 200, 120, 0.3)",
+          "&:hover": {
+            boxShadow: "0 8px 24px rgba(80, 200, 120, 0.4)",
+            transform: "translateY(-2px)",
           },
         },
         outlined: {
           borderWidth: 2,
-          '&:hover': {
+          "&:hover": {
             borderWidth: 2,
-            backgroundColor: 'rgba(80, 200, 120, 0.1)',
+            backgroundColor: "rgba(80, 200, 120, 0.1)",
           },
         },
       },
@@ -181,26 +182,26 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          backgroundImage: 'none',
-          backgroundColor: 'rgba(20, 20, 20, 0.6)',
-          backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(80, 200, 120, 0.1)',
+          backgroundImage: "none",
+          backgroundColor: "rgba(20, 20, 20, 0.6)",
+          backdropFilter: "blur(20px)",
+          border: "1px solid rgba(80, 200, 120, 0.1)",
         },
       },
     },
     MuiTextField: {
       styleOverrides: {
         root: {
-          '& .MuiOutlinedInput-root': {
+          "& .MuiOutlinedInput-root": {
             borderRadius: 8,
-            '& fieldset': {
-              borderColor: 'rgba(80, 200, 120, 0.2)',
+            "& fieldset": {
+              borderColor: "rgba(80, 200, 120, 0.2)",
             },
-            '&:hover fieldset': {
-              borderColor: 'rgba(80, 200, 120, 0.4)',
+            "&:hover fieldset": {
+              borderColor: "rgba(80, 200, 120, 0.4)",
             },
-            '&.Mui-focused fieldset': {
-              borderColor: '#50C878',
+            "&.Mui-focused fieldset": {
+              borderColor: "#50C878",
             },
           },
         },
@@ -220,41 +221,42 @@ export default theme;
 
 ```jsx
 // components/GlassCard.jsx
-import { Card } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { Card } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
 const GlassCard = styled(Card)(({ theme, hover = true, glow = false }) => ({
-  background: 'rgba(20, 20, 20, 0.6)',
-  backdropFilter: 'blur(20px)',
-  border: '1px solid rgba(80, 200, 120, 0.1)',
+  background: "rgba(20, 20, 20, 0.6)",
+  backdropFilter: "blur(20px)",
+  border: "1px solid rgba(80, 200, 120, 0.1)",
   borderRadius: theme.spacing(2),
-  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-  position: 'relative',
-  overflow: 'hidden',
-  
+  transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+  position: "relative",
+  overflow: "hidden",
+
   ...(hover && {
-    '&:hover': {
+    "&:hover": {
       borderColor: theme.palette.primary.main,
-      transform: 'translateY(-4px)',
-      boxShadow: glow 
-        ? '0 20px 60px rgba(80, 200, 120, 0.3)'
-        : '0 20px 40px rgba(0, 0, 0, 0.4)',
+      transform: "translateY(-4px)",
+      boxShadow: glow
+        ? "0 20px 60px rgba(80, 200, 120, 0.3)"
+        : "0 20px 40px rgba(0, 0, 0, 0.4)",
     },
   }),
-  
-  '&::before': {
+
+  "&::before": {
     content: '""',
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
     right: 0,
-    height: '1px',
-    background: 'linear-gradient(90deg, transparent, rgba(80, 200, 120, 0.5), transparent)',
+    height: "1px",
+    background:
+      "linear-gradient(90deg, transparent, rgba(80, 200, 120, 0.5), transparent)",
     opacity: 0,
-    transition: 'opacity 0.3s',
+    transition: "opacity 0.3s",
   },
-  
-  '&:hover::before': {
+
+  "&:hover::before": {
     opacity: 1,
   },
 }));
@@ -268,72 +270,72 @@ export default GlassCard;
 
 ```jsx
 // components/GradientButton.jsx
-import { Button } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { Button } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
-const GradientButton = styled(Button)(({ theme, variant = 'contained' }) => ({
-  position: 'relative',
-  overflow: 'hidden',
-  padding: '14px 32px',
-  fontSize: '1rem',
+const GradientButton = styled(Button)(({ theme, variant = "contained" }) => ({
+  position: "relative",
+  overflow: "hidden",
+  padding: "14px 32px",
+  fontSize: "1rem",
   fontWeight: 600,
   borderRadius: 8,
-  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-  
-  ...(variant === 'contained' && {
+  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+
+  ...(variant === "contained" && {
     background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
-    color: '#000000',
-    boxShadow: '0 8px 24px rgba(80, 200, 120, 0.3)',
-    
-    '&::before': {
+    color: "#000000",
+    boxShadow: "0 8px 24px rgba(80, 200, 120, 0.3)",
+
+    "&::before": {
       content: '""',
-      position: 'absolute',
+      position: "absolute",
       top: 0,
       left: 0,
       right: 0,
       bottom: 0,
       background: `linear-gradient(135deg, ${theme.palette.primary.light} 0%, ${theme.palette.primary.main} 100%)`,
       opacity: 0,
-      transition: 'opacity 0.3s',
+      transition: "opacity 0.3s",
     },
-    
-    '&:hover': {
-      boxShadow: '0 12px 36px rgba(80, 200, 120, 0.5)',
-      transform: 'translateY(-2px)',
-      
-      '&::before': {
+
+    "&:hover": {
+      boxShadow: "0 12px 36px rgba(80, 200, 120, 0.5)",
+      transform: "translateY(-2px)",
+
+      "&::before": {
         opacity: 1,
       },
     },
-    
-    '& .MuiButton-label': {
-      position: 'relative',
+
+    "& .MuiButton-label": {
+      position: "relative",
       zIndex: 1,
     },
   }),
-  
-  ...(variant === 'outlined' && {
-    border: '2px solid',
+
+  ...(variant === "outlined" && {
+    border: "2px solid",
     borderColor: theme.palette.primary.main,
     color: theme.palette.primary.main,
-    background: 'transparent',
-    
-    '&::before': {
+    background: "transparent",
+
+    "&::before": {
       content: '""',
-      position: 'absolute',
+      position: "absolute",
       top: 0,
       left: 0,
       right: 0,
       bottom: 0,
       background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.dark} 100%)`,
       opacity: 0,
-      transition: 'opacity 0.3s',
+      transition: "opacity 0.3s",
     },
-    
-    '&:hover': {
+
+    "&:hover": {
       borderColor: theme.palette.primary.light,
-      backgroundColor: 'rgba(80, 200, 120, 0.1)',
-      transform: 'translateY(-2px)',
+      backgroundColor: "rgba(80, 200, 120, 0.1)",
+      transform: "translateY(-2px)",
     },
   }),
 }));
@@ -347,18 +349,18 @@ export default GradientButton;
 
 ```jsx
 // components/MetricCard.jsx
-import React from 'react';
-import { Box, Typography, Card, CardContent } from '@mui/material';
-import { motion } from 'framer-motion';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import React from "react";
+import { Box, Typography, Card, CardContent } from "@mui/material";
+import { motion } from "framer-motion";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 
-const MetricCard = ({ 
-  value, 
-  label, 
-  change, 
+const MetricCard = ({
+  value,
+  label,
+  change,
   icon: Icon,
-  color = 'primary.main',
-  delay = 0 
+  color = "primary.main",
+  delay = 0,
 }) => {
   return (
     <motion.div
@@ -370,16 +372,16 @@ const MetricCard = ({
       <Card
         elevation={0}
         sx={{
-          background: 'rgba(20, 20, 20, 0.6)',
-          backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(80, 200, 120, 0.1)',
+          background: "rgba(20, 20, 20, 0.6)",
+          backdropFilter: "blur(20px)",
+          border: "1px solid rgba(80, 200, 120, 0.1)",
           borderRadius: 3,
-          position: 'relative',
-          overflow: 'hidden',
-          transition: 'all 0.3s ease',
-          '&:hover': {
+          position: "relative",
+          overflow: "hidden",
+          transition: "all 0.3s ease",
+          "&:hover": {
             borderColor: color,
-            transform: 'translateY(-4px)',
+            transform: "translateY(-4px)",
             boxShadow: `0 20px 40px rgba(80, 200, 120, 0.2)`,
           },
         }}
@@ -387,22 +389,22 @@ const MetricCard = ({
         {/* Gradient overlay */}
         <Box
           sx={{
-            position: 'absolute',
+            position: "absolute",
             top: 0,
             right: 0,
-            width: '200px',
-            height: '200px',
+            width: "200px",
+            height: "200px",
             background: `radial-gradient(circle, ${color}22 0%, transparent 70%)`,
-            pointerEvents: 'none',
+            pointerEvents: "none",
           }}
         />
-        
-        <CardContent sx={{ p: 3, position: 'relative', zIndex: 1 }}>
+
+        <CardContent sx={{ p: 3, position: "relative", zIndex: 1 }}>
           {/* Icon */}
           {Icon && (
             <Box
               sx={{
-                display: 'inline-flex',
+                display: "inline-flex",
                 p: 1.5,
                 borderRadius: 2,
                 backgroundColor: `${color}22`,
@@ -413,39 +415,39 @@ const MetricCard = ({
               <Icon sx={{ fontSize: 32 }} />
             </Box>
           )}
-          
+
           {/* Value */}
           <Typography
             variant="h2"
             sx={{
-              color: 'white',
+              color: "white",
               fontWeight: 700,
               mb: 1,
-              fontSize: { xs: '2rem', md: '3rem' },
+              fontSize: { xs: "2rem", md: "3rem" },
             }}
           >
             {value}
           </Typography>
-          
+
           {/* Label */}
           <Typography
             variant="body1"
             sx={{
-              color: 'grey.400',
+              color: "grey.400",
               mb: change ? 2 : 0,
             }}
           >
             {label}
           </Typography>
-          
+
           {/* Change indicator */}
           {change && (
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <TrendingUpIcon sx={{ color: 'success.main', fontSize: 20 }} />
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <TrendingUpIcon sx={{ color: "success.main", fontSize: 20 }} />
               <Typography
                 variant="body2"
                 sx={{
-                  color: 'success.main',
+                  color: "success.main",
                   fontWeight: 600,
                 }}
               >
@@ -468,12 +470,20 @@ export default MetricCard;
 
 ```jsx
 // components/TestimonialCard.jsx
-import React from 'react';
-import { Box, Typography, Card, CardContent, Avatar, Rating, Chip } from '@mui/material';
-import { motion } from 'framer-motion';
-import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import React from "react";
+import {
+  Box,
+  Typography,
+  Card,
+  CardContent,
+  Avatar,
+  Rating,
+  Chip,
+} from "@mui/material";
+import { motion } from "framer-motion";
+import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 
-const TestimonialCard = ({ 
+const TestimonialCard = ({
   name,
   role,
   company,
@@ -482,7 +492,7 @@ const TestimonialCard = ({
   quote,
   rating = 5,
   results = [],
-  delay = 0
+  delay = 0,
 }) => {
   return (
     <motion.div
@@ -494,94 +504,95 @@ const TestimonialCard = ({
       <Card
         elevation={0}
         sx={{
-          background: 'rgba(20, 20, 20, 0.6)',
-          backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(80, 200, 120, 0.1)',
+          background: "rgba(20, 20, 20, 0.6)",
+          backdropFilter: "blur(20px)",
+          border: "1px solid rgba(80, 200, 120, 0.1)",
           borderRadius: 3,
           p: 4,
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          transition: 'all 0.3s ease',
-          position: 'relative',
-          overflow: 'hidden',
-          '&:hover': {
-            borderColor: 'primary.main',
-            transform: 'translateY(-4px)',
-            boxShadow: '0 20px 40px rgba(80, 200, 120, 0.2)',
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          transition: "all 0.3s ease",
+          position: "relative",
+          overflow: "hidden",
+          "&:hover": {
+            borderColor: "primary.main",
+            transform: "translateY(-4px)",
+            boxShadow: "0 20px 40px rgba(80, 200, 120, 0.2)",
           },
         }}
       >
         {/* Background gradient */}
         <Box
           sx={{
-            position: 'absolute',
-            top: '-50%',
-            right: '-50%',
-            width: '200%',
-            height: '200%',
-            background: 'radial-gradient(circle, rgba(80, 200, 120, 0.05) 0%, transparent 70%)',
-            pointerEvents: 'none',
+            position: "absolute",
+            top: "-50%",
+            right: "-50%",
+            width: "200%",
+            height: "200%",
+            background:
+              "radial-gradient(circle, rgba(80, 200, 120, 0.05) 0%, transparent 70%)",
+            pointerEvents: "none",
           }}
         />
-        
+
         {/* Quote icon */}
         <FormatQuoteIcon
           sx={{
-            position: 'absolute',
+            position: "absolute",
             top: 16,
             right: 16,
             fontSize: 60,
-            color: 'primary.main',
+            color: "primary.main",
             opacity: 0.1,
           }}
         />
-        
+
         {/* Rating */}
-        <Rating 
-          value={rating} 
-          readOnly 
-          sx={{ 
+        <Rating
+          value={rating}
+          readOnly
+          sx={{
             mb: 2,
-            '& .MuiRating-iconFilled': {
-              color: 'primary.main',
+            "& .MuiRating-iconFilled": {
+              color: "primary.main",
             },
-          }} 
+          }}
         />
-        
+
         {/* Quote */}
         <Typography
           variant="body1"
           sx={{
-            color: 'grey.300',
-            fontStyle: 'italic',
+            color: "grey.300",
+            fontStyle: "italic",
             lineHeight: 1.8,
             mb: 3,
             flex: 1,
-            position: 'relative',
+            position: "relative",
             zIndex: 1,
           }}
         >
           "{quote}"
         </Typography>
-        
+
         {/* Results */}
         {results.length > 0 && (
           <Box
             sx={{
               p: 2,
-              backgroundColor: 'rgba(80, 200, 120, 0.05)',
+              backgroundColor: "rgba(80, 200, 120, 0.05)",
               borderRadius: 2,
-              border: '1px solid rgba(80, 200, 120, 0.1)',
+              border: "1px solid rgba(80, 200, 120, 0.1)",
               mb: 3,
             }}
           >
             <Typography
               variant="caption"
               sx={{
-                color: 'primary.main',
+                color: "primary.main",
                 fontWeight: 600,
-                display: 'block',
+                display: "block",
                 mb: 1,
               }}
             >
@@ -591,8 +602,8 @@ const TestimonialCard = ({
               <Box
                 key={index}
                 sx={{
-                  display: 'flex',
-                  alignItems: 'center',
+                  display: "flex",
+                  alignItems: "center",
                   mb: 0.5,
                 }}
               >
@@ -600,43 +611,49 @@ const TestimonialCard = ({
                   sx={{
                     width: 6,
                     height: 6,
-                    borderRadius: '50%',
-                    backgroundColor: 'primary.main',
+                    borderRadius: "50%",
+                    backgroundColor: "primary.main",
                     mr: 1,
                   }}
                 />
-                <Typography variant="body2" sx={{ color: 'grey.300' }}>
+                <Typography variant="body2" sx={{ color: "grey.300" }}>
                   {result}
                 </Typography>
               </Box>
             ))}
           </Box>
         )}
-        
+
         {/* Author info */}
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <Avatar
             src={image}
             alt={name}
             sx={{
               width: 56,
               height: 56,
-              border: '2px solid',
-              borderColor: 'primary.main',
+              border: "2px solid",
+              borderColor: "primary.main",
             }}
           />
           <Box>
-            <Typography variant="subtitle1" sx={{ color: 'white', fontWeight: 600 }}>
+            <Typography
+              variant="subtitle1"
+              sx={{ color: "white", fontWeight: 600 }}
+            >
               {name}
             </Typography>
-            <Typography variant="body2" sx={{ color: 'grey.400' }}>
+            <Typography variant="body2" sx={{ color: "grey.400" }}>
               {role}
             </Typography>
-            <Typography variant="caption" sx={{ color: 'primary.main' }}>
+            <Typography variant="caption" sx={{ color: "primary.main" }}>
               {company}
             </Typography>
             {location && (
-              <Typography variant="caption" sx={{ color: 'grey.500', display: 'block' }}>
+              <Typography
+                variant="caption"
+                sx={{ color: "grey.500", display: "block" }}
+              >
                 {location}
               </Typography>
             )}
@@ -656,16 +673,16 @@ export default TestimonialCard;
 
 ```jsx
 // components/FeatureCard.jsx
-import React from 'react';
-import { Box, Typography, Card, CardContent } from '@mui/material';
-import { motion } from 'framer-motion';
+import React from "react";
+import { Box, Typography, Card, CardContent } from "@mui/material";
+import { motion } from "framer-motion";
 
-const FeatureCard = ({ 
+const FeatureCard = ({
   icon: Icon,
   title,
   description,
   features = [],
-  delay = 0
+  delay = 0,
 }) => {
   return (
     <motion.div
@@ -677,22 +694,22 @@ const FeatureCard = ({
       <Card
         elevation={0}
         sx={{
-          background: 'rgba(20, 20, 20, 0.6)',
-          backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(80, 200, 120, 0.1)',
+          background: "rgba(20, 20, 20, 0.6)",
+          backdropFilter: "blur(20px)",
+          border: "1px solid rgba(80, 200, 120, 0.1)",
           borderRadius: 3,
           p: 3,
-          height: '100%',
-          transition: 'all 0.3s ease',
-          position: 'relative',
-          overflow: 'hidden',
-          '&:hover': {
-            borderColor: 'primary.main',
-            transform: 'translateY(-4px)',
-            boxShadow: '0 20px 40px rgba(80, 200, 120, 0.2)',
-            
-            '& .feature-icon': {
-              transform: 'scale(1.1) rotate(5deg)',
+          height: "100%",
+          transition: "all 0.3s ease",
+          position: "relative",
+          overflow: "hidden",
+          "&:hover": {
+            borderColor: "primary.main",
+            transform: "translateY(-4px)",
+            boxShadow: "0 20px 40px rgba(80, 200, 120, 0.2)",
+
+            "& .feature-icon": {
+              transform: "scale(1.1) rotate(5deg)",
             },
           },
         }}
@@ -700,68 +717,69 @@ const FeatureCard = ({
         {/* Background glow */}
         <Box
           sx={{
-            position: 'absolute',
+            position: "absolute",
             top: 0,
             left: 0,
-            width: '100%',
-            height: '100%',
-            background: 'radial-gradient(circle at top left, rgba(80, 200, 120, 0.1) 0%, transparent 50%)',
-            pointerEvents: 'none',
+            width: "100%",
+            height: "100%",
+            background:
+              "radial-gradient(circle at top left, rgba(80, 200, 120, 0.1) 0%, transparent 50%)",
+            pointerEvents: "none",
           }}
         />
-        
-        <CardContent sx={{ p: 0, position: 'relative', zIndex: 1 }}>
+
+        <CardContent sx={{ p: 0, position: "relative", zIndex: 1 }}>
           {/* Icon */}
           <Box
             className="feature-icon"
             sx={{
-              display: 'inline-flex',
+              display: "inline-flex",
               p: 2,
               borderRadius: 2,
-              backgroundColor: 'rgba(80, 200, 120, 0.1)',
-              color: 'primary.main',
+              backgroundColor: "rgba(80, 200, 120, 0.1)",
+              color: "primary.main",
               mb: 3,
-              transition: 'all 0.3s ease',
+              transition: "all 0.3s ease",
             }}
           >
             <Icon sx={{ fontSize: 40 }} />
           </Box>
-          
+
           {/* Title */}
           <Typography
             variant="h5"
             sx={{
-              color: 'white',
+              color: "white",
               fontWeight: 600,
               mb: 2,
             }}
           >
             {title}
           </Typography>
-          
+
           {/* Description */}
           <Typography
             variant="body1"
             sx={{
-              color: 'grey.400',
+              color: "grey.400",
               lineHeight: 1.8,
               mb: features.length > 0 ? 3 : 0,
             }}
           >
             {description}
           </Typography>
-          
+
           {/* Feature list */}
           {features.length > 0 && (
-            <Box component="ul" sx={{ pl: 0, m: 0, listStyle: 'none' }}>
+            <Box component="ul" sx={{ pl: 0, m: 0, listStyle: "none" }}>
               {features.map((feature, index) => (
                 <Box
                   component="li"
                   key={index}
                   sx={{
                     mb: 1,
-                    display: 'flex',
-                    alignItems: 'flex-start',
+                    display: "flex",
+                    alignItems: "flex-start",
                     gap: 1,
                   }}
                 >
@@ -769,13 +787,13 @@ const FeatureCard = ({
                     sx={{
                       width: 6,
                       height: 6,
-                      borderRadius: '50%',
-                      backgroundColor: 'primary.main',
+                      borderRadius: "50%",
+                      backgroundColor: "primary.main",
                       mt: 1,
                       flexShrink: 0,
                     }}
                   />
-                  <Typography variant="body2" sx={{ color: 'grey.400' }}>
+                  <Typography variant="body2" sx={{ color: "grey.400" }}>
                     {feature}
                   </Typography>
                 </Box>
@@ -799,7 +817,7 @@ export default FeatureCard;
 
 ```jsx
 // components/forms/ContactForm.jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Box,
   TextField,
@@ -808,51 +826,49 @@ import {
   MenuItem,
   Typography,
   CircularProgress,
-} from '@mui/material';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
-import SendIcon from '@mui/icons-material/Send';
-import { useNotification } from '../../hooks/useNotification';
+} from "@mui/material";
+import { useFormik } from "formik";
+import * as yup from "yup";
+import SendIcon from "@mui/icons-material/Send";
+import { useNotification } from "../../hooks/useNotification";
 
 const validationSchema = yup.object({
   name: yup
     .string()
-    .min(2, 'Name must be at least 2 characters')
-    .required('Name is required'),
+    .min(2, "Name must be at least 2 characters")
+    .required("Name is required"),
   email: yup
     .string()
-    .email('Enter a valid email')
-    .required('Email is required'),
+    .email("Enter a valid email")
+    .required("Email is required"),
   phone: yup
     .string()
-    .matches(/^(\+254|0)[17]\d{8}$/, 'Enter a valid Kenyan phone number')
-    .required('Phone number is required'),
+    .matches(/^(\+254|0)[17]\d{8}$/, "Enter a valid Kenyan phone number")
+    .required("Phone number is required"),
   businessName: yup
     .string()
-    .min(2, 'Business name must be at least 2 characters')
-    .required('Business name is required'),
-  businessType: yup
-    .string()
-    .required('Please select your business type'),
+    .min(2, "Business name must be at least 2 characters")
+    .required("Business name is required"),
+  businessType: yup.string().required("Please select your business type"),
   currentOrders: yup
     .number()
-    .min(0, 'Must be a positive number')
-    .required('Please provide an estimate'),
+    .min(0, "Must be a positive number")
+    .required("Please provide an estimate"),
   message: yup
     .string()
-    .min(10, 'Message must be at least 10 characters')
-    .required('Message is required'),
+    .min(10, "Message must be at least 10 characters")
+    .required("Message is required"),
 });
 
 const businessTypes = [
-  'Logistics & Moving',
-  'Retail & Wholesale',
-  'Food & Hospitality',
-  'Professional Services',
-  'Distribution & Supply Chain',
-  'Manufacturing',
-  'Agriculture',
-  'Other',
+  "Logistics & Moving",
+  "Retail & Wholesale",
+  "Food & Hospitality",
+  "Professional Services",
+  "Distribution & Supply Chain",
+  "Manufacturing",
+  "Agriculture",
+  "Other",
 ];
 
 const ContactForm = ({ onSuccess }) => {
@@ -861,35 +877,41 @@ const ContactForm = ({ onSuccess }) => {
 
   const formik = useFormik({
     initialValues: {
-      name: '',
-      email: '',
-      phone: '',
-      businessName: '',
-      businessType: '',
-      currentOrders: '',
-      message: '',
+      name: "",
+      email: "",
+      phone: "",
+      businessName: "",
+      businessType: "",
+      currentOrders: "",
+      message: "",
     },
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
       setIsSubmitting(true);
-      
+
       try {
         // API call to submit form
-        const response = await fetch('/api/contact', {
-          method: 'POST',
+        const response = await fetch("/api/contact", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(values),
         });
 
-        if (!response.ok) throw new Error('Submission failed');
+        if (!response.ok) throw new Error("Submission failed");
 
-        showNotification('success', 'Message sent successfully! We\'ll be in touch within 4 hours.');
+        showNotification(
+          "success",
+          "Message sent successfully! We'll be in touch within 4 hours."
+        );
         resetForm();
         if (onSuccess) onSuccess();
       } catch (error) {
-        showNotification('error', 'Failed to send message. Please try again or contact us directly.');
+        showNotification(
+          "error",
+          "Failed to send message. Please try again or contact us directly."
+        );
       } finally {
         setIsSubmitting(false);
       }
@@ -902,16 +924,16 @@ const ContactForm = ({ onSuccess }) => {
       onSubmit={formik.handleSubmit}
       sx={{
         p: 4,
-        background: 'rgba(20, 20, 20, 0.6)',
-        backdropFilter: 'blur(20px)',
-        border: '1px solid rgba(80, 200, 120, 0.1)',
+        background: "rgba(20, 20, 20, 0.6)",
+        backdropFilter: "blur(20px)",
+        border: "1px solid rgba(80, 200, 120, 0.1)",
         borderRadius: 3,
       }}
     >
-      <Typography variant="h5" sx={{ color: 'white', fontWeight: 600, mb: 3 }}>
+      <Typography variant="h5" sx={{ color: "white", fontWeight: 600, mb: 3 }}>
         Request System Audit
       </Typography>
-      
+
       <Grid container spacing={3}>
         {/* Name */}
         <Grid item xs={12} md={6}>
@@ -925,12 +947,12 @@ const ContactForm = ({ onSuccess }) => {
             error={formik.touched.name && Boolean(formik.errors.name)}
             helperText={formik.touched.name && formik.errors.name}
             sx={{
-              '& .MuiInputLabel-root': { color: 'grey.400' },
-              '& .MuiOutlinedInput-root': {
-                color: 'white',
-                '& fieldset': { borderColor: 'rgba(80, 200, 120, 0.2)' },
-                '&:hover fieldset': { borderColor: 'rgba(80, 200, 120, 0.4)' },
-                '&.Mui-focused fieldset': { borderColor: 'primary.main' },
+              "& .MuiInputLabel-root": { color: "grey.400" },
+              "& .MuiOutlinedInput-root": {
+                color: "white",
+                "& fieldset": { borderColor: "rgba(80, 200, 120, 0.2)" },
+                "&:hover fieldset": { borderColor: "rgba(80, 200, 120, 0.4)" },
+                "&.Mui-focused fieldset": { borderColor: "primary.main" },
               },
             }}
           />
@@ -948,12 +970,12 @@ const ContactForm = ({ onSuccess }) => {
             error={formik.touched.email && Boolean(formik.errors.email)}
             helperText={formik.touched.email && formik.errors.email}
             sx={{
-              '& .MuiInputLabel-root': { color: 'grey.400' },
-              '& .MuiOutlinedInput-root': {
-                color: 'white',
-                '& fieldset': { borderColor: 'rgba(80, 200, 120, 0.2)' },
-                '&:hover fieldset': { borderColor: 'rgba(80, 200, 120, 0.4)' },
-                '&.Mui-focused fieldset': { borderColor: 'primary.main' },
+              "& .MuiInputLabel-root": { color: "grey.400" },
+              "& .MuiOutlinedInput-root": {
+                color: "white",
+                "& fieldset": { borderColor: "rgba(80, 200, 120, 0.2)" },
+                "&:hover fieldset": { borderColor: "rgba(80, 200, 120, 0.4)" },
+                "&.Mui-focused fieldset": { borderColor: "primary.main" },
               },
             }}
           />
@@ -972,12 +994,12 @@ const ContactForm = ({ onSuccess }) => {
             error={formik.touched.phone && Boolean(formik.errors.phone)}
             helperText={formik.touched.phone && formik.errors.phone}
             sx={{
-              '& .MuiInputLabel-root': { color: 'grey.400' },
-              '& .MuiOutlinedInput-root': {
-                color: 'white',
-                '& fieldset': { borderColor: 'rgba(80, 200, 120, 0.2)' },
-                '&:hover fieldset': { borderColor: 'rgba(80, 200, 120, 0.4)' },
-                '&.Mui-focused fieldset': { borderColor: 'primary.main' },
+              "& .MuiInputLabel-root": { color: "grey.400" },
+              "& .MuiOutlinedInput-root": {
+                color: "white",
+                "& fieldset": { borderColor: "rgba(80, 200, 120, 0.2)" },
+                "&:hover fieldset": { borderColor: "rgba(80, 200, 120, 0.4)" },
+                "&.Mui-focused fieldset": { borderColor: "primary.main" },
               },
             }}
           />
@@ -992,15 +1014,19 @@ const ContactForm = ({ onSuccess }) => {
             label="Business Name"
             value={formik.values.businessName}
             onChange={formik.handleChange}
-            error={formik.touched.businessName && Boolean(formik.errors.businessName)}
-            helperText={formik.touched.businessName && formik.errors.businessName}
+            error={
+              formik.touched.businessName && Boolean(formik.errors.businessName)
+            }
+            helperText={
+              formik.touched.businessName && formik.errors.businessName
+            }
             sx={{
-              '& .MuiInputLabel-root': { color: 'grey.400' },
-              '& .MuiOutlinedInput-root': {
-                color: 'white',
-                '& fieldset': { borderColor: 'rgba(80, 200, 120, 0.2)' },
-                '&:hover fieldset': { borderColor: 'rgba(80, 200, 120, 0.4)' },
-                '&.Mui-focused fieldset': { borderColor: 'primary.main' },
+              "& .MuiInputLabel-root": { color: "grey.400" },
+              "& .MuiOutlinedInput-root": {
+                color: "white",
+                "& fieldset": { borderColor: "rgba(80, 200, 120, 0.2)" },
+                "&:hover fieldset": { borderColor: "rgba(80, 200, 120, 0.4)" },
+                "&.Mui-focused fieldset": { borderColor: "primary.main" },
               },
             }}
           />
@@ -1016,15 +1042,19 @@ const ContactForm = ({ onSuccess }) => {
             label="Business Type"
             value={formik.values.businessType}
             onChange={formik.handleChange}
-            error={formik.touched.businessType && Boolean(formik.errors.businessType)}
-            helperText={formik.touched.businessType && formik.errors.businessType}
+            error={
+              formik.touched.businessType && Boolean(formik.errors.businessType)
+            }
+            helperText={
+              formik.touched.businessType && formik.errors.businessType
+            }
             sx={{
-              '& .MuiInputLabel-root': { color: 'grey.400' },
-              '& .MuiOutlinedInput-root': {
-                color: 'white',
-                '& fieldset': { borderColor: 'rgba(80, 200, 120, 0.2)' },
-                '&:hover fieldset': { borderColor: 'rgba(80, 200, 120, 0.4)' },
-                '&.Mui-focused fieldset': { borderColor: 'primary.main' },
+              "& .MuiInputLabel-root": { color: "grey.400" },
+              "& .MuiOutlinedInput-root": {
+                color: "white",
+                "& fieldset": { borderColor: "rgba(80, 200, 120, 0.2)" },
+                "&:hover fieldset": { borderColor: "rgba(80, 200, 120, 0.4)" },
+                "&.Mui-focused fieldset": { borderColor: "primary.main" },
               },
             }}
           >
@@ -1047,15 +1077,20 @@ const ContactForm = ({ onSuccess }) => {
             placeholder="e.g., 100"
             value={formik.values.currentOrders}
             onChange={formik.handleChange}
-            error={formik.touched.currentOrders && Boolean(formik.errors.currentOrders)}
-            helperText={formik.touched.currentOrders && formik.errors.currentOrders}
+            error={
+              formik.touched.currentOrders &&
+              Boolean(formik.errors.currentOrders)
+            }
+            helperText={
+              formik.touched.currentOrders && formik.errors.currentOrders
+            }
             sx={{
-              '& .MuiInputLabel-root': { color: 'grey.400' },
-              '& .MuiOutlinedInput-root': {
-                color: 'white',
-                '& fieldset': { borderColor: 'rgba(80, 200, 120, 0.2)' },
-                '&:hover fieldset': { borderColor: 'rgba(80, 200, 120, 0.4)' },
-                '&.Mui-focused fieldset': { borderColor: 'primary.main' },
+              "& .MuiInputLabel-root": { color: "grey.400" },
+              "& .MuiOutlinedInput-root": {
+                color: "white",
+                "& fieldset": { borderColor: "rgba(80, 200, 120, 0.2)" },
+                "&:hover fieldset": { borderColor: "rgba(80, 200, 120, 0.4)" },
+                "&.Mui-focused fieldset": { borderColor: "primary.main" },
               },
             }}
           />
@@ -1075,12 +1110,12 @@ const ContactForm = ({ onSuccess }) => {
             error={formik.touched.message && Boolean(formik.errors.message)}
             helperText={formik.touched.message && formik.errors.message}
             sx={{
-              '& .MuiInputLabel-root': { color: 'grey.400' },
-              '& .MuiOutlinedInput-root': {
-                color: 'white',
-                '& fieldset': { borderColor: 'rgba(80, 200, 120, 0.2)' },
-                '&:hover fieldset': { borderColor: 'rgba(80, 200, 120, 0.4)' },
-                '&.Mui-focused fieldset': { borderColor: 'primary.main' },
+              "& .MuiInputLabel-root": { color: "grey.400" },
+              "& .MuiOutlinedInput-root": {
+                color: "white",
+                "& fieldset": { borderColor: "rgba(80, 200, 120, 0.2)" },
+                "&:hover fieldset": { borderColor: "rgba(80, 200, 120, 0.4)" },
+                "&.Mui-focused fieldset": { borderColor: "primary.main" },
               },
             }}
           />
@@ -1094,24 +1129,26 @@ const ContactForm = ({ onSuccess }) => {
             size="large"
             fullWidth
             disabled={isSubmitting}
-            endIcon={isSubmitting ? <CircularProgress size={20} /> : <SendIcon />}
+            endIcon={
+              isSubmitting ? <CircularProgress size={20} /> : <SendIcon />
+            }
             sx={{
               py: 2,
-              background: 'linear-gradient(135deg, #50C878 0%, #3DA860 100%)',
-              '&:hover': {
-                background: 'linear-gradient(135deg, #70D890 0%, #50C878 100%)',
+              background: "linear-gradient(135deg, #50C878 0%, #3DA860 100%)",
+              "&:hover": {
+                background: "linear-gradient(135deg, #70D890 0%, #50C878 100%)",
               },
             }}
           >
-            {isSubmitting ? 'Sending...' : 'Request Audit'}
+            {isSubmitting ? "Sending..." : "Request Audit"}
           </Button>
-          
+
           <Typography
             variant="caption"
             sx={{
-              display: 'block',
-              textAlign: 'center',
-              color: 'grey.500',
+              display: "block",
+              textAlign: "center",
+              color: "grey.500",
               mt: 2,
             }}
           >
@@ -1128,215 +1165,43 @@ export default ContactForm;
 
 ---
 
-### 2. Demo Booking Form Component
+### 2.Sticky WhatsApp Button
 
-```jsx
-// components/forms/DemoBookingForm.jsx
-import React, { useState } from 'react';
-import {
-  Box,
-  TextField,
-  Button,
-  Grid,
-  Typography,
-  MenuItem,
-  FormControlLabel,
-  Checkbox,
-} from '@mui/material';
-import { LocalizationProvider, DateTimePicker } from '@mui/x-date-pickers';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { useFormik } from 'formik';
-import * as yup from 'yup';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import { useNotification } from '../../hooks/useNotification';
+**File:** `components/StickyWhatsAppButton.jsx`
 
-const validationSchema = yup.object({
-  name: yup.string().required('Name is required'),
-  email: yup.string().email('Invalid email').required('Email is required'),
-  phone: yup.string().required('Phone is required'),
-  company: yup.string().required('Company is required'),
-  preferredDate: yup.date().required('Please select a date'),
-  timezone: yup.string().required('Please select your timezone'),
-  topics: yup.array().min(1, 'Select at least one topic'),
-});
+Specifications:
 
-const DemoBookingForm = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
-  const { showNotification } = useNotification();
+- Position: Fixed bottom, full-width on mobile
+- Background: #25D366
+- Icon: WhatsAppIcon from @mui/icons-material
+- Opens WhatsApp with contextual message per page
+- z-index: 1200 (above all content)
 
-  const formik = useFormik({
-    initialValues: {
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      preferredDate: null,
-      timezone: 'EAT',
-      topics: [],
-    },
-    validationSchema: validationSchema,
-    onSubmit: async (values) => {
-      try {
-        const response = await fetch('/api/demo/book', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(values),
-        });
+---
 
-        if (!response.ok) throw new Error('Booking failed');
+### 3. Floating Next Button
 
-        showNotification('success', 'Demo booked successfully! Check your email for confirmation.');
-      } catch (error) {
-        showNotification('error', 'Failed to book demo. Please try WhatsApp instead.');
-      }
-    },
-  });
+**File:** `components/FloatingNextButton.jsx`
 
-  const topics = [
-    'System Integration',
-    'Pricing & ROI',
-    'Implementation Process',
-    'Technical Capabilities',
-    'Security & Compliance',
-    'Industry-Specific Features',
-  ];
+Specifications:
 
-  return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <Box component="form" onSubmit={formik.handleSubmit}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={6}>
-            <TextField
-              fullWidth
-              name="name"
-              label="Full Name"
-              value={formik.values.name}
-              onChange={formik.handleChange}
-              error={formik.touched.name && Boolean(formik.errors.name)}
-              helperText={formik.touched.name && formik.errors.name}
-            />
-          </Grid>
+- Appears after 50% scroll
+- Fab component, primary color
+- Bottom right: 80px from bottom, 24px from right
+- Arrow icon pointing right
+- Navigates to next logical page
 
-          <Grid item xs={12} md={6}>
-            <TextField
-              fullWidth
-              name="email"
-              label="Work Email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              error={formik.touched.email && Boolean(formik.errors.email)}
-              helperText={formik.touched.email && formik.errors.email}
-            />
-          </Grid>
+---
 
-          <Grid item xs={12} md={6}>
-            <TextField
-              fullWidth
-              name="phone"
-              label="Phone"
-              value={formik.values.phone}
-              onChange={formik.handleChange}
-              error={formik.touched.phone && Boolean(formik.errors.phone)}
-              helperText={formik.touched.phone && formik.errors.phone}
-            />
-          </Grid>
+### 4. Return to Top Button
 
-          <Grid item xs={12} md={6}>
-            <TextField
-              fullWidth
-              name="company"
-              label="Company Name"
-              value={formik.values.company}
-              onChange={formik.handleChange}
-              error={formik.touched.company && Boolean(formik.errors.company)}
-              helperText={formik.touched.company && formik.errors.company}
-            />
-          </Grid>
+**File:** `components/ReturnToTopButton.jsx`
 
-          <Grid item xs={12} md={6}>
-            <DateTimePicker
-              label="Preferred Date & Time"
-              value={formik.values.preferredDate}
-              onChange={(newValue) => formik.setFieldValue('preferredDate', newValue)}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  fullWidth
-                  error={formik.touched.preferredDate && Boolean(formik.errors.preferredDate)}
-                  helperText={formik.touched.preferredDate && formik.errors.preferredDate}
-                />
-              )}
-              minDateTime={new Date()}
-            />
-          </Grid>
+Used in Use Cases expandable sections:
 
-          <Grid item xs={12} md={6}>
-            <TextField
-              fullWidth
-              select
-              name="timezone"
-              label="Timezone"
-              value={formik.values.timezone}
-              onChange={formik.handleChange}
-            >
-              <MenuItem value="EAT">East Africa Time (EAT)</MenuItem>
-              <MenuItem value="CAT">Central Africa Time (CAT)</MenuItem>
-              <MenuItem value="WAT">West Africa Time (WAT)</MenuItem>
-              <MenuItem value="GMT">GMT</MenuItem>
-            </TextField>
-          </Grid>
-
-          <Grid item xs={12}>
-            <Typography variant="body2" sx={{ mb: 1, color: 'grey.400' }}>
-              What would you like to discuss? (Select all that apply)
-            </Typography>
-            {topics.map((topic) => (
-              <FormControlLabel
-                key={topic}
-                control={
-                  <Checkbox
-                    checked={formik.values.topics.includes(topic)}
-                    onChange={(e) => {
-                      const newTopics = e.target.checked
-                        ? [...formik.values.topics, topic]
-                        : formik.values.topics.filter((t) => t !== topic);
-                      formik.setFieldValue('topics', newTopics);
-                    }}
-                    sx={{
-                      color: 'grey.400',
-                      '&.Mui-checked': { color: 'primary.main' },
-                    }}
-                  />
-                }
-                label={topic}
-                sx={{ color: 'grey.300', display: 'block' }}
-              />
-            ))}
-          </Grid>
-
-          <Grid item xs={12}>
-            <Button
-              type="submit"
-              variant="contained"
-              size="large"
-              fullWidth
-              startIcon={<CalendarTodayIcon />}
-              sx={{
-                py: 2,
-                background: 'linear-gradient(135deg, #50C878 0%, #3DA860 100%)',
-              }}
-            >
-              Book Demo
-            </Button>
-          </Grid>
-        </Grid>
-      </Box>
-    </LocalizationProvider>
-  );
-};
-
-export default DemoBookingForm;
-```
+- Text button with up arrow icon
+- Collapses accordion and scrolls to top
+- Color: text.secondary, hover: primary.main
 
 ---
 
@@ -1346,18 +1211,25 @@ export default DemoBookingForm;
 
 ```jsx
 // components/notifications/Toast.jsx
-import React from 'react';
-import { Snackbar, Alert, AlertTitle, Slide } from '@mui/material';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import ErrorIcon from '@mui/icons-material/Error';
-import WarningIcon from '@mui/icons-material/Warning';
-import InfoIcon from '@mui/icons-material/Info';
+import React from "react";
+import { Snackbar, Alert, AlertTitle, Slide } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import ErrorIcon from "@mui/icons-material/Error";
+import WarningIcon from "@mui/icons-material/Warning";
+import InfoIcon from "@mui/icons-material/Info";
 
 function SlideTransition(props) {
   return <Slide {...props} direction="up" />;
 }
 
-const Toast = ({ open, onClose, severity, title, message, duration = 6000 }) => {
+const Toast = ({
+  open,
+  onClose,
+  severity,
+  title,
+  message,
+  duration = 6000,
+}) => {
   const icons = {
     success: <CheckCircleIcon fontSize="inherit" />,
     error: <ErrorIcon fontSize="inherit" />,
@@ -1371,24 +1243,24 @@ const Toast = ({ open, onClose, severity, title, message, duration = 6000 }) => 
       autoHideDuration={duration}
       onClose={onClose}
       TransitionComponent={SlideTransition}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
     >
       <Alert
         onClose={onClose}
         severity={severity}
         icon={icons[severity]}
         sx={{
-          width: '100%',
-          background: 'rgba(20, 20, 20, 0.95)',
-          backdropFilter: 'blur(20px)',
-          border: '1px solid',
+          width: "100%",
+          background: "rgba(20, 20, 20, 0.95)",
+          backdropFilter: "blur(20px)",
+          border: "1px solid",
           borderColor: `${severity}.main`,
           boxShadow: `0 8px 32px rgba(0, 0, 0, 0.4)`,
-          '& .MuiAlert-icon': {
+          "& .MuiAlert-icon": {
             color: `${severity}.main`,
           },
-          '& .MuiAlert-message': {
-            color: 'white',
+          "& .MuiAlert-message": {
+            color: "white",
           },
         }}
       >
@@ -1408,20 +1280,20 @@ export default Toast;
 
 ```jsx
 // contexts/NotificationContext.jsx
-import React, { createContext, useState, useCallback } from 'react';
-import Toast from '../components/notifications/Toast';
+import React, { createContext, useState, useCallback } from "react";
+import Toast from "../components/notifications/Toast";
 
 export const NotificationContext = createContext();
 
 export const NotificationProvider = ({ children }) => {
   const [notification, setNotification] = useState({
     open: false,
-    severity: 'info',
-    title: '',
-    message: '',
+    severity: "info",
+    title: "",
+    message: "",
   });
 
-  const showNotification = useCallback((severity, message, title = '') => {
+  const showNotification = useCallback((severity, message, title = "") => {
     setNotification({
       open: true,
       severity,
@@ -1435,7 +1307,9 @@ export const NotificationProvider = ({ children }) => {
   }, []);
 
   return (
-    <NotificationContext.Provider value={{ showNotification, hideNotification }}>
+    <NotificationContext.Provider
+      value={{ showNotification, hideNotification }}
+    >
       {children}
       <Toast
         open={notification.open}
@@ -1449,13 +1323,13 @@ export const NotificationProvider = ({ children }) => {
 };
 
 // hooks/useNotification.js
-import { useContext } from 'react';
-import { NotificationContext } from '../contexts/NotificationContext';
+import { useContext } from "react";
+import { NotificationContext } from "../contexts/NotificationContext";
 
 export const useNotification = () => {
   const context = useContext(NotificationContext);
   if (!context) {
-    throw new Error('useNotification must be used within NotificationProvider');
+    throw new Error("useNotification must be used within NotificationProvider");
   }
   return context;
 };
@@ -1467,25 +1341,25 @@ export const useNotification = () => {
 
 ```jsx
 // components/feedback/LoadingScreen.jsx
-import React from 'react';
-import { Box, CircularProgress, Typography } from '@mui/material';
-import { motion } from 'framer-motion';
+import React from "react";
+import { Box, CircularProgress, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 
-const LoadingScreen = ({ message = 'Loading...' }) => {
+const LoadingScreen = ({ message = "Loading..." }) => {
   return (
     <Box
       sx={{
-        position: 'fixed',
+        position: "fixed",
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.9)',
-        backdropFilter: 'blur(10px)',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "rgba(0, 0, 0, 0.9)",
+        backdropFilter: "blur(10px)",
         zIndex: 9999,
       }}
     >
@@ -1494,35 +1368,36 @@ const LoadingScreen = ({ message = 'Loading...' }) => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <Box sx={{ position: 'relative', display: 'inline-flex', mb: 3 }}>
+        <Box sx={{ position: "relative", display: "inline-flex", mb: 3 }}>
           <CircularProgress
             size={80}
             thickness={4}
             sx={{
-              color: 'primary.main',
-              '& .MuiCircularProgress-circle': {
-                strokeLinecap: 'round',
+              color: "primary.main",
+              "& .MuiCircularProgress-circle": {
+                strokeLinecap: "round",
               },
             }}
           />
           <Box
             sx={{
-              position: 'absolute',
+              position: "absolute",
               top: 0,
               left: 0,
               bottom: 0,
               right: 0,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
             <Box
               sx={{
                 width: 40,
                 height: 40,
-                borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(80, 200, 120, 0.3) 0%, transparent 70%)',
+                borderRadius: "50%",
+                background:
+                  "radial-gradient(circle, rgba(80, 200, 120, 0.3) 0%, transparent 70%)",
               }}
             />
           </Box>
@@ -1537,7 +1412,7 @@ const LoadingScreen = ({ message = 'Loading...' }) => {
         <Typography
           variant="h6"
           sx={{
-            color: 'white',
+            color: "white",
             fontWeight: 500,
           }}
         >
@@ -1555,784 +1430,281 @@ export default LoadingScreen;
 
 ## PAGE IMPLEMENTATIONS
 
-### Page 2: How It Works
+### Page 1: How It Works
 
-```jsx
-// pages/HowItWorks.jsx
-import React from 'react';
-import {
-  Box,
-  Container,
-  Typography,
-  Grid,
-  Stepper,
-  Step,
-  StepLabel,
-  StepContent,
-  Button,
-} from '@mui/material';
-import { motion } from 'framer-motion';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import SettingsIcon from '@mui/icons-material/Settings';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+**URL:** `/how-it-works`
 
-const HowItWorks = () => {
-  const timeline = [
-    {
-      time: '2:00 AM',
-      title: 'Customer Discovery',
-      description: 'Customer finds your WhatsApp link and browses product catalog',
-      details: [
-        'Autonomous Intent Engine analyzes behavior',
-        'Beautiful product cards with prices displayed',
-        'Real-time inventory checking',
-      ],
-    },
-    {
-      time: '2:15 AM',
-      title: 'Order Placement',
-      description: 'Customer selects items and sees total with delivery options',
-      details: [
-        'Inventory validation in milliseconds',
-        'Delivery zone verification',
-        'Clear cart with all costs shown',
-      ],
-    },
-    {
-      time: '2:16 AM',
-      title: 'Payment Processing',
-      description: 'STK push to phone, M-Pesa PIN entered',
-      details: [
-        'Real-time payment verification via API',
-        'Bank-grade encryption',
-        'Instant confirmation',
-      ],
-    },
-    {
-      time: '2:17 AM',
-      title: 'Order Confirmation',
-      description: 'Automatic receipt generated, business owner notified',
-      details: [
-        'Order added to "Ongoing" queue',
-        'SMS notification sent',
-        'Customer receives confirmation',
-      ],
-    },
-    {
-      time: '8:00 AM',
-      title: 'Business Owner Wakes Up',
-      description: 'Opens dashboard to see organized list of verified orders',
-      details: [
-        'All payments reconciled',
-        'Priorities assigned',
-        'Ready to execute',
-      ],
-    },
-  ];
+Sections:
 
-  const implementationSteps = [
-    {
-      label: 'Day 1: Discovery Call',
-      description: 'We understand your business, identify workflows, and map pain points.',
-      duration: '30 minutes',
-      icon: <AccessTimeIcon />,
-    },
-    {
-      label: 'Day 2: System Configuration',
-      description: 'We build your catalog, connect payments, set up dashboard, and test everything.',
-      duration: '4 hours',
-      icon: <SettingsIcon />,
-    },
-    {
-      label: 'Day 3: Training',
-      description: 'Dashboard walkthrough, product management training, analytics explanation.',
-      duration: '1 hour',
-      icon: <TrendingUpIcon />,
-    },
-    {
-      label: 'Day 4: Go Live',
-      description: 'Test with 5 customers, monitor first orders, make adjustments, full launch.',
-      duration: 'Same day',
-      icon: <RocketLaunchIcon />,
-    },
-  ];
+1. Hero (headline + subheadline, no CTA)
+2. 4-Step Journey (timeline cards)
+3. CTA: "See how this works for your industry" → /use-cases
+4. Reassurance cards (3 cards: Control, Customization, Multi-channel)
+5. CTA: WhatsApp button
+6. Bottom nav links
 
-  return (
-    <Box sx={{ backgroundColor: '#000000', minHeight: '100vh', pt: 12 }}>
-      {/* Hero Section */}
-      <Container maxWidth="lg">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Typography
-            variant="h1"
-            align="center"
-            sx={{
-              color: 'white',
-              fontWeight: 700,
-              mb: 2,
-            }}
-          >
-            The Autonomous Business
-            <br />
-            <Box component="span" sx={{ color: 'primary.main' }}>
-              Operating System
-            </Box>
-          </Typography>
-
-          <Typography
-            variant="h6"
-            align="center"
-            sx={{
-              color: 'grey.400',
-              maxWidth: '700px',
-              mx: 'auto',
-              mb: 8,
-            }}
-          >
-            See how Jiaminie transforms your business operations from manual chaos
-            into automated precision—without revealing a single line of code.
-          </Typography>
-        </motion.div>
-      </Container>
-
-      {/* 24-Hour Journey Timeline */}
-      <Box sx={{ py: 12, backgroundColor: '#0a0a0a' }}>
-        <Container maxWidth="lg">
-          <Typography
-            variant="h2"
-            align="center"
-            sx={{ color: 'white', fontWeight: 700, mb: 8 }}
-          >
-            The 24-Hour Journey
-          </Typography>
-
-          <Grid container spacing={4}>
-            {timeline.map((item, index) => (
-              <Grid item xs={12} key={index}>
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      gap: 4,
-                      alignItems: 'flex-start',
-                      p: 4,
-                      background: 'rgba(20, 20, 20, 0.6)',
-                      backdropFilter: 'blur(20px)',
-                      border: '1px solid rgba(80, 200, 120, 0.1)',
-                      borderRadius: 3,
-                      borderLeft: '4px solid',
-                      borderLeftColor: 'primary.main',
-                      transition: 'all 0.3s ease',
-                      '&:hover': {
-                        borderColor: 'primary.main',
-                        transform: 'translateX(8px)',
-                      },
-                    }}
-                  >
-                    {/* Time */}
-                    <Box
-                      sx={{
-                        minWidth: 100,
-                        p: 2,
-                        background: 'rgba(80, 200, 120, 0.1)',
-                        borderRadius: 2,
-                        textAlign: 'center',
-                      }}
-                    >
-                      <Typography
-                        variant="h5"
-                        sx={{
-                          color: 'primary.main',
-                          fontWeight: 700,
-                          fontFamily: 'monospace',
-                        }}
-                      >
-                        {item.time}
-                      </Typography>
-                    </Box>
-
-                    {/* Content */}
-                    <Box sx={{ flex: 1 }}>
-                      <Typography
-                        variant="h5"
-                        sx={{
-                          color: 'white',
-                          fontWeight: 600,
-                          mb: 1,
-                        }}
-                      >
-                        {item.title}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          color: 'grey.400',
-                          mb: 2,
-                        }}
-                      >
-                        {item.description}
-                      </Typography>
-
-                      <Box component="ul" sx={{ pl: 2, m: 0 }}>
-                        {item.details.map((detail, idx) => (
-                          <Box
-                            component="li"
-                            key={idx}
-                            sx={{
-                              color: 'grey.500',
-                              fontSize: '0.875rem',
-                              mb: 0.5,
-                            }}
-                          >
-                            {detail}
-                          </Box>
-                        ))}
-                      </Box>
-                    </Box>
-                  </Box>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* Implementation Process */}
-      <Box sx={{ py: 12, backgroundColor: '#000000' }}>
-        <Container maxWidth="md">
-          <Typography
-            variant="h2"
-            align="center"
-            sx={{ color: 'white', fontWeight: 700, mb: 2 }}
-          >
-            Implementation Process
-          </Typography>
-          <Typography
-            variant="h6"
-            align="center"
-            sx={{ color: 'grey.400', mb: 8 }}
-          >
-            From contract to go-live in 4 days
-          </Typography>
-
-          <Stepper
-            orientation="vertical"
-            sx={{
-              '& .MuiStepLabel-root': {
-                padding: 0,
-              },
-              '& .MuiStepConnector-line': {
-                borderColor: 'rgba(80, 200, 120, 0.2)',
-                borderLeftWidth: 2,
-              },
-              '& .MuiStepIcon-root': {
-                color: 'rgba(80, 200, 120, 0.2)',
-                '&.Mui-active': {
-                  color: 'primary.main',
-                },
-                '&.Mui-completed': {
-                  color: 'primary.main',
-                },
-              },
-            }}
-          >
-            {implementationSteps.map((step, index) => (
-              <Step key={index} active>
-                <StepLabel
-                  icon={
-                    <Box
-                      sx={{
-                        width: 48,
-                        height: 48,
-                        borderRadius: '50%',
-                        backgroundColor: 'rgba(80, 200, 120, 0.1)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'primary.main',
-                      }}
-                    >
-                      {step.icon}
-                    </Box>
-                  }
-                >
-                  <Typography variant="h6" sx={{ color: 'white', fontWeight: 600 }}>
-                    {step.label}
-                  </Typography>
-                </StepLabel>
-                <StepContent>
-                  <Box sx={{ ml: 8, mb: 4 }}>
-                    <Typography variant="body1" sx={{ color: 'grey.400', mb: 1 }}>
-                      {step.description}
-                    </Typography>
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        color: 'primary.main',
-                        fontWeight: 600,
-                        textTransform: 'uppercase',
-                      }}
-                    >
-                      Duration: {step.duration}
-                    </Typography>
-                  </Box>
-                </StepContent>
-              </Step>
-            ))}
-          </Stepper>
-
-          <Box sx={{ textAlign: 'center', mt: 6 }}>
-            <Button
-              variant="contained"
-              size="large"
-              sx={{
-                py: 2,
-                px: 6,
-                background: 'linear-gradient(135deg, #50C878 0%, #3DA860 100%)',
-              }}
-            >
-              Schedule Implementation Call
-            </Button>
-          </Box>
-        </Container>
-      </Box>
-    </Box>
-  );
-};
-
-export default HowItWorks;
-```
+Sticky WhatsApp message: "Hi! I saw 'How It Works' and want to learn more."
 
 ---
 
-### Page 3: Pricing Page
+### Page 2: Use Cases
 
-```jsx
-// pages/Pricing.jsx
-import React, { useState } from 'react';
-import {
-  Box,
-  Container,
-  Typography,
-  Grid,
-  Card,
-  CardContent,
-  Button,
-  Chip,
-  Divider,
-  Switch,
-  FormControlLabel,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from '@mui/material';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { motion } from 'framer-motion';
+**URL:** `/use-cases`
 
-const Pricing = () => {
-  const [isAnnual, setIsAnnual] = useState(false);
+**CRITICAL STRUCTURE:**
 
-  const plans = [
-    {
-      name: 'Starter',
-      price: isAnnual ? '8,999' : '9,999',
-      period: isAnnual ? 'month (billed annually)' : 'month',
-      description: 'Perfect for testing',
-      popular: false,
-      features: [
-        '200 orders/month',
-        '1 WhatsApp number',
-        'M-Pesa integration',
-        'Basic analytics',
-        'Email support',
-        'Standard API access',
-      ],
-      cta: 'Start Free Trial',
-      savings: isAnnual ? 'Save KES 12,000/year' : null,
-    },
-    {
-      name: 'Business',
-      price: isAnnual ? '22,499' : '24,999',
-      period: isAnnual ? 'month (billed annually)' : 'month',
-      description: 'For serious growth',
-      popular: true,
-      features: [
-        'Unlimited orders',
-        '3 WhatsApp numbers',
-        'All payment methods',
-        'Advanced analytics',
-        'Priority support',
-        'Free setup & training',
-        'Quarterly business review',
-        'Full API access',
-      ],
-      cta: 'Get Started',
-      savings: isAnnual ? 'Save KES 30,000/year' : null,
-    },
-    {
-      name: 'Enterprise',
-      price: 'Custom',
-      period: 'Tailored to your needs',
-      description: 'Full control & customization',
-      popular: false,
-      features: [
-        'Everything in Business',
-        'Unlimited WhatsApp numbers',
-        'Custom integrations',
-        'Dedicated account manager',
-        '24/7 phone support',
-        'SLA guarantee',
-        'White-label option',
-        'Multi-location management',
-        'Custom feature development',
-      ],
-      cta: 'Contact Sales',
-      savings: null,
-    },
-  ];
+1. Hero
+2. 3 Quick Overview Cards (always visible)
+3. 6 Expandable Industry Sections:
+   - Food & Retail (#food-retail)
+   - Professional Services (#professional)
+   - Hospitality (#hospitality)
+   - Logistics (#logistics)
+   - Wholesale (#wholesale)
+   - Real Estate (#real-estate)
 
-  const faqs = [
-    {
-      question: 'Can I upgrade mid-month?',
-      answer: 'Yes! Pay only the prorated difference. Upgrade anytime with zero hassle.',
-    },
-    {
-      question: 'What if I exceed 200 orders on Starter?',
-      answer: 'We\'ll notify you at 150 orders. You can upgrade instantly, or orders pause until next month.',
-    },
-    {
-      question: 'Are there any hidden fees?',
-      answer: 'No hidden fees. Only M-Pesa charges (paid by customer) and payment processor fees apply.',
-    },
-    {
-      question: 'What\'s included in "setup"?',
-      answer: 'We upload products, configure payments, set up dashboard, and train your team. Normally KES 30,000, free for all plans.',
-    },
-    {
-      question: 'Can I cancel anytime?',
-      answer: 'Yes. No contracts. Cancel before next billing cycle to avoid charges.',
-    },
-    {
-      question: 'Do you offer refunds?',
-      answer: '14-day money-back guarantee if you\'re not satisfied. No questions asked.',
-    },
-  ];
+**Expandable Behavior:**
 
-  return (
-    <Box sx={{ backgroundColor: '#000000', minHeight: '100vh', pt: 12 }}>
-      {/* Hero */}
-      <Container maxWidth="lg">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Typography
-            variant="h1"
-            align="center"
-            sx={{
-              color: 'white',
-              fontWeight: 700,
-              mb: 2,
-            }}
-          >
-            Enterprise Economics
-            <br />
-            <Box component="span" sx={{ color: 'primary.main' }}>
-              That Scale
-            </Box>
-          </Typography>
+- Use Material UI `Accordion` component
+- Only one expanded at a time
+- TransitionProps={{ unmountOnExit: true }}
+- Each expanded section shows:
+  - Pain points list
+  - What gets automated list
+  - Business outcome (highlighted box)
+  - Example scenario
+  - WhatsApp CTA
+  - Return to Top button
 
-          <Typography
-            variant="h6"
-            align="center"
-            sx={{
-              color: 'grey.400',
-              maxWidth: '700px',
-              mx: 'auto',
-              mb: 4,
-            }}
-          >
-            Transparent pricing. No hidden costs. ROI visible from day one.
-          </Typography>
+**Mobile Optimization:**
 
-          {/* Annual toggle */}
-          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 8 }}>
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={isAnnual}
-                  onChange={(e) => setIsAnnual(e.target.checked)}
-                  sx={{
-                    '& .MuiSwitch-switchBase.Mui-checked': {
-                      color: 'primary.main',
-                    },
-                    '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
-                      backgroundColor: 'primary.main',
-                    },
-                  }}
-                />
-              }
-              label={
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Typography sx={{ color: 'white' }}>Annual billing</Typography>
-                  <Chip
-                    label="Save up to 20%"
-                    size="small"
-                    sx={{
-                      backgroundColor: 'rgba(80, 200, 120, 0.2)',
-                      color: 'primary.main',
-                    }}
-                  />
-                </Box>
-              }
-            />
-          </Box>
-        </motion.div>
+- Cards stack vertically
+- Accordion full-width
+- Return to Top visible after expansion
 
-        {/* Pricing cards */}
-        <Grid container spacing={4} sx={{ mb: 12 }}>
-          {plans.map((plan, index) => (
-            <Grid item xs={12} md={4} key={index}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card
-                  elevation={plan.popular ? 8 : 2}
-                  sx={{
-                    background: plan.popular
-                      ? 'rgba(80, 200, 120, 0.05)'
-                      : 'rgba(20, 20, 20, 0.6)',
-                    backdropFilter: 'blur(20px)',
-                    border: '2px solid',
-                    borderColor: plan.popular ? 'primary.main' : 'rgba(80, 200, 120, 0.1)',
-                    borderRadius: 3,
-                    p: 4,
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    position: 'relative',
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      boxShadow: plan.popular
-                        ? '0 20px 60px rgba(80, 200, 120, 0.3)'
-                        : '0 20px 40px rgba(0, 0, 0, 0.4)',
-                    },
-                  }}
-                >
-                  {plan.popular && (
-                    <Chip
-                      label="Most Popular"
-                      sx={{
-                        position: 'absolute',
-                        top: -12,
-                        right: 24,
-                        backgroundColor: 'primary.main',
-                        color: '#000',
-                        fontWeight: 600,
-                      }}
-                    />
-                  )}
+---
 
-                  <Typography
-                    variant="h4"
-                    sx={{
-                      color: 'white',
-                      fontWeight: 700,
-                      mb: 1,
-                    }}
-                  >
-                    {plan.name}
-                  </Typography>
+### Page 3: Pricing
 
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: 'grey.400',
-                      mb: 3,
-                    }}
-                  >
-                    {plan.description}
-                  </Typography>
+**URL:** `/pricing`
 
-                  <Box sx={{ mb: 3 }}>
-                    <Typography
-                      variant="h2"
-                      component="span"
-                      sx={{
-                        color: 'white',
-                        fontWeight: 700,
-                      }}
-                    >
-                      {plan.price !== 'Custom' && 'KES '}
-                      {plan.price}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      component="span"
-                      sx={{
-                        color: 'grey.400',
-                        ml: 1,
-                      }}
-                    >
-                      {plan.price !== 'Custom' && '/'}{plan.period}
-                    </Typography>
-                  </Box>
+**PRICING MODEL:**
 
-                  {plan.savings && (
-                    <Chip
-                      label={plan.savings}
-                      size="small"
-                      sx={{
-                        backgroundColor: 'rgba(80, 200, 120, 0.2)',
-                        color: 'primary.main',
-                        mb: 3,
-                      }}
-                    />
-                  )}
+- One-time setup fee (3 tiers based on order volume)
+- - 0.3% per successful transaction (automatic deduction)
+- NO monthly subscription
 
-                  <Divider sx={{ my: 3, borderColor: 'rgba(80, 200, 120, 0.1)' }} />
+**Structure:**
 
-                  <Box sx={{ flex: 1, mb: 3 }}>
-                    {plan.features.map((feature, idx) => (
-                      <Box
-                        key={idx}
-                        sx={{
-                          display: 'flex',
-                          alignItems: 'flex-start',
-                          gap: 1,
-                          mb: 2,
-                        }}
-                      >
-                        <CheckCircleIcon
-                          sx={{
-                            color: 'primary.main',
-                            fontSize: 20,
-                            mt: 0.25,
-                          }}
-                        />
-                        <Typography
-                          variant="body2"
-                          sx={{
-                            color: 'grey.300',
-                          }}
-                        >
-                          {feature}
-                        </Typography>
-                      </Box>
-                    ))}
-                  </Box>
+1. Hero
+2. Two-Part Pricing Display (Grid layout):
+   - LEFT: Setup Fee Tiers (Starter, Growth, Scale)
+   - RIGHT: Transaction Fee (0.3% explained)
+3. VALUE FRAMING SECTION (Critical):
+   - 3 scenario cards showing savings vs subscription
+   - Fish Trader: Saves KES 24K/month
+   - Restaurant: Saves KES 37K/month
+   - Real Estate: Saves KES 52K/month
+4. Transparency Section (4 points explaining fees)
+5. Strong CTA: "Get exact pricing for your business"
 
-                  <Button
-                    variant={plan.popular ? 'contained' : 'outlined'}
-                    size="large"
-                    fullWidth
-                    sx={{
-                      py: 1.5,
-                      ...(plan.popular && {
-                        background: 'linear-gradient(135deg, #50C878 0%, #3DA860 100%)',
-                      }),
-                    }}
-                  >
-                    {plan.cta}
-                  </Button>
+**Setup Tiers:**
 
-                  {!isAnnual && (
-                    <Typography
-                      variant="caption"
-                      align="center"
-                      sx={{
-                        color: 'primary.main',
-                        fontWeight: 600,
-                        mt: 2,
-                        display: 'block',
-                      }}
-                    >
-                      First month 50% off
-                    </Typography>
-                  )}
-                </Card>
-              </motion.div>
-            </Grid>
-          ))}
-        </Grid>
+```
+Starter: Up to 200 orders/month → KES [PRICE_1]
+Growth: 200-1,000 orders/month → KES [PRICE_2]
+Scale: 1,000+ orders/month → KES [PRICE_3]
+```
 
-        {/* FAQ */}
-        <Box sx={{ mb: 12 }}>
-          <Typography
-            variant="h2"
-            align="center"
-            sx={{
-              color: 'white',
-              fontWeight: 700,
-              mb: 6,
-            }}
-          >
-            Pricing FAQs
-          </Typography>
+**Key Messaging:**
 
-          <Box sx={{ maxWidth: '800px', mx: 'auto' }}>
-            {faqs.map((faq, index) => (
-              <Accordion
-                key={index}
-                elevation={0}
-                sx={{
-                  backgroundColor: 'transparent',
-                  border: '1px solid rgba(80, 200, 120, 0.1)',
-                  borderRadius: '8px !important',
-                  mb: 2,
-                  '&:before': { display: 'none' },
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon sx={{ color: 'primary.main' }} />}
-                  sx={{ py: 2 }}
-                >
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      color: 'white',
-                      fontWeight: 600,
-                      fontSize: '1.125rem',
-                    }}
-                  >
-                    {faq.question}
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails sx={{ pt: 0, pb: 3 }}>
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      color: 'grey.400',
-                      lineHeight: 1.8,
-                    }}
-                  >
-                    {faq.answer}
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-            ))}
-          </Box>
-        </Box>
-      </Container>
-    </Box>
-  );
-};
+- "We only earn when you earn"
+- "Slow month? Pay less. Busy month? Still just 0.3%"
+- Show massive savings compared to subscription software
 
-export default Pricing;
+---
+
+### Page 4: Success Stories
+
+**URL:** `/success-stories`
+
+Structure:
+
+1. Hero + Big Numbers (500+ businesses, 15K orders daily, 80M monthly)
+2. 3 Deep Case Studies:
+   - Photo, name, business, location
+   - Challenge, Solution, Results (4 bullet points)
+   - Quote, Key metric
+3. 6 Quick Summary Cards (name, business, one result, photo)
+4. CTA: "Ready for similar results?"
+
+**Images Required:**
+
+- Testimonial photos (400x400px)
+- Must be real Kenyan business owners
+- Format: WebP with JPG fallback
+
+---
+
+### Page 5: Getting Started
+
+**URL:** `/get-started`
+
+Structure:
+
+1. Hero: "Go Live in 3 Days"
+2. Timeline (Material UI Timeline component):
+   - Day 1: Discovery (30 min call)
+   - Day 2: We build everything (3-4 hours)
+   - Day 3: Training & launch (1 hour + go live)
+   - Day 4+: Ongoing support
+3. Each timeline item shows:
+   - Duration
+   - Activities list
+   - What's needed (Day 1 only)
+4. CTA: "Start Onboarding"
+
+---
+
+### Page 6: FAQ
+
+**URL:** `/faq`
+
+Structure:
+
+1. Hero
+2. Grouped Accordions:
+   - Control & Customization
+   - Payments & Reliability
+   - Support & Changes
+   - Contracts & Cancellation
+3. Each group has 3-5 Q&A pairs
+4. CTA: "Still have questions? Ask us"
+
+**Accordion Behavior:**
+
+- Material UI Accordion
+- Can have multiple expanded
+- ExpandMore icon
+
+---
+
+## Navigation Flow
+
+**Top Nav Links:**
+
+- Home
+- How It Works
+- Use Cases (dropdown with 6 anchors)
+- Pricing
+- Success Stories
+- Get Started
+- FAQ
+- WhatsApp Button
+
+**Breadcrumbs on all pages:**
+`Home > [Current Page]`
+
+**Floating Next Button Logic:**
+
+- How It Works → Use Cases
+- Use Cases → Pricing
+- Pricing → Success Stories
+- Success Stories → Get Started
+- Get Started → FAQ
+- FAQ: No next button
+
+---
+
+## WhatsApp Integration
+
+**Phone Number:** Replace `254XXXXXXXXX` with actual number
+
+**Contextual Messages Per Page:**
+
+- How It Works: "Hi! I saw 'How It Works' and want to learn more about JChats for my business."
+- Use Cases: "Hi! I saw the Use Cases and want to discuss how JChats fits my business."
+- Pricing: "Hi! I saw the pricing page. I do about [X] orders per month. What would my actual costs be?"
+- Success Stories: "Hi! I saw the success stories and want similar results. Let's talk!"
+- Get Started: "Hi! I want to start the onboarding process. When can we begin?"
+- FAQ: "Hi! I have questions about JChats. Can we discuss?"
+
+---
+
+## Responsive Breakpoints
+
+```javascript
+xs: 0px (mobile)
+sm: 600px (tablet portrait)
+md: 900px (tablet landscape)
+lg: 1200px (desktop)
+```
+
+**Mobile-First Patterns:**
+
+- Stack all cards vertically
+- Full-width buttons
+- Collapsed navigation to drawer
+- Reduced padding
+- Sticky WhatsApp button full-width
+
+---
+
+## Performance Requirements
+
+- First Contentful Paint: <1.5s
+- Lazy load images below fold
+- Code split each page route
+- WebP images with JPG fallback
+- Target: <2MB total page size
+
+---
+
+## Accessibility Requirements
+
+- All images have alt text
+- Keyboard navigation works
+- Focus indicators visible
+- ARIA labels on interactive elements
+- Color contrast meets WCAG AA
+
+---
+
+## Image Specifications
+
+**Hero Images:** 1920x1080px, WebP, <300KB
+**Phone Screenshots:** 1242x2688px, PNG, <200KB
+**Testimonial Photos:** 400x400px, WebP, <100KB
+**Icons:** SVG preferred, or 200x200px PNG
+
+---
+
+## File Structure
+
+```
+pages/
+  how-it-works.jsx
+  use-cases.jsx
+  pricing.jsx
+  success-stories.jsx
+  get-started.jsx
+  faq.jsx
+
+components/
+  Navigation.jsx
+  Breadcrumbs.jsx
+  StickyWhatsAppButton.jsx
+  FloatingNextButton.jsx
+  ReturnToTopButton.jsx
+
+styles/
+  theme.js
+
+public/
+  images/
+    testimonials/
+    hero/
+    icons/
 ```
 
 ---
@@ -2343,9 +1715,9 @@ export default Pricing;
 
 ```jsx
 // hooks/useScrollAnimation.js
-import { useEffect } from 'react';
-import { useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { useEffect } from "react";
+import { useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export const useScrollAnimation = () => {
   const controls = useAnimation();
@@ -2356,7 +1728,7 @@ export const useScrollAnimation = () => {
 
   useEffect(() => {
     if (inView) {
-      controls.start('visible');
+      controls.start("visible");
     }
   }, [controls, inView]);
 
@@ -2401,7 +1773,8 @@ export const scaleIn = {
 
 ```javascript
 // utils/apiClient.js
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://api.jiaminie.tech';
+const API_BASE_URL =
+  process.env.REACT_APP_API_URL || "https://api.jiaminie.tech";
 
 class APIClient {
   constructor() {
@@ -2412,7 +1785,7 @@ class APIClient {
     const url = `${this.baseURL}${endpoint}`;
     const config = {
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         ...options.headers,
       },
       ...options,
@@ -2423,36 +1796,36 @@ class APIClient {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || 'Request failed');
+        throw new Error(data.message || "Request failed");
       }
 
       return data;
     } catch (error) {
-      console.error('API Error:', error);
+      console.error("API Error:", error);
       throw error;
     }
   }
 
   // Contact form submission
   async submitContact(formData) {
-    return this.request('/api/contact', {
-      method: 'POST',
+    return this.request("/api/contact", {
+      method: "POST",
       body: JSON.stringify(formData),
     });
   }
 
   // Demo booking
   async bookDemo(demoData) {
-    return this.request('/api/demo/book', {
-      method: 'POST',
+    return this.request("/api/demo/book", {
+      method: "POST",
       body: JSON.stringify(demoData),
     });
   }
 
   // Newsletter subscription
   async subscribeNewsletter(email) {
-    return this.request('/api/newsletter/subscribe', {
-      method: 'POST',
+    return this.request("/api/newsletter/subscribe", {
+      method: "POST",
       body: JSON.stringify({ email }),
     });
   }
@@ -2510,7 +1883,7 @@ export const validateURL = (url) => {
 // Format phone number for display
 export const formatPhoneNumber = (phone) => {
   // Convert 07XX to +2547XX
-  if (phone.startsWith('0')) {
+  if (phone.startsWith("0")) {
     return `+254${phone.slice(1)}`;
   }
   return phone;
@@ -2518,9 +1891,9 @@ export const formatPhoneNumber = (phone) => {
 
 // Format currency (KES)
 export const formatCurrency = (amount) => {
-  return new Intl.NumberFormat('en-KE', {
-    style: 'currency',
-    currency: 'KES',
+  return new Intl.NumberFormat("en-KE", {
+    style: "currency",
+    currency: "KES",
     minimumFractionDigits: 0,
   }).format(amount);
 };
@@ -2540,7 +1913,7 @@ class Analytics {
   }
 
   init() {
-    if (typeof window !== 'undefined' && window.gtag) {
+    if (typeof window !== "undefined" && window.gtag) {
       this.initialized = true;
     }
   }
@@ -2549,7 +1922,7 @@ class Analytics {
   trackPageView(url, title) {
     if (!this.initialized) return;
 
-    window.gtag('event', 'page_view', {
+    window.gtag("event", "page_view", {
       page_path: url,
       page_title: title,
     });
@@ -2559,19 +1932,19 @@ class Analytics {
   trackEvent(eventName, eventParams = {}) {
     if (!this.initialized) return;
 
-    window.gtag('event', eventName, eventParams);
+    window.gtag("event", eventName, eventParams);
   }
 
   // Track form submissions
   trackFormSubmission(formName) {
-    this.trackEvent('form_submission', {
+    this.trackEvent("form_submission", {
       form_name: formName,
     });
   }
 
   // Track CTA clicks
   trackCTAClick(ctaName, ctaLocation) {
-    this.trackEvent('cta_click', {
+    this.trackEvent("cta_click", {
       cta_name: ctaName,
       cta_location: ctaLocation,
     });
@@ -2579,28 +1952,28 @@ class Analytics {
 
   // Track demo bookings
   trackDemoBooking(businessType) {
-    this.trackEvent('demo_booking', {
+    this.trackEvent("demo_booking", {
       business_type: businessType,
     });
   }
 
   // Track pricing plan selection
   trackPlanSelection(planName) {
-    this.trackEvent('plan_selection', {
+    this.trackEvent("plan_selection", {
       plan_name: planName,
     });
   }
 
   // Track video plays
   trackVideoPlay(videoTitle) {
-    this.trackEvent('video_play', {
+    this.trackEvent("video_play", {
       video_title: videoTitle,
     });
   }
 
   // Track downloads
   trackDownload(resourceName) {
-    this.trackEvent('resource_download', {
+    this.trackEvent("resource_download", {
       resource_name: resourceName,
     });
   }
@@ -2617,14 +1990,14 @@ export default new Analytics();
 
 ```javascript
 // utils/emailService.js
-import sgMail from '@sendgrid/mail';
+import sgMail from "@sendgrid/mail";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 export const sendContactEmail = async (formData) => {
   const msg = {
-    to: 'enterprise@jiaminie.tech',
-    from: 'noreply@jiaminie.tech',
+    to: "enterprise@jiaminie.tech",
+    from: "noreply@jiaminie.tech",
     subject: `New Contact Request from ${formData.businessName}`,
     html: `
       <h2>New Contact Form Submission</h2>
@@ -2641,12 +2014,12 @@ export const sendContactEmail = async (formData) => {
 
   try {
     await sgMail.send(msg);
-    
+
     // Send confirmation to user
     const confirmationMsg = {
       to: formData.email,
-      from: 'enterprise@jiaminie.tech',
-      subject: 'We received your message - Jiaminie Tech',
+      from: "enterprise@jiaminie.tech",
+      subject: "We received your message - Jiaminie Tech",
       html: `
         <h2>Thank you for contacting Jiaminie Tech</h2>
         <p>Hi ${formData.name},</p>
@@ -2660,10 +2033,10 @@ export const sendContactEmail = async (formData) => {
         <p>Best regards,<br/>The Jiaminie Team</p>
       `,
     };
-    
+
     await sgMail.send(confirmationMsg);
   } catch (error) {
-    console.error('Email error:', error);
+    console.error("Email error:", error);
     throw error;
   }
 };
@@ -2677,14 +2050,15 @@ export const sendContactEmail = async (formData) => {
 // utils/whatsappService.js
 
 export const generateWhatsAppLink = (phone, message) => {
-  const formattedPhone = phone.replace(/[^0-9]/g, '');
+  const formattedPhone = phone.replace(/[^0-9]/g, "");
   const encodedMessage = encodeURIComponent(message);
   return `https://wa.me/${formattedPhone}?text=${encodedMessage}`;
 };
 
-export const openWhatsAppChat = (businessType = 'general') => {
+export const openWhatsAppChat = (businessType = "general") => {
   const messages = {
-    general: "Hi! I'm interested in learning about Jiaminie Tech for my business.",
+    general:
+      "Hi! I'm interested in learning about Jiaminie Tech for my business.",
     logistics: "Hi! I'm interested in Jiaminie Tech for my logistics business.",
     retail: "Hi! I'm interested in Jiaminie Tech for my retail business.",
     food: "Hi! I'm interested in Jiaminie Tech for my restaurant/food business.",
@@ -2692,8 +2066,8 @@ export const openWhatsAppChat = (businessType = 'general') => {
   };
 
   const message = messages[businessType] || messages.general;
-  const link = generateWhatsAppLink('+254700000000', message);
-  window.open(link, '_blank');
+  const link = generateWhatsAppLink("+254700000000", message);
+  window.open(link, "_blank");
 };
 ```
 
@@ -2747,3 +2121,77 @@ This comprehensive implementation guide includes:
 ✅ **Deployment Configuration** and checklist
 
 All code follows Material UI best practices, maintains your existing dark theme aesthetic, and is production-ready.
+
+## Implementation Checklist
+
+**Week 1: Navigation & How It Works**
+
+- [ ] Setup theme configuration
+- [ ] Build Navigation component
+- [ ] Build Breadcrumbs component
+- [ ] Build StickyWhatsAppButton
+- [ ] Build FloatingNextButton
+- [ ] Build How It Works page
+- [ ] Test responsive behavior
+
+**Week 2: Use Cases**
+
+- [ ] Build Use Cases page structure
+- [ ] Implement 3 quick cards
+- [ ] Build Accordion sections (6 industries)
+- [ ] Add Return to Top buttons
+- [ ] Wire up anchor links from dropdown
+- [ ] Test accordion behavior
+
+**Week 3: Pricing**
+
+- [ ] Build Pricing page layout
+- [ ] Create setup tier cards
+- [ ] Build value framing section (3 scenarios)
+- [ ] Add transparency section
+- [ ] Insert placeholder prices
+- [ ] Test mobile layout
+
+**Week 4: Success Stories, Getting Started, FAQ**
+
+- [ ] Build Success Stories page (3 deep + 6 quick)
+- [ ] Build Getting Started timeline
+- [ ] Build FAQ accordions
+- [ ] Collect real testimonial photos
+- [ ] Add all WhatsApp integration
+- [ ] Final responsive testing
+
+**Week 5: Polish & Launch**
+
+- [ ] Optimize all images
+- [ ] Add loading states
+- [ ] Test all navigation flows
+- [ ] Verify WhatsApp links work
+- [ ] Accessibility audit
+- [ ] Deploy to production
+
+---
+
+## Critical Notes for Developer
+
+1. **Replace Placeholder Prices:** Search for `[PRICE_1]`, `[PRICE_2]`, `[PRICE_3]` and replace with actual setup fees
+
+2. **WhatsApp Number:** Replace `254XXXXXXXXX` with actual JChats business number
+
+3. **Images:** All testimonial images must be sourced before launch. Use placeholder images during development.
+
+4. **Dark Theme:** Never use light colors. Everything must work on dark background (#0A0A0A).
+
+5. **Mobile Testing:** Test on actual Android/iOS devices, not just browser dev tools.
+
+6. **Use Cases Anchors:** Ensure smooth scroll to anchor links from dropdown menu.
+
+7. **Accordion Behavior:** Only one Use Cases accordion should be open at a time.
+
+8. **Sticky WhatsApp:** Must stay visible even when scrolling, above all other content.
+
+9. **Floating Next Button:** Should only appear after 50% page scroll.
+
+10. **Performance:** Lazy load all images, code split routes, target <3s load time.
+
+---

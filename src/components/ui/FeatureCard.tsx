@@ -1,6 +1,13 @@
-import React from 'react';
-import { Card, CardContent, CardMedia, Typography, Box } from '@mui/material';
-import type { FeatureCardProps } from '../../types';
+import React from "react";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Box,
+} from "@mui/material";
+import type { FeatureCardProps } from "../../types";
+import CustomButton from "./CustomButton";
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
@@ -14,16 +21,16 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       elevation={0}
       sx={{
         p: 4,
-        border: '1px solid',
-        borderColor: 'rgba(255, 255, 255, 0.08)',
-        backgroundColor: 'rgba(20, 20, 20, 0.6)',
-        backdropFilter: 'blur(12px)',
-        height: '100%',
-        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-        '&:hover': {
-          borderColor: 'primary.main',
-          boxShadow: '0 12px 32px rgba(37, 211, 102, 0.15)',
-          transform: 'translateY(-6px) scale(1.02)',
+        border: "1px solid",
+        borderColor: "rgba(255, 255, 255, 0.08)",
+        backgroundColor: "rgba(20, 20, 20, 0.6)",
+        backdropFilter: "blur(12px)",
+        height: "100%",
+        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        "&:hover": {
+          borderColor: "primary.main",
+          boxShadow: "0 12px 32px rgba(37, 211, 102, 0.15)",
+          transform: "translateY(-6px) scale(1.02)",
         },
         ...sx,
       }}
@@ -35,22 +42,22 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           image={image}
           alt={title}
           sx={{
-            objectFit: 'cover',
+            objectFit: "cover",
             borderRadius: 0,
             mb: 3,
           }}
         />
       )}
-      
+
       {icon && (
         <Box
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
+            display: "flex",
+            justifyContent: "left",
             mb: 3,
-            color: 'primary.main',
-            '& svg': {
-              fontSize: '3rem',
+            color: "primary.main",
+            "& svg": {
+              fontSize: "3rem",
             },
           }}
         >
@@ -59,25 +66,28 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       )}
 
       <CardContent sx={{ p: 0 }}>
-        <Typography 
-          variant="h5" 
-          sx={{ 
-            mb: 2, 
+        <Typography
+          variant="h5"
+          sx={{
+            mb: 2,
             fontWeight: 600,
-            textAlign: image ? 'left' : 'center'
+            textAlign: "left",
           }}
         >
           {title}
         </Typography>
-        <Typography 
-          variant="body1" 
+        <Typography
+          variant="body1"
           color="text.secondary"
           sx={{
-            textAlign: image ? 'left' : 'center'
+            textAlign: "left",
           }}
         >
           {description}
         </Typography>
+        <CustomButton variant="primary" fullWidth sx={{ mt: 2 }} size={"small"}>
+          Learn More
+        </CustomButton>
       </CardContent>
     </Card>
   );

@@ -30,7 +30,7 @@ const VideoExample: React.FC<VideoExampleProps> = ({
       <Typography
         variant="h3"
         sx={{
-          color: '#25D366',
+          color: 'primary.main',
           fontWeight: 600,
           mb: 2,
         }}
@@ -42,7 +42,7 @@ const VideoExample: React.FC<VideoExampleProps> = ({
       <Typography
         variant="h5"
         sx={{
-          color: '#1F1F1F',
+          color: 'text.primary',
           fontWeight: 600,
           mb: 3,
         }}
@@ -54,7 +54,7 @@ const VideoExample: React.FC<VideoExampleProps> = ({
       <Typography
         variant="body1"
         sx={{
-          color: '#666666',
+          color: 'text.secondary',
           mb: 2,
         }}
       >
@@ -76,13 +76,13 @@ const VideoExample: React.FC<VideoExampleProps> = ({
           >
             <CheckCircleIcon
               sx={{
-                color: '#25D366',
+                color: 'primary.main',
                 fontSize: '1.5rem',
                 mt: 0.25,
                 flexShrink: 0,
               }}
             />
-            <Typography variant="body1" sx={{ color: '#1F1F1F' }}>
+            <Typography variant="body1" sx={{ color: 'text.primary' }}>
               {point}
             </Typography>
           </Box>
@@ -93,14 +93,15 @@ const VideoExample: React.FC<VideoExampleProps> = ({
       <Box
         sx={{
           p: 2,
-          backgroundColor: '#000',
-          border: '1px solid #BBF7D0',
+          backgroundColor: 'secondary.dark',
+          border: '1px solid',
+          borderColor: 'primary.light',
         }}
       >
         <Typography
           variant="body1"
           sx={{
-            color: '#1DA851',
+            color: 'primary.dark',
             fontWeight: 600,
           }}
         >
@@ -115,15 +116,16 @@ const VideoExample: React.FC<VideoExampleProps> = ({
       sx={{
         width: '100%',
         height: { xs: '300px', md: '400px' },
-        backgroundColor: '#F3F4F6',
+        backgroundColor: 'background.paper',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        border: '2px solid #E5E7EB',
+        border: '2px solid',
+        borderColor: 'grey.700',
         overflow: 'hidden',
       }}
     >
-      <Typography variant="h6" sx={{ color: '#9CA3AF' }}>
+      <Typography variant="h6" sx={{ color: 'text.disabled' }}>
         {videoPlaceholder}
       </Typography>
     </Box>

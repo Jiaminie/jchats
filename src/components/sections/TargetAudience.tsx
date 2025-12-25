@@ -2,34 +2,28 @@ import React from 'react';
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { Section, FeatureCard } from '../ui';
 
-interface BusinessExample {
-  title: string;
-  description: string;
-  image: string;
+interface TargetAudienceProps {
+  sectionTitle: string;
+  sectionSubtitle: string;
+  cards: {
+    title: string;
+    description: string;
+    image?: string;
+    icon?: React.ReactElement;
+    href?: string;
+  }[];
+  backgroundColor?: string;
 }
 
-const businessExamples: BusinessExample[] = [
-  {
-    title: 'Fish & Meat Traders',
-    description: 'Show daily stock. Take orders. Get paid. All before 9am.',
-    image: '/images/fish-ice.svg',
-  },
-  {
-    title: 'Restaurants & Food',
-    description: 'Menu in chat. Orders flow in. No more missed calls.',
-    image: '/images/restaurant-food.svg',
-  },
-  {
-    title: 'Service Providers',
-    description: 'Quote, book, and collect payment. All in 5 minutes.',
-    image: '/images/moving-truck.svg',
-  },
-];
-
-const TargetAudience: React.FC = () => {
+const TargetAudience: React.FC<TargetAudienceProps> = ({ 
+  sectionTitle, 
+  sectionSubtitle, 
+  cards,
+  backgroundColor = 'background.default',
+}) => {
   return (
     <Section>
-      <Box sx={{ backgroundColor: 'grey.50', py: 10 }}>
+      <Box sx={{ backgroundColor: backgroundColor, }}>
         <Container maxWidth="lg">
           <Typography 
             variant="h2" 
@@ -40,7 +34,7 @@ const TargetAudience: React.FC = () => {
               color: 'text.primary',
             }}
           >
-            Who Is This For?
+            {sectionTitle}
           </Typography>
           
           <Typography
@@ -55,18 +49,20 @@ const TargetAudience: React.FC = () => {
               lineHeight: 1.8,
             }}
           >
-            Built for businesses that need simple, effective selling
+            {sectionSubtitle}
           </Typography>
           
           <Grid container spacing={4}>
-            {businessExamples.map((business) => (
-              <Grid item xs={12} md={4} key={business.title}>
+            {cards.map((card, index) => (
+              <Grid item xs={12} md={4} key={index}>
                 <FeatureCard
-                  title={business.title}
-                  description={business.description}
-                  image={business.image}
+                  title={card.title}
+                  description={card.description}
+                  image={card.image}
+                  icon={card.icon}
                   sx={{ height: '100%' }}
                 />
+               
               </Grid>
             ))}
           </Grid>
