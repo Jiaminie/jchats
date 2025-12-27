@@ -1,34 +1,167 @@
 import React from "react";
-import { Box, Typography, Container, Grid } from "@mui/material";
 import {
-  CustomAccordion,
-  QuickOverviewCard,
-  MasterCTA,
-} from "../components";
+  Box,
+  Typography,
+  Container,
+  Grid,
+  Stack,
+  Divider,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Card,
+  CardContent,
+} from "@mui/material";
+import {
+  Restaurant,
+  Balance,
+  Hotel,
+  LocalShipping,
+  Inventory,
+  Apartment,
+  ExpandMore,
+  CheckCircleOutline,
+  TrendingUp,
+  AutoAwesome,
+} from "@mui/icons-material";
+import Hero from "../components/sections/Hero";
+import MasterCTA from "../components/sections/MasterCTA";
 
 const useCases = [
-  { id: "food-retail", title: "Food & Retail" },
-  { id: "professional", title: "Professional Services" },
-  { id: "hospitality", title: "Hospitality" },
-  { id: "logistics", title: "Logistics" },
-  { id: "wholesale", title: "Wholesale" },
-  { id: "real-estate", title: "Real Estate" },
+  {
+    id: "food-retail",
+    title: "Food & Retail",
+    icon: <Restaurant />,
+    painPoints: [
+      "High volume of customer inquiries for product availability",
+      "Manual order collection and payment delays",
+      "Difficulty managing promotions and discounts across channels",
+    ],
+    automation: [
+      "Instant catalog sharing and pricing",
+      "Automatic order capture and M-Pesa payments",
+      "Customer reminders and follow-ups",
+    ],
+    outcome:
+      "Orders are processed instantly, payments are collected automatically, and customers stay engaged without manual effort.",
+    scenario:
+      "Michael, owner of Dr. Mike Automobiles, used to miss calls while working. With JChats, customer inquiries are handled automatically, reducing missed orders to almost zero.",
+  },
+  {
+    id: "professional",
+    title: "Professional Services",
+    icon: <Balance />,
+    painPoints: [
+      "Booking appointments manually",
+      "Handling deposits and confirmations",
+      "High rate of no-shows",
+    ],
+    automation: [
+      "Automated appointment scheduling",
+      "Deposit collection and reminders",
+      "Follow-up notifications to reduce no-shows",
+    ],
+    outcome:
+      "Clients book and pay automatically. Appointment confirmations and reminders increase attendance and reduce administrative load.",
+    scenario:
+      "Grace, a salon owner in Mombasa, saw no-shows drop by 80% after automating bookings and deposits with JChats.",
+  },
+  {
+    id: "hospitality",
+    title: "Hospitality",
+    icon: <Hotel/>,
+    painPoints: [
+      "Guest inquiries for rooms and reservations",
+      "Payment processing for bookings",
+      "Manual check-in and reminders",
+    ],
+    automation: [
+      "Instant room availability and pricing",
+      "Automatic deposits and booking confirmations",
+      "Check-in reminders and guest follow-ups",
+    ],
+    outcome:
+      "Reservations are processed instantly, deposits collected, and guests get timely reminders — freeing staff to focus on service.",
+    scenario:
+      "Peter, a hotel manager in Kisumu, cut reservation handling time by 60% and increased occupancy from 60% to 95%.",
+  },
+  {
+    id: "logistics",
+    title: "Logistics & Delivery",
+    icon: <LocalShipping/>,
+    painPoints: [
+      "Tracking orders and delivery assignments manually",
+      "Delayed payments and confirmations",
+      "Customer complaints due to slow updates",
+    ],
+    automation: [
+      "Automatic order assignments and tracking links",
+      "Payment collection before pickup",
+      "Real-time customer notifications",
+    ],
+    outcome:
+      "Deliveries are faster, payments are collected upfront, and customers receive timely updates, reducing disputes and delays.",
+    scenario:
+      "Mary, a delivery service owner in Nakuru, tripled deliveries per day and ensured 100% prepayment using JChats.",
+  },
+  {
+    id: "wholesale",
+    title: "Wholesale & Distribution",
+    icon: <Inventory/>,
+    painPoints: [
+      "Managing bulk orders across multiple retailers",
+      "Order tracking and confirmations",
+      "Delayed payments affecting cash flow",
+    ],
+    automation: [
+      "Catalog sharing and bulk order processing",
+      "Automated order tracking notifications",
+      "Payment reminders and confirmations",
+    ],
+    outcome:
+      "Bulk orders are processed efficiently, payments are automated, and retailers stay informed without manual intervention.",
+    scenario:
+      "A wholesale distributor in Nairobi streamlined ordering from 50+ retailers with zero manual follow-ups.",
+  },
+  {
+    id: "real-estate",
+    title: "Real Estate",
+    icon: <Apartment/>,
+    painPoints: [
+      "Property inquiries handled manually",
+      "Booking property viewings",
+      "Collecting deposits and following up with clients",
+    ],
+    automation: [
+      "Instant response to property inquiries",
+      "Automated scheduling for viewings",
+      "Deposit collection and reminders",
+    ],
+    outcome:
+      "Clients book viewings and pay deposits automatically. Follow-ups happen without manual effort, increasing conversions.",
+    scenario:
+      "A real estate agent in Mombasa increased booked viewings by 70% after automating client interactions with JChats.",
+  },
 ];
 
 const overviewCards = [
   {
     title: "Automate Sales",
     description:
-      "Capture leads, provide quotes, and close sales, all on WhatsApp.",
+      "Capture leads, provide quotes, and close sales, all on WhatsApp and other messaging platforms.",
+    icon: <TrendingUp sx={{ fontSize: 40 }} />,
   },
   {
     title: "24/7 Customer Service",
     description:
-      "Answer questions, provide support, and resolve issues instantly.",
+      "Answer questions, provide support, and resolve issues instantly, even when your team is offline.",
+    icon: <AutoAwesome sx={{ fontSize: 40 }} />,
   },
   {
     title: "Streamline Operations",
-    description: "Automate bookings, appointments, and other repetitive tasks.",
+    description:
+      "Automate bookings, appointments, deliveries, and other repetitive tasks across multiple channels.",
+    icon: <CheckCircleOutline sx={{ fontSize: 40 }} />,
   },
 ];
 
@@ -42,97 +175,434 @@ const UseCasesPage: React.FC = () => {
 
   return (
     <Box>
-      {/* Hero Section */}
+      {/* HERO SECTION */}
+      <Hero
+        title={
+          <>
+            JChats for{" "}
+            <Box component="span" sx={{ color: "primary.main" }}>
+              Every Industry
+            </Box>
+          </>
+        }
+        subtitle="No matter your business, JChats automates sales, bookings, and customer service on messaging platforms like WhatsApp, Instagram, and Facebook Messenger."
+        primaryAction={{
+          text: "Talk to an Expert",
+          onClick: () => console.log("Talk to an Expert"),
+        }}
+        secondaryAction={{
+          text: "See Pricing",
+          onClick: () => console.log("See Pricing"),
+        }}
+        showImage={false}
+      />
+
+      {/* QUICK OVERVIEW CARDS */}
       <Box
+        component="section"
         sx={{
-          py: 12,
-          textAlign: "center",
-          backgroundColor: "background.paper",
+          py: { xs: 10, md: 16 },
+          backgroundColor: "background.default",
         }}
       >
-        <Container maxWidth="md">
-          <Typography variant="h2" component="h1" gutterBottom>
-            Jiaminie for Every Industry
-          </Typography>
-          <Typography variant="h5" color="text.secondary">
-            No matter your business, Jiaminie can automate your sales and
-            customer service on WhatsApp.
-          </Typography>
-        </Container>
-      </Box>
-
-      {/* 3 Quick Overview Cards Section */}
-      <Box sx={{ py: 12 }}>
         <Container maxWidth="lg">
-          <Typography variant="h3" component="h2" align="center" gutterBottom>
-            Quick Overview
+          <Typography
+            variant="overline"
+            sx={{
+              display: "block",
+              mb: 3,
+              textAlign: "center",
+              color: "text.disabled",
+              letterSpacing: "0.15em",
+              fontWeight: 600,
+            }}
+          >
+            QUICK OVERVIEW
           </Typography>
-          <Grid container spacing={4} sx={{ mt: 6 }}>
-            {overviewCards.map((card) => (
-              <Grid item xs={12} md={4} key={card.title}>
-                <QuickOverviewCard {...card} />
+
+          <Typography
+            variant="h3"
+            component="h2"
+            align="center"
+            sx={{
+              mb: 10,
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            What JChats Does for You
+          </Typography>
+
+          <Grid container spacing={4}>
+            {overviewCards.map((card, index) => (
+              <Grid item xs={12} md={4} key={index}>
+                <Card
+                  sx={{
+                    height: "100%",
+                    backgroundColor: "background.default",
+                    border: "1px solid",
+                    borderColor: "divider",
+                    borderRadius: 2,
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      borderColor: "primary.main",
+                      transform: "translateY(-4px)",
+                      boxShadow: "0 8px 24px rgba(37, 211, 102, 0.15)",
+                    },
+                  }}
+                >
+                  <CardContent sx={{ p: 4 }}>
+                    <Box
+                      sx={{
+                        mb: 3,
+                        color: "primary.main",
+                        opacity: 0.8,
+                      }}
+                    >
+                      {card.icon}
+                    </Box>
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        mb: 2,
+                        fontWeight: 600,
+                        color: "text.primary",
+                      }}
+                    >
+                      {card.title}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        lineHeight: 1.7,
+                        color: "text.secondary",
+                      }}
+                    >
+                      {card.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
               </Grid>
             ))}
           </Grid>
         </Container>
       </Box>
 
-      {/* Expandable Industry Sections */}
+      {/* INDUSTRY USE CASES */}
       <Box
-        sx={{ py: 12, backgroundColor: "background.paper" }}
-        id="explore-use-cases-section"
+        component="section"
+        sx={{
+          py: { xs: 10, md: 16 },
+          backgroundColor: "background.default",
+        }}
       >
         <Container maxWidth="lg">
-          <Typography variant="h3" component="h2" align="center" gutterBottom>
-            Explore Use Cases
+          <Typography
+            variant="overline"
+            sx={{
+              display: "block",
+              mb: 3,
+              textAlign: "center",
+              color: "text.disabled",
+              letterSpacing: "0.15em",
+              fontWeight: 600,
+            }}
+          >
+            INDUSTRY USE CASES
           </Typography>
-          <Box sx={{ mt: 6 }}>
+
+          <Typography
+            variant="h3"
+            component="h2"
+            align="center"
+            sx={{
+              mb: 3,
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Find Your Industry
+          </Typography>
+
+          <Typography
+            variant="body1"
+            align="center"
+            sx={{
+              mb: 10,
+              fontSize: "1.125rem",
+              color: "text.secondary",
+            }}
+          >
+            See how businesses like yours use JChats to automate operations and
+            increase revenue.
+          </Typography>
+
+          <Box>
             {useCases.map((useCase) => (
-              <Box key={useCase.id} id={useCase.id} sx={{ mb: 2 }}>
-                {" "}
-                {/* Added Box with id for anchor linking */}
-                <CustomAccordion
-                  title={useCase.title}
+              <Box key={useCase.id} id={useCase.id} sx={{ mb: 3 }}>
+                <Accordion
                   expanded={expanded === useCase.id}
                   onChange={handleChange(useCase.id)}
+                  sx={{
+                    backgroundColor: "background.default",
+                    border: "1px solid",
+                    borderColor:
+                      expanded === useCase.id ? "primary.main" : "divider",
+                    borderRadius: 2,
+                    "&:before": {
+                      display: "none",
+                    },
+                    "&.Mui-expanded": {
+                      margin: "0 0 24px 0",
+                    },
+                  }}
                 >
-                  <Box sx={{ p: 2 }}>
-                    <Typography variant="h6">Pain Points:</Typography>
-                    <Typography color="text.secondary" sx={{ mb: 2 }}>
-                      [Pain points list placeholder]
-                    </Typography>
-                    <Typography variant="h6">What gets automated:</Typography>
-                    <Typography color="text.secondary" sx={{ mb: 2 }}>
-                      [What gets automated list placeholder]
-                    </Typography>
-                    <Typography variant="h6">Business outcome:</Typography>
-                    <Typography color="text.secondary" sx={{ mb: 2 }}>
-                      [Business outcome placeholder]
-                    </Typography>
-                    <Typography variant="h6">Example scenario:</Typography>
-                    <Typography color="text.secondary" sx={{ mb: 2 }}>
-                      [Example scenario placeholder]
-                    </Typography>
-                    {/* WhatsApp CTA */}
-                    <MasterCTA
-                      layout="simple"
-                      title={`Discuss ${useCase.title} Automation`}
-                      primaryButton={{
-                        text: "Talk to us on WhatsApp",
-                        action: () =>
-                          console.log(
-                            "WhatsApp button clicked for " + useCase.title
-                          ),
-                        variant: "whatsapp",
-                      }}
-                    />
-                  </Box>
-                </CustomAccordion>
+                  <AccordionSummary
+                    expandIcon={
+                      <ExpandMore
+                        sx={{
+                          color:
+                            expanded === useCase.id
+                              ? "primary.main"
+                              : "text.secondary",
+                          fontSize: 32,
+                        }}
+                      />
+                    }
+                    sx={{
+                      py: 2,
+                      px: 4,
+                      "&:hover": {
+                        backgroundColor: "rgba(37, 211, 102, 0.03)",
+                      },
+                    }}
+                  >
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                      <Typography sx={{ fontSize: "2rem" }}>
+                        {useCase.icon}
+                      </Typography>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          fontWeight: 600,
+                          color:
+                            expanded === useCase.id
+                              ? "primary.main"
+                              : "text.primary",
+                        }}
+                      >
+                        {useCase.title}
+                      </Typography>
+                    </Box>
+                  </AccordionSummary>
+
+                  <AccordionDetails
+                    sx={{
+                      px: 4,
+                      pb: 4,
+                      pt: 2,
+                      borderTop: "1px solid",
+                      borderColor: "divider",
+                    }}
+                  >
+                    <Grid container spacing={4}>
+                      {/* Pain Points */}
+                      <Grid item xs={12} md={6}>
+                        <Typography
+                          variant="caption"
+                          sx={{
+                            display: "block",
+                            mb: 2,
+                            color: "text.disabled",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.1em",
+                            fontWeight: 600,
+                          }}
+                        >
+                          Pain Points
+                        </Typography>
+                        <Stack spacing={1.5}>
+                          {useCase.painPoints.map((point, idx) => (
+                            <Typography
+                              key={idx}
+                              variant="body2"
+                              sx={{
+                                fontSize: "1rem",
+                                lineHeight: 1.6,
+                                color: "text.secondary",
+                                pl: 2,
+                                position: "relative",
+                                "&::before": {
+                                  content: '"•"',
+                                  position: "absolute",
+                                  left: 0,
+                                  color: "text.disabled",
+                                },
+                              }}
+                            >
+                              {point}
+                            </Typography>
+                          ))}
+                        </Stack>
+                      </Grid>
+
+                      {/* What Gets Automated */}
+                      <Grid item xs={12} md={6}>
+                        <Typography
+                          variant="caption"
+                          sx={{
+                            display: "block",
+                            mb: 2,
+                            color: "text.disabled",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.1em",
+                            fontWeight: 600,
+                          }}
+                        >
+                          What Gets Automated
+                        </Typography>
+                        <Stack spacing={1.5}>
+                          {useCase.automation.map((item, idx) => (
+                            <Box
+                              key={idx}
+                              sx={{
+                                display: "flex",
+                                alignItems: "flex-start",
+                                gap: 1,
+                              }}
+                            >
+                              <CheckCircleOutline
+                                sx={{
+                                  color: "primary.main",
+                                  fontSize: 18,
+                                  flexShrink: 0,
+                                  mt: 0.25,
+                                }}
+                              />
+                              <Typography
+                                variant="body2"
+                                sx={{
+                                  fontSize: "1rem",
+                                  lineHeight: 1.6,
+                                  color: "text.primary",
+                                }}
+                              >
+                                {item}
+                              </Typography>
+                            </Box>
+                          ))}
+                        </Stack>
+                      </Grid>
+
+                      {/* Business Outcome */}
+                      <Grid item xs={12}>
+                        <Divider sx={{ my: 2 }} />
+                        <Box
+                          sx={{
+                            p: 3,
+                            backgroundColor: "rgba(37, 211, 102, 0.05)",
+                            borderRadius: 1,
+                            borderLeft: "3px solid",
+                            borderColor: "primary.main",
+                          }}
+                        >
+                          <Typography
+                            variant="caption"
+                            sx={{
+                              display: "block",
+                              mb: 1,
+                              color: "primary.main",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.1em",
+                              fontWeight: 600,
+                            }}
+                          >
+                            Business Outcome
+                          </Typography>
+                          <Typography
+                            variant="body1"
+                            sx={{
+                              fontSize: "1.125rem",
+                              lineHeight: 1.7,
+                              color: "text.primary",
+                              fontWeight: 500,
+                            }}
+                          >
+                            {useCase.outcome}
+                          </Typography>
+                        </Box>
+                      </Grid>
+
+                      {/* Example Scenario */}
+                      <Grid item xs={12}>
+                        <Typography
+                          variant="caption"
+                          sx={{
+                            display: "block",
+                            mb: 1.5,
+                            color: "text.disabled",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.1em",
+                            fontWeight: 600,
+                          }}
+                        >
+                          Real Example
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          sx={{
+                            fontSize: "1rem",
+                            lineHeight: 1.7,
+                            color: "text.secondary",
+                            fontStyle: "italic",
+                          }}
+                        >
+                          {useCase.scenario}
+                        </Typography>
+                      </Grid>
+
+                      {/* CTA */}
+                      <Grid item xs={12}>
+                        <Box sx={{ mt: 2, textAlign: "center" }}>
+                          <MasterCTA
+                            layout="simple"
+                            title={`Ready to automate ${useCase.title.toLowerCase()}?`}
+                            primaryButton={{
+                              text: "Discuss This Use Case",
+                              action: () =>
+                                console.log(
+                                  "WhatsApp button clicked for " + useCase.title
+                                ),
+                              variant: "whatsapp",
+                            }}
+                          />
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </AccordionDetails>
+                </Accordion>
               </Box>
             ))}
           </Box>
         </Container>
       </Box>
+
+      {/* FINAL CTA */}
+      <MasterCTA
+        layout="extended"
+        title="Not Sure Which Use Case Fits?"
+        subtitle="We'll help you identify how JChats can work for your specific business model."
+        primaryButton={{
+          text: "Talk to an Expert",
+          action: () => console.log("Talk to Expert"),
+          variant: "whatsapp",
+        }}
+        secondaryButton={{
+          text: "See Pricing",
+          action: () => console.log("See Pricing"),
+          variant: "secondary",
+        }}
+      />
     </Box>
   );
 };

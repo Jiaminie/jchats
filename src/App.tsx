@@ -62,11 +62,11 @@ function App() {
       <Zoom in={showReturnToTop}>
         <Box
           sx={{
-            position: 'fixed',
-            bottom: 24, // Adjust this if it conflicts with other buttons
-            right: 20, // Adjust this if it conflicts with other buttons
-            zIndex: 1100, // Ensure it's above content but possibly below whatsapp
-            display: showReturnToTop ? 'block' : 'none', // Ensure visibility is controlled by state
+            position: "fixed",
+            bottom: { xs: 80, sm: 90, md: 24 }, 
+            right: { xs: 16, sm: 20, md: 20 }, 
+            zIndex: 1100,
+            display: showReturnToTop ? "block" : "none", 
           }}
         >
           <ReturnToTopButton onClick={scrollToTop} />

@@ -17,7 +17,7 @@ const GettingStartedEasy: React.FC = () => {
       component="section"
       sx={{
         py: { xs: 8, md: 12 },
-        backgroundColor: "#000000",
+        backgroundColor: "background.default",
       }}
     >
       <Container maxWidth="lg">

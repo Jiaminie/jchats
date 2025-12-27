@@ -26,34 +26,53 @@ const HomePage: React.FC = () => {
     }
   };
 
-const channelCards = [
-  {
-    title: "WhatsApp Commerce",
-    description:
-      "Turn WhatsApp into your best salesperson. Automatically respond to customers, show products or services, take orders, and collect M-Pesa payments — even when you’re offline.",
-    icon: <WhatsAppIcon />,
-    href: "#",
-  },
-  {
-    title: "Instagram Messages",
-    description:
-      "Convert every DM into a sales opportunity. Instantly reply to inquiries, story reactions, and comments with prices, availability, and booking options — then guide customers to payment.",
-    icon: <InstagramIcon />,
-    href: "#",
-  },
-  {
-    title: "Facebook Messenger",
-    description:
-      "Handle high message volume without missing customers. Automatically answer common questions, share catalogs, and route serious buyers to checkout or human follow-up.",
-    icon: <FacebookIcon />,
-    href: "#",
-  },
-];
-
+  const channelCards = [
+    {
+      title: "WhatsApp Commerce",
+      description:
+        "Turn WhatsApp into your best salesperson. Automatically respond to customers, show products or services, take orders, and collect M-Pesa payments — even when you’re offline.",
+      icon: <WhatsAppIcon />,
+      href: "#",
+    },
+    {
+      title: "Instagram Messages",
+      description:
+        "Convert every DM into a sales opportunity. Instantly reply to inquiries, story reactions, and comments with prices, availability, and booking options — then guide customers to payment.",
+      icon: <InstagramIcon />,
+      href: "#",
+    },
+    {
+      title: "Facebook Messenger",
+      description:
+        "Handle high message volume without missing customers. Automatically answer common questions, share catalogs, and route serious buyers to checkout or human follow-up.",
+      icon: <FacebookIcon />,
+      href: "#",
+    },
+  ];
 
   return (
-    <Box>
-      <Hero />
+    <Box
+      sx={{
+        marginTop: 4,
+      }}
+    >
+      {/* HERO SECTION */}
+      <Hero
+        title={
+          <>
+            More Chats. More Sales.{" "}
+            <Box component="span" sx={{ color: "primary.main" }}>
+              Less stress.
+            </Box>
+          </>
+        }
+        subtitle="Use JChats range OF chat automations to convert conversations into revenue"
+        primaryAction={{
+          text: "Show Me How",
+          onClick: () => console.log("Show me how"),
+        }}
+        showImage={true}
+      />
       <MasterCTA
         layout="inclusion"
         title={

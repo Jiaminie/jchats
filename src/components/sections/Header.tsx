@@ -57,7 +57,12 @@ const Header: React.FC = () => {
 
   const drawer = (
     <Box
-      sx={{ width: 250, pt: 2, height: "100%", background: "background.default" }}
+      sx={{
+        width: 250,
+        pt: 2,
+        height: "100%",
+        backgroundColor: "background.default",
+      }}
     >
       <Box sx={{ display: "flex", justifyContent: "flex-end", px: 2, pb: 2 }}>
         <IconButton onClick={handleDrawerToggle} sx={{ color: "text.primary" }}>
@@ -87,7 +92,11 @@ const Header: React.FC = () => {
         <ListItem
           button
           onClick={handleMenuClick} // Use handleMenuClick to open dropdown
-          sx={{ cursor: "pointer", py: 2 }}
+          sx={{
+            cursor: "pointer",
+            py: 2,
+            backgroundColor: "background.default",
+          }}
         >
           <ListItemText
             primary="Use Cases"
@@ -147,7 +156,16 @@ const Header: React.FC = () => {
         <Container maxWidth="xl">
           <Toolbar sx={{ justifyContent: "space-between", py: 2 }}>
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <img src="/logo.webp" alt="Logo" width={80} height={60} />
+              <Box
+                component="img"
+                src="/logo.webp"
+                alt="Logo"
+                sx={{
+                  width: { xs: 50, sm: 60, md: 80 },
+                  height: { xs: 37.5, sm: 45, md: 60 },
+                  objectFit: "contain",
+                }}
+              />
               <Typography
                 variant="h6"
                 sx={{
@@ -192,7 +210,7 @@ const Header: React.FC = () => {
                 </Link>
               ))}
               {/* Use Cases Dropdown for Desktop */}
-              <Box>
+              <Box sx={{ backgroundColor: "background.default" }}>
                 <Link
                   id="use-cases-button"
                   aria-controls={anchorEl ? "use-cases-menu" : undefined}
@@ -223,6 +241,12 @@ const Header: React.FC = () => {
                   MenuListProps={{
                     "aria-labelledby": "use-cases-button",
                   }}
+                  PaperProps={{
+                    sx: {
+                      backgroundColor: "background.default",
+                      backgroundImage: "none", 
+                    },
+                  }}
                 >
                   {useCaseItems.map((item) => (
                     <MenuItem
@@ -230,6 +254,12 @@ const Header: React.FC = () => {
                       onClick={() => {
                         handleMenuClose();
                         window.location.href = item.href;
+                      }}
+                      sx={{
+                        backgroundColor: "background.default",
+                        "&:hover": {
+                          backgroundColor: "action.hover", 
+                        },
                       }}
                     >
                       {item.label}
@@ -278,7 +308,7 @@ const Header: React.FC = () => {
           "& .MuiDrawer-paper": {
             boxSizing: "border-box",
             width: 250,
-            bgcolor: "background.default",
+            backgroundColor: "background.default",
           },
         }}
       >

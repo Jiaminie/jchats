@@ -32,7 +32,7 @@ const ReturnToTopButton: React.FC<ReturnToTopButtonProps> = ({ onClick }) => {
         sx={{
           bottom: { xs: 0, md: 24 },
           right: { xs: 0, md: 20 },
-          width: { xs: "100%", md: 56 },
+          width: { xs: 56, md: 56 },
           height: { xs: 56, md: 56 },
           borderRadius: { xs: 0, md: 0 },
           zIndex: 1200,

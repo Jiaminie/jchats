@@ -1,11 +1,24 @@
 import React from "react";
 import { Box, Container, Grid, Typography, Stack } from "@mui/material";
-
 import { motion } from "framer-motion";
-import WhatsAppButton from "../ui/WhatsAppButton";
 import { useScrollAnimation, fadeInUp } from "../../hooks/useScrollAnimation";
+import { CustomButton } from "../ui";
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  title: React.ReactNode;
+  subtitle: string;
+  primaryAction?: { text: string; onClick: () => void };
+  secondaryAction?: { text: string; onClick: () => void };
+  showImage?: boolean;
+}
+
+const Hero: React.FC<HeroProps> = ({
+  title,
+  subtitle,
+  primaryAction,
+  secondaryAction,
+  showImage = true,
+}) => {
   const { ref, controls } = useScrollAnimation();
 
   return (
@@ -40,7 +53,7 @@ const Hero: React.FC = () => {
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         <Grid container spacing={6} alignItems="center">
           {/* Left: Copy */}
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={showImage ? 6 : 12}>
             <motion.div initial="hidden" animate={controls} variants={fadeInUp}>
               <Typography
                 variant="h1"
@@ -51,12 +64,10 @@ const Hero: React.FC = () => {
                   fontWeight: 700,
                   fontSize: { xs: "2.5rem", md: "3.5rem" },
                   lineHeight: 1.2,
+                  textAlign: showImage ? "left" : "center",
                 }}
               >
-                More Chats. More Sales.{" "}
-                <Box component="span" sx={{ color: "primary.main" }}>
-                  Less stress.
-                </Box>
+                {title}
               </Typography>
 
               <Typography
@@ -67,157 +78,179 @@ const Hero: React.FC = () => {
                   fontSize: "1.25rem",
                   lineHeight: 1.7,
                   maxWidth: "600px",
+                  textAlign: showImage ? "left" : "center",
+                  mx: showImage ? "0" : "auto",
                 }}
               >
-                Use JChats range OF chat automations to convert conversations into revenue
+                {subtitle}
               </Typography>
 
-              <Stack direction={{ xs: "column", sm: "row" }}>
-                <WhatsAppButton
-                  message="Hi! I'd like to learn more about JChats for my business."
-                  sx={{ minWidth: { xs: "100%", sm: "auto" } }}
-                >
-                  Show Me How
-                </WhatsAppButton>
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                spacing={2}
+                justifyContent={showImage ? "flex-start" : "center"}
+              >
+                {primaryAction && (
+                  <CustomButton
+                    size="large"
+                    variant="whatsapp"
+                    color="primary"
+                    onClick={primaryAction.onClick}
+                  >
+                    {primaryAction.text}
+                  </CustomButton>
+                )}
+                {secondaryAction && (
+                  <CustomButton
+                    size="large"
+                    variant="secondary"
+                    color="primary"
+                    onClick={secondaryAction.onClick}
+                  >
+                    {secondaryAction.text}
+                  </CustomButton>
+                )}
               </Stack>
             </motion.div>
           </Grid>
 
           {/* Right: Phone Mockup */}
-          <Grid item xs={12} md={6}>
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <Box
-                sx={{
-                  position: "relative",
-                  width: "100%",
-                  height: { xs: "400px", md: "500px" },
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
+          {showImage && (
+            <Grid item xs={12} md={6}>
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
               >
-                {/* Phone Mockup Placeholder */}
                 <Box
                   sx={{
+                    position: "relative",
                     width: "100%",
-                    maxWidth: "450px",
-                    height: "100%",
-                    backgroundColor: "rgba(20, 20, 20, 0.6)",
-                    backdropFilter: "blur(12px)",
-                    borderRadius: 3,
-                    border: "1px solid rgba(37, 211, 102, 0.2)",
+                    height: { xs: "400px", md: "500px" },
                     display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
                     justifyContent: "center",
-                    gap: 2,
-                    p: 4,
-                    boxShadow: "0 20px 60px rgba(37, 211, 102, 0.1)",
+                    alignItems: "center",
                   }}
                 >
-                  <Typography
-                    variant="h6"
-                    sx={{ color: "#A0A0A0", textAlign: "center" }}
-                  >
-                    📱 Split-Screen Mockup
-                  </Typography>
-                  <Typography
-                    variant="body2"
+                  {/* Phone Mockup Placeholder */}
+                  <Box
                     sx={{
-                      color: "#A0A0A0",
-                      textAlign: "center",
-                      maxWidth: "300px",
+                      width: "100%",
+                      maxWidth: "450px",
+                      height: "100%",
+                      backgroundColor: "rgba(20, 20, 20, 0.6)",
+                      backdropFilter: "blur(12px)",
+                      borderRadius: 3,
+                      border: "1px solid rgba(37, 211, 102, 0.2)",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: 2,
+                      p: 4,
+                      boxShadow: "0 20px 60px rgba(37, 211, 102, 0.1)",
                     }}
                   >
-                    Customer WhatsApp Chat + Business Dashboard Side-by-Side
-                  </Typography>
-                  <Typography
-                    variant="caption"
-                    sx={{ color: "#666666", textAlign: "center" }}
-                  >
-                    (Replace with actual phone mockup image)
-                  </Typography>
-                </Box>
-
-                {/* Floating Stats */}
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: "10%",
-                    left: "-5%",
-                    p: 2.5,
-                    bgcolor: "rgba(20, 20, 20, 0.8)",
-                    backdropFilter: "blur(12px)",
-                    border: "1px solid rgba(37, 211, 102, 0.2)",
-                    borderRadius: 2,
-                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.4)",
-                    minWidth: "140px",
-                  }}
-                >
-                  <Typography
-                    variant="caption"
-                    sx={{ color: "#A0A0A0", display: "block", mb: 0.5 }}
-                  >
-                    Orders Today
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    sx={{ color: "#25D366", fontWeight: 700 }}
-                  >
-                    +127
-                  </Typography>
-                  <Typography
-                    variant="caption"
-                    sx={{ color: "#25D366", fontWeight: 600 }}
-                  >
-                    ▲ 40% increase
-                  </Typography>
-                </Box>
-
-                <Box
-                  sx={{
-                    position: "absolute",
-                    bottom: "15%",
-                    right: "-5%",
-                    p: 2.5,
-                    bgcolor: "rgba(20, 20, 20, 0.8)",
-                    backdropFilter: "blur(12px)",
-                    border: "1px solid rgba(37, 211, 102, 0.2)",
-                    borderRadius: 2,
-                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.4)",
-                    minWidth: "160px",
-                  }}
-                >
-                  <Typography
-                    variant="caption"
-                    sx={{ color: "#A0A0A0", display: "block", mb: 0.5 }}
-                  >
-                    M-Pesa Payments
-                  </Typography>
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <Box
-                      sx={{
-                        width: 8,
-                        height: 8,
-                        borderRadius: "50%",
-                        bgcolor: "#25D366",
-                      }}
-                    />
+                    <Typography
+                      variant="h6"
+                      sx={{ color: "#A0A0A0", textAlign: "center" }}
+                    >
+                      📱 Split-Screen Mockup
+                    </Typography>
                     <Typography
                       variant="body2"
-                      sx={{ color: "#F5F5F5", fontWeight: 600 }}
+                      sx={{
+                        color: "#A0A0A0",
+                        textAlign: "center",
+                        maxWidth: "300px",
+                      }}
                     >
-                      Instant & Secure
+                      Customer WhatsApp Chat + Business Dashboard Side-by-Side
                     </Typography>
-                  </Stack>
+                    <Typography
+                      variant="caption"
+                      sx={{ color: "#666666", textAlign: "center" }}
+                    >
+                      (Replace with actual phone mockup image)
+                    </Typography>
+                  </Box>
+
+                  {/* Floating Stats */}
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      top: "10%",
+                      left: "-5%",
+                      p: 2.5,
+                      bgcolor: "rgba(20, 20, 20, 0.8)",
+                      backdropFilter: "blur(12px)",
+                      border: "1px solid rgba(37, 211, 102, 0.2)",
+                      borderRadius: 2,
+                      boxShadow: "0 8px 24px rgba(0, 0, 0, 0.4)",
+                      minWidth: "140px",
+                    }}
+                  >
+                    <Typography
+                      variant="caption"
+                      sx={{ color: "#A0A0A0", display: "block", mb: 0.5 }}
+                    >
+                      Orders Today
+                    </Typography>
+                    <Typography
+                      variant="h6"
+                      sx={{ color: "#25D366", fontWeight: 700 }}
+                    >
+                      +127
+                    </Typography>
+                    <Typography
+                      variant="caption"
+                      sx={{ color: "#25D366", fontWeight: 600 }}
+                    >
+                      ▲ 40% increase
+                    </Typography>
+                  </Box>
+
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      bottom: "15%",
+                      right: "-5%",
+                      p: 2.5,
+                      bgcolor: "rgba(20, 20, 20, 0.8)",
+                      backdropFilter: "blur(12px)",
+                      border: "1px solid rgba(37, 211, 102, 0.2)",
+                      borderRadius: 2,
+                      boxShadow: "0 8px 24px rgba(0, 0, 0, 0.4)",
+                      minWidth: "160px",
+                    }}
+                  >
+                    <Typography
+                      variant="caption"
+                      sx={{ color: "#A0A0A0", display: "block", mb: 0.5 }}
+                    >
+                      M-Pesa Payments
+                    </Typography>
+                    <Stack direction="row" spacing={1} alignItems="center">
+                      <Box
+                        sx={{
+                          width: 8,
+                          height: 8,
+                          borderRadius: "50%",
+                          bgcolor: "#25D366",
+                        }}
+                      />
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "#F5F5F5", fontWeight: 600 }}
+                      >
+                        Instant & Secure
+                      </Typography>
+                    </Stack>
+                  </Box>
                 </Box>
-              </Box>
-            </motion.div>
-          </Grid>
+              </motion.div>
+            </Grid>
+          )}
         </Grid>
       </Container>
     </Box>
