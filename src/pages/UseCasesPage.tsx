@@ -32,6 +32,9 @@ const useCases = [
     id: "food-retail",
     title: "Food & Retail",
     icon: <Restaurant />,
+    valueProposition: "Orders, payments, and delivery—handled inside WhatsApp.",
+    gifSrc: "/gifs/retail.gif",
+    result: "Orders completed in minutes. Payment collected instantly.",
     painPoints: [
       "High volume of customer inquiries for product availability",
       "Manual order collection and payment delays",
@@ -51,6 +54,9 @@ const useCases = [
     id: "professional",
     title: "Professional Services",
     icon: <Balance />,
+    valueProposition: "Bookings and deposits handled automatically.",
+    gifSrc: "/gifs/spa.gif",
+    result: "Fewer no-shows. No double bookings.",
     painPoints: [
       "Booking appointments manually",
       "Handling deposits and confirmations",
@@ -69,7 +75,10 @@ const useCases = [
   {
     id: "hospitality",
     title: "Hospitality",
-    icon: <Hotel/>,
+    icon: <Hotel />,
+    valueProposition: "Bookings, deposits, and guest communication—unified.",
+    gifSrc: "/gifs/hospitality.gif",
+    result: "Faster bookings. Zero payment disputes.",
     painPoints: [
       "Guest inquiries for rooms and reservations",
       "Payment processing for bookings",
@@ -88,7 +97,10 @@ const useCases = [
   {
     id: "logistics",
     title: "Logistics & Delivery",
-    icon: <LocalShipping/>,
+    icon: <LocalShipping />,
+    valueProposition: "Quotes, payments, and driver assignment—automated.",
+    gifSrc: "/gifs/move.gif",
+    result: "More deliveries. Payment before pickup.",
     painPoints: [
       "Tracking orders and delivery assignments manually",
       "Delayed payments and confirmations",
@@ -107,7 +119,10 @@ const useCases = [
   {
     id: "wholesale",
     title: "Wholesale & Distribution",
-    icon: <Inventory/>,
+    icon: <Inventory />,
+    valueProposition: "Bulk orders, tracking, and payment reminders—automated.",
+    gifSrc: "/gifs/wholesale.gif",
+    result: "Efficient processing. Retailers stay informed.",
     painPoints: [
       "Managing bulk orders across multiple retailers",
       "Order tracking and confirmations",
@@ -126,7 +141,10 @@ const useCases = [
   {
     id: "real-estate",
     title: "Real Estate",
-    icon: <Apartment/>,
+    icon: <Apartment />,
+    valueProposition: "Property inquiries, viewings, and deposits—automated.",
+    gifSrc: "/gifs/booking.gif",
+    result: "More viewings. Automated follow-ups.",
     painPoints: [
       "Property inquiries handled manually",
       "Booking property viewings",
@@ -378,9 +396,9 @@ const UseCasesPage: React.FC = () => {
                     }}
                   >
                     <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                      <Typography sx={{ fontSize: "2rem" }}>
+                      <Box sx={{ color: "primary.main", fontSize: "2rem" }}>
                         {useCase.icon}
-                      </Typography>
+                      </Box>
                       <Typography
                         variant="h5"
                         sx={{
@@ -400,11 +418,187 @@ const UseCasesPage: React.FC = () => {
                     sx={{
                       px: 4,
                       pb: 4,
-                      pt: 2,
+                      pt: 4,
                       borderTop: "1px solid",
                       borderColor: "divider",
                     }}
                   >
+                    {/* TOP SECTION: Side-by-Side Content + GIF */}
+                    <Grid container spacing={6} sx={{ mb: 6 }}>
+                      {/* LEFT: Value Prop + Result */}
+                      <Grid item xs={12} md={6}>
+                        <Typography
+                          variant="h5"
+                          sx={{
+                            mb: 4,
+                            fontWeight: 600,
+                            color: "text.primary",
+                            lineHeight: 1.5,
+                          }}
+                        >
+                          {useCase.valueProposition}
+                        </Typography>
+
+                        <Box
+                          sx={{
+                            mb: 4,
+                            pl: 3,
+                            borderLeft: "3px solid",
+                            borderColor: "primary.main",
+                          }}
+                        >
+                          <Typography
+                            variant="caption"
+                            sx={{
+                              display: "block",
+                              mb: 1,
+                              color: "primary.main",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.1em",
+                              fontWeight: 600,
+                            }}
+                          >
+                            Result
+                          </Typography>
+                          <Typography
+                            variant="body1"
+                            sx={{
+                              fontSize: "1.125rem",
+                              fontWeight: 600,
+                              color: "text.primary",
+                            }}
+                          >
+                            {useCase.result}
+                          </Typography>
+                        </Box>
+
+                        {/* Quick bullets on desktop */}
+                        <Box sx={{ display: { xs: "none", md: "block" } }}>
+                          <Typography
+                            variant="caption"
+                            sx={{
+                              display: "block",
+                              mb: 2,
+                              color: "text.disabled",
+                              textTransform: "uppercase",
+                              letterSpacing: "0.1em",
+                              fontWeight: 600,
+                            }}
+                          >
+                            What Gets Automated
+                          </Typography>
+                          <Stack spacing={1}>
+                            {useCase.automation.slice(0, 3).map((item, idx) => (
+                              <Box
+                                key={idx}
+                                sx={{
+                                  display: "flex",
+                                  alignItems: "flex-start",
+                                  gap: 1,
+                                }}
+                              >
+                                <CheckCircleOutline
+                                  sx={{
+                                    color: "primary.main",
+                                    fontSize: 16,
+                                    flexShrink: 0,
+                                    mt: 0.25,
+                                  }}
+                                />
+                                <Typography
+                                  variant="body2"
+                                  sx={{
+                                    fontSize: "0.95rem",
+                                    lineHeight: 1.5,
+                                    color: "text.secondary",
+                                  }}
+                                >
+                                  {item}
+                                </Typography>
+                              </Box>
+                            ))}
+                          </Stack>
+                        </Box>
+                      </Grid>
+
+                      {/* RIGHT: GIF Display */}
+                      <Grid item xs={12} md={6}>
+                        <Box
+                          sx={{
+                            position: "relative",
+                            width: "100%",
+                            maxWidth: 450,
+                            mx: { xs: "auto", md: 0 },
+                            ml: { md: "auto" },
+                          }}
+                        >
+                          {/* Phone Frame */}
+                          <Box
+                            sx={{
+                              borderRadius: 3,
+                              boxShadow: "0 12px 40px rgba(37, 211, 102, 0.15)",
+                            }}
+                          >
+                            <Box
+                              sx={{
+                                borderRadius: 2,
+                                overflow: "hidden",
+                                backgroundColor: "#000",
+                                border: "1px solid",
+                                borderColor: "divider",
+                              }}
+                            >
+                              <Box
+                                component="img"
+                                src={useCase.gifSrc}
+                                alt={`${useCase.title} automation demo`}
+                                sx={{
+                                  width: "100%",
+                                  height: "auto",
+                                  display: "block",
+                                }}
+                              />
+                              {/* Placeholder if GIF not ready */}
+                              {/* <Box
+                                sx={{
+                                  aspectRatio: "9/16",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  backgroundColor: "#0A0A0A",
+                                }}
+                              >
+                                <Typography
+                                  variant="body2"
+                                  sx={{ color: "text.disabled" }}
+                                >
+                                  [{useCase.title} Demo]
+                                </Typography>
+                              </Box> */}
+                            </Box>
+                          </Box>
+
+                          {/* Floating accent */}
+                          <Box
+                            sx={{
+                              position: "absolute",
+                              top: -15,
+                              right: -15,
+                              width: 60,
+                              height: 60,
+                              borderRadius: "50%",
+                              backgroundColor: "primary.main",
+                              opacity: 0.1,
+                              zIndex: 0,
+                            }}
+                          />
+                        </Box>
+                      </Grid>
+                    </Grid>
+
+                    <Divider sx={{ my: 6 }} />
+
+                    {/* DETAILED BREAKDOWN */}
                     <Grid container spacing={4}>
                       {/* Pain Points */}
                       <Grid item xs={12} md={6}>
@@ -496,7 +690,6 @@ const UseCasesPage: React.FC = () => {
 
                       {/* Business Outcome */}
                       <Grid item xs={12}>
-                        <Divider sx={{ my: 2 }} />
                         <Box
                           sx={{
                             p: 3,

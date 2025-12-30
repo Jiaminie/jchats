@@ -42,7 +42,7 @@ const HowItWorksPage: React.FC = () => {
           text: "See Use Cases",
           onClick: () => console.log("See Use Cases"),
         }}
-        showImage={true}
+        showImage={false}
       />
 
       {/* SECTION 1: THE CORE IDEA - TWO COLUMN SYSTEM OVERVIEW */}

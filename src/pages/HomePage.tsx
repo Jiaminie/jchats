@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import {
   Hero,
   UseCasesSection,
-  VideoExamples,
+  SeeItInAction,
   SocialProofSection,
   GettingStartedEasy,
   OutcomeSection,
@@ -66,10 +66,10 @@ const HomePage: React.FC = () => {
             </Box>
           </>
         }
-        subtitle="Use JChats range OF chat automations to convert conversations into revenue"
+        subtitle="Use JChats range of chat automations to convert conversations into revenue"
         primaryAction={{
           text: "Show Me How",
-          onClick: () => console.log("Show me how"),
+          onClick: () => (window.location.href = "/use-cases"),
         }}
         showImage={true}
       />
@@ -133,7 +133,7 @@ const HomePage: React.FC = () => {
 
       <UseCasesSection />
       <Box id="video-examples">
-        <VideoExamples />
+        <SeeItInAction />
       </Box>
 
       <Box id="social-proof">

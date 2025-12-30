@@ -28,10 +28,27 @@ const Hero: React.FC<HeroProps> = ({
         minHeight: "90vh",
         display: "flex",
         alignItems: "center",
-        background: "#000000",
+        background: "background.default",
         position: "relative",
         overflow: "hidden",
-        pt: { xs: 12, md: 0 },
+        pt: { xs: 10, md: 0 },
+
+        backgroundImage: {
+          xs: "url('/images/hero-2.jpeg')",
+          md: "none",
+        },
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,backgroundColor: "rgba(0, 0, 0, 0.75)",
+          zIndex: 0,
+        },
       }}
     >
       {/* Subtle Background Elements */}
@@ -46,7 +63,7 @@ const Hero: React.FC<HeroProps> = ({
           background:
             "radial-gradient(circle, rgba(37, 211, 102, 0.15) 0%, transparent 70%)",
           filter: "blur(80px)",
-          zIndex: 0,
+          zIndex: 1,
         }}
       />
 
@@ -123,57 +140,36 @@ const Hero: React.FC<HeroProps> = ({
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <Box
+                  pr={20}
                   sx={{
                     position: "relative",
                     width: "100%",
                     height: { xs: "400px", md: "500px" },
-                    display: "flex",
+                    display: { xs: "none", md: "flex" },
                     justifyContent: "center",
                     alignItems: "center",
                   }}
                 >
                   {/* Phone Mockup Placeholder */}
+
+                  <img
+                    src="/images/hero.png"
+                    alt="JChats Hero Mockup"
+                    style={{
+                      width: "auto",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
                   <Box
                     sx={{
-                      width: "100%",
-                      maxWidth: "450px",
-                      height: "100%",
-                      backgroundColor: "rgba(20, 20, 20, 0.6)",
-                      backdropFilter: "blur(12px)",
-                      borderRadius: 3,
-                      border: "1px solid rgba(37, 211, 102, 0.2)",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: 2,
-                      p: 4,
-                      boxShadow: "0 20px 60px rgba(37, 211, 102, 0.1)",
+                      position: "absolute",
+                      bottom: 16,
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      textAlign: "center",
                     }}
-                  >
-                    <Typography
-                      variant="h6"
-                      sx={{ color: "#A0A0A0", textAlign: "center" }}
-                    >
-                      📱 Split-Screen Mockup
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        color: "#A0A0A0",
-                        textAlign: "center",
-                        maxWidth: "300px",
-                      }}
-                    >
-                      Customer WhatsApp Chat + Business Dashboard Side-by-Side
-                    </Typography>
-                    <Typography
-                      variant="caption"
-                      sx={{ color: "#666666", textAlign: "center" }}
-                    >
-                      (Replace with actual phone mockup image)
-                    </Typography>
-                  </Box>
+                  ></Box>
 
                   {/* Floating Stats */}
                   <Box
@@ -213,8 +209,8 @@ const Hero: React.FC<HeroProps> = ({
                   <Box
                     sx={{
                       position: "absolute",
-                      bottom: "15%",
-                      right: "-5%",
+                      bottom: "-5%",
+                      right: "5%",
                       p: 2.5,
                       bgcolor: "rgba(20, 20, 20, 0.8)",
                       backdropFilter: "blur(12px)",

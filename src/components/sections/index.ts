@@ -6,7 +6,7 @@ export { default as TargetAudience } from "./TargetAudience";
 export { default as Testimonial } from "./Testimonial";
 export { default as Footer } from "./Footer";
 export { default as UseCasesSection } from "./UseCasesSection";
-export { default as VideoExamples } from "./VideoExamples";
+export { default as SeeItInAction } from "./SeeItInAction";
 export { default as SocialProofSection } from "./SocialProofSection";
 export { default as GettingStarted } from "./GettingStarted";
 export { default as GettingStartedEasy } from "./GettingStartedEasy";
