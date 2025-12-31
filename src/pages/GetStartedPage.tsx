@@ -12,8 +12,12 @@ import {
   SecurityOutlined,
   SupportAgentOutlined,
 } from "@mui/icons-material";
+import { openWhatsAppChat } from "../utils/whatsappService";
+import { useNavigate } from "react-router-dom";
 
 const GetStartedPage: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <Box sx={{ marginTop: 4 }}>
       {/* HERO SECTION */}
@@ -30,20 +34,21 @@ const GetStartedPage: React.FC = () => {
         subtitle="Getting started with JChats is simple, guided, and low-effort. From your first conversation to a live system, we handle the heavy lifting so you can stay focused on running your business."
         primaryAction={{
           text: "Talk to an Expert",
-          onClick: () => console.log("Talk to an Expert"),
+          onClick: () => openWhatsAppChat('general'),
         }}
         secondaryAction={{
           text: "See How It Works",
-          onClick: () => console.log("See How It Works"),
+          onClick: () => navigate('/how-it-works'),
         }}
         showImage={true}
+        image="/images/movers.png"
       />
 
       {/* SECTION 1: REASSURANCE ABOVE THE FOLD */}
-      <Box
+        <Box
         component="section"
         sx={{
-          py: { xs: 8, md: 10 },
+          py: { xs: 6, md: 10 },
           background: "background.default",
         }}
       >
@@ -63,10 +68,10 @@ const GetStartedPage: React.FC = () => {
               sx={{
                 mb: 3,
                 py: 1,
-                fontWeight: 600,
+                fontWeight: 700,
                 letterSpacing: "-0.03em",
-                fontSize: { xs: "1.5rem", md: "2.0rem" },
-                lineHeight: 1.0,
+                fontSize: { xs: "1.75rem", md: "2.5rem" },
+                lineHeight: 1.2,
                 background:
                   "linear-gradient(90deg, #25D366 0%, #073d1fff 100%)",
                 WebkitBackgroundClip: "text",
@@ -93,7 +98,7 @@ const GetStartedPage: React.FC = () => {
       <Box
         component="section"
         sx={{
-          py: { xs: 10, md: 16 },
+          py: { xs: 8, md: 16 },
           backgroundColor: "background.default",
         }}
       >
@@ -117,12 +122,13 @@ const GetStartedPage: React.FC = () => {
             component="h2"
             align="center"
             sx={{
-              mb: 12,
+              mb: { xs: 6, md: 12 },
               fontWeight: 600,
               letterSpacing: "-0.02em",
+              fontSize: { xs: "2rem", md: "3rem" },
             }}
           >
-            A Simple, Guided Journey—
+            A Simple, Guided Journey
             <br />
             Designed Around You
           </Typography>
@@ -131,7 +137,7 @@ const GetStartedPage: React.FC = () => {
             variant="body1"
             align="center"
             sx={{
-              mb: 10,
+              mb: { xs: 6, md: 10 },
               fontSize: "1.125rem",
               lineHeight: 1.8,
               color: "text.secondary",
@@ -141,7 +147,7 @@ const GetStartedPage: React.FC = () => {
           >
             Getting started with JChats follows a clear, structured flow.
             <br />
-            You don't need to manage it—we guide you through each phase.
+            You don't need to manage it, we guide you through each phase.
           </Typography>
 
           {/* Three Phase Flow */}
@@ -184,7 +190,7 @@ const GetStartedPage: React.FC = () => {
               ].map((phase, index) => (
                 <Grid
                   container
-                  spacing={4}
+                  spacing={{ xs: 2, md: 4 }}
                   key={index}
                   alignItems="center"
                   sx={{ position: "relative", zIndex: 1 }}
@@ -203,14 +209,14 @@ const GetStartedPage: React.FC = () => {
                     }}
                   >
                     <Typography
-                      variant="caption"
                       sx={{
                         display: "block",
-                        mb: 1,
+                        mb: 1.5,
                         color: "primary.main",
                         textTransform: "uppercase",
-                        letterSpacing: "0.1em",
-                        fontWeight: 600,
+                        letterSpacing: "0.15em",
+                        fontWeight: 700,
+                        fontSize: "0.95rem",
                       }}
                     >
                       Phase {phase.step}
@@ -218,9 +224,11 @@ const GetStartedPage: React.FC = () => {
                     <Typography
                       variant="h4"
                       sx={{
-                        mb: 2,
-                        fontWeight: 600,
+                        mb: 2.5,
+                        fontWeight: 700,
                         color: "text.primary",
+                        fontSize: { xs: "1.75rem", md: "2.5rem" },
+                        lineHeight: 1.2,
                       }}
                     >
                       {phase.title}
@@ -312,7 +320,7 @@ const GetStartedPage: React.FC = () => {
       <Box
         component="section"
         sx={{
-          py: { xs: 10, md: 16 },
+          py: { xs: 8, md: 16 },
           backgroundColor: "background.default",
         }}
       >
@@ -334,9 +342,10 @@ const GetStartedPage: React.FC = () => {
             variant="h3"
             component="h2"
             sx={{
-              mb: 8,
+              mb: { xs: 4, md: 8 },
               fontWeight: 600,
               letterSpacing: "-0.02em",
+              fontSize: { xs: "2rem", md: "3rem" },
             }}
           >
             What You Don't Have to Worry About
@@ -418,7 +427,7 @@ const GetStartedPage: React.FC = () => {
       <Box
         component="section"
         sx={{
-          py: { xs: 10, md: 16 },
+          py: { xs: 8, md: 16 },
           backgroundColor: "background.default",
         }}
       >
@@ -447,6 +456,7 @@ const GetStartedPage: React.FC = () => {
                   fontWeight: 600,
                   letterSpacing: "-0.02em",
                   lineHeight: 1.2,
+                  fontSize: { xs: "2rem", md: "3rem" },
                 }}
               >
                 You're Always in Control—
@@ -527,7 +537,7 @@ const GetStartedPage: React.FC = () => {
             decide if JChats is right for your business."
         primaryButton={{
           text: "Talk to an Expert",
-          action: () => console.log("Talk to an Expert"),
+          action: () => openWhatsAppChat('general'),
           variant: "whatsapp",
         }}
       />

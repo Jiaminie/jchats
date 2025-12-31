@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Typography,
@@ -26,6 +26,8 @@ import {
 } from "@mui/icons-material";
 import Hero from "../components/sections/Hero";
 import MasterCTA from "../components/sections/MasterCTA";
+import { openWhatsAppChat } from "../utils/whatsappService";
+import { useNavigate } from "react-router-dom";
 
 const useCases = [
   {
@@ -185,7 +187,28 @@ const overviewCards = [
 
 const UseCasesPage: React.FC = () => {
   const [expanded, setExpanded] = React.useState<string | false>(false);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (location.hash) {
+      const hash = location.hash.substring(1);
+
+      setExpanded(hash);
+
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "center",
+          });
+        }
+      }, 300);
+    }
+  }, []);
+
+  
   const handleChange =
     (panel: string) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
@@ -206,20 +229,21 @@ const UseCasesPage: React.FC = () => {
         subtitle="No matter your business, JChats automates sales, bookings, and customer service on messaging platforms like WhatsApp, Instagram, and Facebook Messenger."
         primaryAction={{
           text: "Talk to an Expert",
-          onClick: () => console.log("Talk to an Expert"),
+          onClick: () => openWhatsAppChat(),
         }}
         secondaryAction={{
           text: "See Pricing",
-          onClick: () => console.log("See Pricing"),
+          onClick: () => navigate("/pricing"),
         }}
-        showImage={false}
+        showImage={true}
+        image="/images/warehouse.png"
       />
 
       {/* QUICK OVERVIEW CARDS */}
       <Box
         component="section"
         sx={{
-          py: { xs: 10, md: 16 },
+          py: { xs: 8, md: 16 },
           backgroundColor: "background.default",
         }}
       >
@@ -243,9 +267,10 @@ const UseCasesPage: React.FC = () => {
             component="h2"
             align="center"
             sx={{
-              mb: 10,
+              mb: { xs: 6, md: 10 },
               fontWeight: 600,
               letterSpacing: "-0.02em",
+              fontSize: { xs: "2rem", md: "3rem" },
             }}
           >
             What JChats Does for You
@@ -269,7 +294,7 @@ const UseCasesPage: React.FC = () => {
                     },
                   }}
                 >
-                  <CardContent sx={{ p: 4 }}>
+                  <CardContent sx={{ p: { xs: 3, md: 4 } }}>
                     <Box
                       sx={{
                         mb: 3,
@@ -310,7 +335,7 @@ const UseCasesPage: React.FC = () => {
       <Box
         component="section"
         sx={{
-          py: { xs: 10, md: 16 },
+          py: { xs: 8, md: 16 },
           backgroundColor: "background.default",
         }}
       >
@@ -337,6 +362,7 @@ const UseCasesPage: React.FC = () => {
               mb: 3,
               fontWeight: 600,
               letterSpacing: "-0.02em",
+              fontSize: { xs: "2rem", md: "3rem" },
             }}
           >
             Find Your Industry
@@ -346,7 +372,7 @@ const UseCasesPage: React.FC = () => {
             variant="body1"
             align="center"
             sx={{
-              mb: 10,
+              mb: { xs: 6, md: 10 },
               fontSize: "1.125rem",
               color: "text.secondary",
             }}
@@ -389,7 +415,7 @@ const UseCasesPage: React.FC = () => {
                     }
                     sx={{
                       py: 2,
-                      px: 4,
+                      px: { xs: 2, md: 4 },
                       "&:hover": {
                         backgroundColor: "rgba(37, 211, 102, 0.03)",
                       },
@@ -416,7 +442,7 @@ const UseCasesPage: React.FC = () => {
 
                   <AccordionDetails
                     sx={{
-                      px: 4,
+                      px: { xs: 2, md: 4 },
                       pb: 4,
                       pt: 4,
                       borderTop: "1px solid",
@@ -434,6 +460,7 @@ const UseCasesPage: React.FC = () => {
                             fontWeight: 600,
                             color: "text.primary",
                             lineHeight: 1.5,
+                            fontSize: { xs: "1.25rem", md: "1.5rem" },
                           }}
                         >
                           {useCase.valueProposition}
@@ -558,23 +585,6 @@ const UseCasesPage: React.FC = () => {
                                   display: "block",
                                 }}
                               />
-                              {/* Placeholder if GIF not ready */}
-                              {/* <Box
-                                sx={{
-                                  aspectRatio: "9/16",
-                                  display: "flex",
-                                  alignItems: "center",
-                                  justifyContent: "center",
-                                  backgroundColor: "#0A0A0A",
-                                }}
-                              >
-                                <Typography
-                                  variant="body2"
-                                  sx={{ color: "text.disabled" }}
-                                >
-                                  [{useCase.title} Demo]
-                                </Typography>
-                              </Box> */}
                             </Box>
                           </Box>
 
@@ -763,9 +773,7 @@ const UseCasesPage: React.FC = () => {
                             primaryButton={{
                               text: "Discuss This Use Case",
                               action: () =>
-                                console.log(
-                                  "WhatsApp button clicked for " + useCase.title
-                                ),
+                                openWhatsAppChat("general"),
                               variant: "whatsapp",
                             }}
                           />
@@ -787,12 +795,12 @@ const UseCasesPage: React.FC = () => {
         subtitle="We'll help you identify how JChats can work for your specific business model."
         primaryButton={{
           text: "Talk to an Expert",
-          action: () => console.log("Talk to Expert"),
+          action: () => openWhatsAppChat("general"),
           variant: "whatsapp",
         }}
         secondaryButton={{
           text: "See Pricing",
-          action: () => console.log("See Pricing"),
+          action: () => navigate('/pricing'),
           variant: "secondary",
         }}
       />

@@ -10,6 +10,7 @@ interface HeroProps {
   primaryAction?: { text: string; onClick: () => void };
   secondaryAction?: { text: string; onClick: () => void };
   showImage?: boolean;
+  image?: string;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -18,9 +19,9 @@ const Hero: React.FC<HeroProps> = ({
   primaryAction,
   secondaryAction,
   showImage = true,
+  image,
 }) => {
   const { ref, controls } = useScrollAnimation();
-
   return (
     <Box
       ref={ref}
@@ -34,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({
         pt: { xs: 10, md: 0 },
 
         backgroundImage: {
-          xs: "url('/images/hero-2.jpeg')",
+          xs: image ? `url(${image})` : "none",
           md: "none",
         },
         backgroundSize: "cover",
@@ -140,7 +141,7 @@ const Hero: React.FC<HeroProps> = ({
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <Box
-                  pr={20}
+                  pr={{ xs: 0, md: 2 }}
                   sx={{
                     position: "relative",
                     width: "100%",
@@ -150,10 +151,9 @@ const Hero: React.FC<HeroProps> = ({
                     alignItems: "center",
                   }}
                 >
-                  {/* Phone Mockup Placeholder */}
-
+                  {/*Image*/}
                   <img
-                    src="/images/hero.png"
+                    src={image}
                     alt="JChats Hero Mockup"
                     style={{
                       width: "auto",
@@ -175,7 +175,7 @@ const Hero: React.FC<HeroProps> = ({
                   <Box
                     sx={{
                       position: "absolute",
-                      top: "10%",
+                      bottom: "10%",
                       left: "-5%",
                       p: 2.5,
                       bgcolor: "rgba(20, 20, 20, 0.8)",
@@ -209,7 +209,7 @@ const Hero: React.FC<HeroProps> = ({
                   <Box
                     sx={{
                       position: "absolute",
-                      bottom: "-5%",
+                      top: "-5%",
                       right: "5%",
                       p: 2.5,
                       bgcolor: "rgba(20, 20, 20, 0.8)",

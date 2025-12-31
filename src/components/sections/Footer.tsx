@@ -14,6 +14,7 @@ import {
 import { CustomButton } from "../ui";
 import { WhatsApp } from "@mui/icons-material";
 import { Link as RouterLink } from "react-router-dom";
+import { openWhatsAppChat } from "../../utils/whatsappService";
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -30,8 +31,8 @@ const Footer: React.FC = () => {
   const platformLinks = [
     { label: "How It Works", href: "/how-it-works" },
     { label: "Pricing", href: "/pricing" },
-    { label: "Architecture", href: "/#strategic-pillars" },
-    { label: "Modules", href: "/#feature-matrix" },
+    { label: "Use Cases", href: "/use-cases" },
+    { label: "Get Started", href: "/get-started" },
   ];
 
   return (
@@ -64,16 +65,15 @@ const Footer: React.FC = () => {
                 color: "text.secondary",
                 mb: 4,
                 lineHeight: 1.7,
-                maxWidth: "300px",
+                maxWidth: { xs: "100%", md: "300px" },
               }}
             >
-              The enterprise operating system for African B2B commerce.
-              Automate, scale, and govern your entire revenue stack.
+             JChats helps African businesses turn WhatsApp conversations into orders, payments, and repeat customers - automatically.
             </Typography>
 
             <CustomButton
               component={RouterLink}
-              to="/contact"
+              onClick={() => openWhatsAppChat('general')}
               variant="secondary"
               size="medium"
               startIcon={<WhatsApp />}
@@ -139,9 +139,9 @@ const Footer: React.FC = () => {
             <Stack spacing={2}>
               {[
                 { label: "About", href: "/about" },
-                { label: "Careers", href: "#" },
-                { label: "Partners", href: "#" },
-                { label: "Legal", href: "#" },
+                { label: "Legal", href: "/legal" },
+                { label: "Terms", href: "/terms" },
+                { label: "Privacy", href: "/privacy" },
               ].map((link) => (
                 <Link
                   key={link.label}
@@ -176,8 +176,7 @@ const Footer: React.FC = () => {
             </Typography>
 
             <Typography variant="body2" sx={{ color: "text.secondary", mb: 3 }}>
-              Request a comprehensive analysis of your current B2B workflow
-              gaps.
+             Get a clear picture of where conversations, orders, and payments are breaking down - and how to fix them.
             </Typography>
 
             <Box component="form" onSubmit={handleNewsletterSubmit}>
@@ -235,7 +234,8 @@ const Footer: React.FC = () => {
           </Typography>
           <Box sx={{ display: "flex", gap: 3 }}>
             <Link
-              href="#"
+              component={RouterLink}
+              to="/privacy"
               sx={{
                 color: "text.secondary",
                 opacity: 0.6,
@@ -246,7 +246,8 @@ const Footer: React.FC = () => {
               Privacy
             </Link>
             <Link
-              href="#"
+              component={RouterLink}
+              to="/terms"
               sx={{
                 color: "text.secondary",
                 opacity: 0.6,

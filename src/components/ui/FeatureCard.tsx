@@ -15,6 +15,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   image,
   icon,
   sx,
+  action,
+  buttonText = "Learn More",
 }) => {
   return (
     <Card
@@ -85,9 +87,17 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         >
           {description}
         </Typography>
-        <CustomButton variant="primary" fullWidth sx={{ mt: 2 }} size={"small"}>
-          Learn More
-        </CustomButton>
+        {action && (
+          <CustomButton
+            variant="primary"
+            fullWidth
+            sx={{ mt: 2 }}
+            size={"small"}
+            onClick={action}
+          >
+            {buttonText}
+          </CustomButton>
+        )}
       </CardContent>
     </Card>
   );

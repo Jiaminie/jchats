@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { Section, FeatureCard } from '../ui';
+import { useNavigate } from 'react-router-dom';
 
 interface TargetAudienceProps {
   sectionTitle: string;
@@ -11,6 +12,7 @@ interface TargetAudienceProps {
     image?: string;
     icon?: React.ReactElement;
     href?: string;
+    buttonText?: string;
   }[];
   backgroundColor?: string;
 }
@@ -21,6 +23,20 @@ const TargetAudience: React.FC<TargetAudienceProps> = ({
   cards,
   backgroundColor = 'background.default',
 }) => {
+  const navigate = useNavigate();
+
+  const handleAction = (href?: string) => {
+    if (!href || href === '#') return undefined;
+    
+    return () => {
+      if (href.startsWith('http')) {
+        window.open(href, '_blank', 'noopener,noreferrer');
+      } else {
+        navigate(href);
+      }
+    };
+  };
+
   return (
     <Section>
       <Box sx={{ backgroundColor: backgroundColor, }}>
@@ -60,6 +76,8 @@ const TargetAudience: React.FC<TargetAudienceProps> = ({
                   description={card.description}
                   image={card.image}
                   icon={card.icon}
+                  action={handleAction(card.href)}
+                  buttonText={card.buttonText}
                   sx={{ height: '100%' }}
                 />
                

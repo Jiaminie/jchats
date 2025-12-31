@@ -64,7 +64,7 @@ const StickyWhatsAppButton: React.FC<StickyWhatsAppButtonProps> = ({ phoneNumber
           height: { xs: 56, md: 56 },
           borderRadius: { xs: 0, md: 0 },
           zIndex: 1200,
-          backgroundColor: '#25D366', // WhatsApp Green
+          backgroundColor: '#25D366',
           '&:hover': {
             backgroundColor: '#1DA851',
           },

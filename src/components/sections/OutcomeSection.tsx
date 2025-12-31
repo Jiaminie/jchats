@@ -8,8 +8,6 @@ import {
   PersonOutline,
 } from "@mui/icons-material";
 
-// Import your components
-// import WhatsAppButton from './WhatsAppButton';
 
 export default function OutcomeSection() {
   const outcomes = [
@@ -49,7 +47,7 @@ export default function OutcomeSection() {
       sx={{
         position: "relative",
         py: { xs: 10, md: 16 },
-        bgcolor: "#000",
+        background: "background.default",
         overflow: "hidden",
       }}
     >

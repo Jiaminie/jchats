@@ -1,11 +1,15 @@
 import React from "react";
 import { Box, Typography, Container, Button, Grid } from "@mui/material";
+import {useNavigate} from "react-router-dom";
 import { ArrowForward } from "@mui/icons-material";
 
 const SeeItInAction: React.FC = () => {
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    window.location.href = "/use-cases";
+    navigate("/use-cases");
   };
+  
   return (
     <Box
       component="section"

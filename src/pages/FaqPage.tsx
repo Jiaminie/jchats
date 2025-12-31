@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { Hero, MasterCTA } from "../components";
 import { ExpandMore } from "@mui/icons-material";
+import { openWhatsAppChat} from "../utils/whatsappService";
 
 const FAQPage: React.FC = () => {
   const [expanded, setExpanded] = useState<string | false>(false);
@@ -153,7 +154,7 @@ const FAQPage: React.FC = () => {
         subtitle="Have questions? We have answers. If you don't find what you're looking for, we're here to help."
         primaryAction={{
           text: "Ask a Question",
-          onClick: () => console.log("Ask a Question"),
+          onClick: () => openWhatsAppChat('general'),
         }}
         showImage={false}
       />
@@ -276,7 +277,7 @@ const FAQPage: React.FC = () => {
         subtitle="Contact our support team for personalized assistance."
         primaryButton={{
           text: "Talk to Us on WhatsApp",
-          action: () => console.log("WhatsApp CTA"),
+          action: () => openWhatsAppChat('general'),
           variant: "whatsapp",
         }}
       />

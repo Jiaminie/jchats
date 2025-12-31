@@ -55,6 +55,8 @@ export interface FeatureCardProps {
   image?: string;
   icon?: React.ReactNode;
   sx?: any;
+  action?: () => void;
+  buttonText?: string;
 }
 
 export interface PricingCardProps {

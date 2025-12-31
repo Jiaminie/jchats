@@ -15,8 +15,11 @@ import {
   AccountBalanceWallet,
   People,
 } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import { openWhatsAppChat } from "../utils/whatsappService";
 
 const HowItWorksPage: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -36,13 +39,14 @@ const HowItWorksPage: React.FC = () => {
         subtitle="JChats connects your business to customers across messaging platforms that support automation—handling replies, lead qualification, and transactions until human authorization is required."
         primaryAction={{
           text: "Talk to an Expert",
-          onClick: () => console.log("Talk to an Expert"),
+          onClick: () => openWhatsAppChat("general"),
         }}
         secondaryAction={{
           text: "See Use Cases",
-          onClick: () => console.log("See Use Cases"),
+          onClick: () => navigate("/use-cases"),
         }}
-        showImage={false}
+        showImage={true}
+        image="/images/warehouse.png"
       />
 
       {/* SECTION 1: THE CORE IDEA - TWO COLUMN SYSTEM OVERVIEW */}
@@ -914,11 +918,11 @@ const HowItWorksPage: React.FC = () => {
         subtitle="Different industries apply the same operating model in different ways."
         primaryButton={{
           text: "View Industry Use Cases",
-          action: () => console.log("View Industry Use Cases"),
+          action: () => navigate("/use-cases"),
         }}
         secondaryButton={{
           text: "Talk to an Expert",
-          action: () => console.log("Talk to an Expert"),
+          action: () => openWhatsAppChat("general"),
           variant: "secondary",
         }}
       />

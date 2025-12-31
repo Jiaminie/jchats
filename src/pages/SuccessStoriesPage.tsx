@@ -9,6 +9,7 @@ import {
   Avatar,
 } from "@mui/material";
 import { Hero, MasterCTA } from "../components";
+import { openWhatsAppChat } from "../utils/whatsappService";
 
 const SuccessStoriesPage: React.FC = () => {
   const featuredStory = {
@@ -76,7 +77,11 @@ const SuccessStoriesPage: React.FC = () => {
   ];
 
   return (
-    <Box>
+    <Box
+    sx={{
+      marginTop: 4,
+    }}
+    >
       {/* HERO SECTION */}
       <Hero
         title={
@@ -90,9 +95,10 @@ const SuccessStoriesPage: React.FC = () => {
         subtitle="Join over 500 businesses scaling with JChats, automating replies, leads, and transactions."
         primaryAction={{
           text: "Talk to an Expert",
-          onClick: () => console.log("Talk to an Expert"),
+          onClick: () => openWhatsAppChat("general"),
         }}
-        showImage={false}
+        showImage={true}
+        image="/images/move.png"
       />
 
       {/* KEY METRICS - INLINE */}
@@ -202,7 +208,7 @@ const SuccessStoriesPage: React.FC = () => {
       <Box
         component="section"
         sx={{
-          py: { xs: 10, md: 16 },
+          py: { xs: 8, md: 16 },
           backgroundColor: "background.paper",
         }}
       >
@@ -224,8 +230,10 @@ const SuccessStoriesPage: React.FC = () => {
           <Box
             sx={{
               display: "flex",
-              alignItems: "center",
-              gap: 2,
+              flexDirection: { xs: "column", sm: "row" },
+              alignItems: { xs: "center", sm: "center" },
+              textAlign: { xs: "center", sm: "left" },
+              gap: 3,
               mb: 6,
             }}
           >
@@ -275,6 +283,7 @@ const SuccessStoriesPage: React.FC = () => {
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
                 fontWeight: 600,
+                textAlign: { xs: "center", sm: "left" },
               }}
             >
               Challenge
@@ -285,6 +294,7 @@ const SuccessStoriesPage: React.FC = () => {
                 fontSize: "1.125rem",
                 lineHeight: 1.8,
                 color: "text.primary",
+                textAlign: { xs: "center", sm: "left" },
               }}
             >
               {featuredStory.challenge}
@@ -302,6 +312,7 @@ const SuccessStoriesPage: React.FC = () => {
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
                 fontWeight: 600,
+                textAlign: { xs: "center", sm: "left" },
               }}
             >
               Solution
@@ -312,6 +323,7 @@ const SuccessStoriesPage: React.FC = () => {
                 fontSize: "1.125rem",
                 lineHeight: 1.8,
                 color: "text.primary",
+                textAlign: { xs: "center", sm: "left" },
               }}
             >
               {featuredStory.solution}
@@ -329,6 +341,7 @@ const SuccessStoriesPage: React.FC = () => {
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
                 fontWeight: 600,
+                textAlign: { xs: "center", sm: "left" },
               }}
             >
               Results
@@ -338,20 +351,21 @@ const SuccessStoriesPage: React.FC = () => {
                 <Typography
                   key={index}
                   variant="body1"
-                  sx={{
-                    fontSize: "1rem",
-                    lineHeight: 1.7,
-                    color: "text.secondary",
-                    pl: 2,
-                    position: "relative",
-                    "&::before": {
-                      content: '"•"',
-                      position: "absolute",
-                      left: 0,
-                      color: "primary.main",
-                      fontWeight: 700,
-                    },
-                  }}
+                    sx={{
+                      fontSize: "1rem",
+                      lineHeight: 1.7,
+                      color: "text.secondary",
+                      pl: { xs: 0, sm: 2 },
+                      position: "relative",
+                      "&::before": {
+                        content: { xs: '""', sm: '"•"' },
+                        position: "absolute",
+                        left: 0,
+                        color: "primary.main",
+                        fontWeight: 700,
+                      },
+                      textAlign: { xs: "center", sm: "left" },
+                    }}
                 >
                   {result}
                 </Typography>
@@ -364,9 +378,10 @@ const SuccessStoriesPage: React.FC = () => {
           {/* Quote */}
           <Box
             sx={{
-              pl: 3,
-              borderLeft: "3px solid",
+              pl: { xs: 0, sm: 3 },
+              borderLeft: { xs: "none", sm: "3px solid" },
               borderColor: "primary.main",
+              textAlign: { xs: "center", sm: "left" },
             }}
           >
             <Typography
@@ -376,6 +391,7 @@ const SuccessStoriesPage: React.FC = () => {
                 lineHeight: 1.7,
                 color: "text.primary",
                 mb: 2,
+                fontSize: { xs: "1.125rem", md: "1.25rem" },
               }}
             >
               "{featuredStory.quote}"
@@ -384,7 +400,7 @@ const SuccessStoriesPage: React.FC = () => {
               variant="caption"
               sx={{
                 display: "block",
-                textAlign: "right",
+                textAlign: { xs: "center", sm: "right" },
                 color: "text.secondary",
                 fontSize: "0.875rem",
               }}
@@ -399,7 +415,7 @@ const SuccessStoriesPage: React.FC = () => {
       <Box
         component="section"
         sx={{
-          py: { xs: 10, md: 16 },
+          py: { xs: 8, md: 16 },
           backgroundColor: "background.default",
         }}
       >
@@ -418,42 +434,73 @@ const SuccessStoriesPage: React.FC = () => {
             MORE SUCCESS STORIES
           </Typography>
 
-          <Stack spacing={12}>
+          <Stack spacing={{ xs: 8, md: 12 }}>
             {additionalStories.map((story, index) => {
               const isEven = index % 2 === 0;
 
               return (
                 <Grid
                   container
-                  spacing={6}
+                  spacing={{ xs: 0, md: 6 }}
                   key={index}
                   alignItems="center"
-                  direction={isEven ? "row" : "row-reverse"}
                 >
                   {/* Story Content */}
-                  <Grid item xs={12} md={8}>
+                  <Grid
+                    item
+                    xs={12}
+                    md={8}
+                    sx={{
+                      order: { xs: 2, md: isEven ? 1 : 2 },
+                    }}
+                  >
                     <Box>
-                      {/* Name & Title */}
-                      <Typography
-                        variant="h4"
+                      {/* Avatar, Name & Title Header */}
+                      <Box
                         sx={{
-                          fontWeight: 600,
-                          color: "text.primary",
-                          mb: 0.5,
-                        }}
-                      >
-                        Meet {story.name}
-                      </Typography>
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          color: "text.secondary",
-                          fontSize: "1.125rem",
+                          display: "flex",
+                          flexDirection: { xs: "column", sm: "row" },
+                          alignItems: { xs: "center", sm: "flex-start" },
+                          textAlign: { xs: "center", sm: "left" },
+                          gap: 3,
                           mb: 4,
                         }}
                       >
-                        {story.title}
-                      </Typography>
+                        <Box sx={{ display: { xs: "block", md: "none" } }}>
+                          <Avatar
+                            src={story.image}
+                            alt={story.name}
+                            sx={{
+                              width: 100,
+                              height: 100,
+                              border: "3px solid",
+                              borderColor: "primary.main",
+                            }}
+                          />
+                        </Box>
+                        <Box>
+                          <Typography
+                            variant="h4"
+                            sx={{
+                              fontWeight: 700,
+                              color: "text.primary",
+                              mb: 0.5,
+                              fontSize: { xs: "1.75rem", md: "2.125rem" },
+                            }}
+                          >
+                            Meet {story.name}
+                          </Typography>
+                          <Typography
+                            variant="body1"
+                            sx={{
+                              color: "text.secondary",
+                              fontSize: "1.125rem",
+                            }}
+                          >
+                            {story.title}
+                          </Typography>
+                        </Box>
+                      </Box>
 
                       {/* Challenge */}
                       <Box sx={{ mb: 4 }}>
@@ -466,6 +513,7 @@ const SuccessStoriesPage: React.FC = () => {
                             textTransform: "uppercase",
                             letterSpacing: "0.1em",
                             fontWeight: 600,
+                            textAlign: { xs: "center", sm: "left" },
                           }}
                         >
                           Challenge
@@ -476,6 +524,7 @@ const SuccessStoriesPage: React.FC = () => {
                             fontSize: "1.125rem",
                             lineHeight: 1.8,
                             color: "text.primary",
+                            textAlign: { xs: "center", sm: "left" },
                           }}
                         >
                           {story.challenge}
@@ -493,6 +542,7 @@ const SuccessStoriesPage: React.FC = () => {
                             textTransform: "uppercase",
                             letterSpacing: "0.1em",
                             fontWeight: 600,
+                            textAlign: { xs: "center", sm: "left" },
                           }}
                         >
                           Solution
@@ -503,6 +553,7 @@ const SuccessStoriesPage: React.FC = () => {
                             fontSize: "1.125rem",
                             lineHeight: 1.8,
                             color: "text.primary",
+                            textAlign: { xs: "center", sm: "left" },
                           }}
                         >
                           {story.solution}
@@ -520,11 +571,15 @@ const SuccessStoriesPage: React.FC = () => {
                             textTransform: "uppercase",
                             letterSpacing: "0.1em",
                             fontWeight: 600,
+                            textAlign: { xs: "center", sm: "left" },
                           }}
                         >
                           Results
                         </Typography>
-                        <Stack spacing={1.5}>
+                        <Stack
+                          spacing={1.5}
+                          alignItems={{ xs: "center", sm: "flex-start" }}
+                        >
                           {story.results.map((result, idx) => (
                             <Typography
                               key={idx}
@@ -533,15 +588,16 @@ const SuccessStoriesPage: React.FC = () => {
                                 fontSize: "1rem",
                                 lineHeight: 1.7,
                                 color: "text.secondary",
-                                pl: 2,
+                                pl: { xs: 0, sm: 2 },
                                 position: "relative",
                                 "&::before": {
-                                  content: '"•"',
+                                  content: { xs: '""', sm: '"•"' },
                                   position: "absolute",
                                   left: 0,
                                   color: "primary.main",
                                   fontWeight: 700,
                                 },
+                                textAlign: { xs: "center", sm: "left" },
                               }}
                             >
                               {result}
@@ -553,10 +609,11 @@ const SuccessStoriesPage: React.FC = () => {
                       {/* Quote */}
                       <Box
                         sx={{
-                          pl: 3,
-                          borderLeft: "3px solid",
+                          pl: { xs: 0, sm: 3 },
+                          borderLeft: { xs: "none", sm: "3px solid" },
                           borderColor: "primary.main",
                           mt: 4,
+                          textAlign: { xs: "center", sm: "left" },
                         }}
                       >
                         <Typography
@@ -575,7 +632,7 @@ const SuccessStoriesPage: React.FC = () => {
                           sx={{
                             display: "block",
                             mt: 1.5,
-                            textAlign: "right",
+                            textAlign: { xs: "center", sm: "right" },
                             color: "text.secondary",
                             fontSize: "0.875rem",
                           }}
@@ -587,22 +644,27 @@ const SuccessStoriesPage: React.FC = () => {
                   </Grid>
 
                   {/* Portrait */}
-                  <Grid item xs={12} md={4}>
+                  <Grid
+                    item
+                    xs={12}
+                    md={4}
+                    sx={{
+                      display: { xs: "none", md: "block" },
+                      order: isEven ? 2 : 1,
+                    }}
+                  >
                     <Box
                       sx={{
                         display: "flex",
-                        justifyContent: {
-                          xs: "center",
-                          md: isEven ? "flex-end" : "flex-start",
-                        },
+                        justifyContent: isEven ? "flex-end" : "flex-start",
                       }}
                     >
                       <Avatar
                         src={story.image}
                         alt={story.name}
                         sx={{
-                          width: { xs: 120, md: 160 },
-                          height: { xs: 120, md: 160 },
+                          width: 160,
+                          height: 160,
                           border: "3px solid",
                           borderColor: "primary.main",
                         }}
@@ -623,7 +685,7 @@ const SuccessStoriesPage: React.FC = () => {
           subtitle="We're working with businesses like yours every day. Let's talk about what JChats can do for you."
           primaryButton={{
             text: "Talk to an Expert",
-            action: () => console.log("Talk to an Expert"),
+            action: () => openWhatsAppChat("general"),
             variant: "whatsapp",
           }}
         />

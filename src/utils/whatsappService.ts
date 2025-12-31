@@ -14,6 +14,6 @@ export const openWhatsAppChat = (businessType: string = 'general') => {
   };
 
   const message = messages[businessType] || messages.general;
-  const link = generateWhatsAppLink('+254700000000', message);
+  const link = generateWhatsAppLink('+254114102575', message);
   window.open(link, '_blank');
 };

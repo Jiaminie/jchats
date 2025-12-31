@@ -16,6 +16,7 @@ import {
   ExpandMore,
   KeyboardArrowRight,
 } from "@mui/icons-material";
+import { openWhatsAppChat } from "../utils/whatsappService";
 
 const PricingPage: React.FC = () => {
   const [businessSuiteOpen, setBusinessSuiteOpen] = useState(false);
@@ -38,7 +39,7 @@ const PricingPage: React.FC = () => {
       ],
       capacity: "Up to 200 orders per month",
       cta: "Get Started",
-      ctaAction: () => console.log("Get Started - Basic"),
+      ctaAction: () => openWhatsAppChat("general"),
     },
     {
       name: "Pro",
@@ -59,7 +60,7 @@ const PricingPage: React.FC = () => {
       ],
       capacity: "200 – 1,000 orders per month",
       cta: "Talk to an Expert",
-      ctaAction: () => console.log("Talk to Expert - Pro"),
+      ctaAction: () => openWhatsAppChat("general"),
     },
     {
       name: "Advanced",
@@ -79,7 +80,7 @@ const PricingPage: React.FC = () => {
       ],
       capacity: "1,000+ orders per month",
       cta: "Let's Review Your Setup",
-      ctaAction: () => console.log("Review Setup - Advanced"),
+      ctaAction: () => openWhatsAppChat("general"),
     },
   ];
 
@@ -776,12 +777,12 @@ const PricingPage: React.FC = () => {
         subtitle="Not sure which option fits? We'll help you choose—or build the right one together."
         primaryButton={{
           text: "Talk to Us on WhatsApp",
-          action: () => console.log("WhatsApp CTA"),
+          action: () => openWhatsAppChat("general"),
           variant: "whatsapp",
         }}
         secondaryButton={{
           text: "Book a Quick Call",
-          action: () => console.log("Book Call"),
+          action: () => openWhatsAppChat("general"),
           variant: "secondary",
         }}
       />

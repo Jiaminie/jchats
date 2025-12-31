@@ -19,12 +19,13 @@ import {
   Close as CloseIcon,
   KeyboardArrowDown as KeyboardArrowDownIcon,
 } from "@mui/icons-material";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import WhatsAppButton from "../ui/WhatsAppButton";
 
 const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -36,6 +37,24 @@ const Header: React.FC = () => {
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleUseCaseClick = (href: string) => {
+    handleMenuClose();
+    handleDrawerToggle();
+
+    const [path, hash] = href.split("#");
+
+    navigate(path);
+
+    if (hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
   };
 
   const useCaseItems = [
@@ -53,6 +72,7 @@ const Header: React.FC = () => {
     { label: "Pricing", href: "/pricing" },
     { label: "Success Stories", href: "/success-stories" },
     { label: "FAQ", href: "/faq" },
+    { label: "About Us", href: "/about" },
   ];
 
   const drawer = (
@@ -95,7 +115,6 @@ const Header: React.FC = () => {
           sx={{
             cursor: "pointer",
             py: 2,
-            backgroundColor: "background.default",
           }}
         >
           <ListItemText
@@ -109,27 +128,55 @@ const Header: React.FC = () => {
           <KeyboardArrowDownIcon sx={{ color: "text.primary" }} />
         </ListItem>
         <Menu
+          id="use-cases-menu"
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
           onClose={handleMenuClose}
           MenuListProps={{
             "aria-labelledby": "use-cases-button",
           }}
+          PaperProps={{
+            sx: {
+              backgroundColor: "#141414 !important", 
+              backgroundImage: "none !important",
+              border: "1px solid rgba(37, 211, 102, 0.2)",
+              borderRadius: 2,
+              boxShadow: "0 8px 24px rgba(0, 0, 0, 0.6)",
+              mt: 1,
+              minWidth: 200,
+            },
+          }}
+          sx={{
+            "& .MuiPaper-root": {
+              backgroundColor: "#141414",
+              backgroundImage: "none",
+            },
+          }}
         >
           {useCaseItems.map((item) => (
             <MenuItem
               key={item.label}
-              onClick={() => {
-                handleMenuClose();
-                handleDrawerToggle();
-                window.location.href = item.href;
+              onClick={() => { handleUseCaseClick(item.href);
+              }}
+              sx={{
+                color: "#F5F5F5 !important", 
+                fontSize: "0.95rem",
+                py: 1.5,
+                px: 2,
+                backgroundColor: "transparent",
+                "&:hover": {
+                  backgroundColor: "rgba(37, 211, 102, 0.1) !important",
+                  color: "#25D366 !important",
+                },
+                "&:not(:last-child)": {
+                  borderBottom: "1px solid rgba(255, 255, 255, 0.05)",
+                },
               }}
             >
               {item.label}
             </MenuItem>
           ))}
         </Menu>
-
         <ListItem sx={{ pt: 4 }}>
           <WhatsAppButton
             message="Hi! I'd like to learn more about JChats for my business."
@@ -148,7 +195,7 @@ const Header: React.FC = () => {
         position="fixed"
         elevation={0}
         sx={{
-          backgroundColor: "rgba(10, 10, 10, 0.8)",
+          backgroundColor: "background.default",
           backdropFilter: "blur(12px)",
           borderBottom: "1px solid rgba(255, 255, 255, 0.05)",
         }}
@@ -243,8 +290,20 @@ const Header: React.FC = () => {
                   }}
                   PaperProps={{
                     sx: {
-                      backgroundColor: "background.default",
-                      backgroundImage: "none", 
+                      backgroundColor: "background.default !important", // !important to override theme
+                      backgroundImage: "none !important",
+                      border: "1px solid rgba(37, 211, 102, 0.2)",
+                      borderRadius: 2,
+                      boxShadow: "0 8px 24px rgba(0, 0, 0, 0.6)",
+                      mt: 1,
+                      minWidth: 200,
+                    },
+                  }}
+                  sx={{
+                    "& .MuiPaper-root": {
+                      // Extra specificity targeting
+                      backgroundColor: "#141414",
+                      backgroundImage: "none",
                     },
                   }}
                 >
@@ -252,13 +311,20 @@ const Header: React.FC = () => {
                     <MenuItem
                       key={item.label}
                       onClick={() => {
-                        handleMenuClose();
-                        window.location.href = item.href;
+                        handleUseCaseClick(item.href);
                       }}
                       sx={{
-                        backgroundColor: "background.default",
+                        color: "#F5F5F5 !important", // Force white text
+                        fontSize: "0.95rem",
+                        py: 1.5,
+                        px: 2,
+                        backgroundColor: "transparent",
                         "&:hover": {
-                          backgroundColor: "action.hover", 
+                          backgroundColor: "rgba(37, 211, 102, 0.1) !important",
+                          color: "#25D366 !important",
+                        },
+                        "&:not(:last-child)": {
+                          borderBottom: "1px solid rgba(255, 255, 255, 0.05)",
                         },
                       }}
                     >

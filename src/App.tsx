@@ -9,6 +9,10 @@ import SuccessStoriesPage from "./pages/SuccessStoriesPage";
 import GetStartedPage from "./pages/GetStartedPage";
 import FaqPage from "./pages/FaqPage";
 import PricingPage from "./pages/PricingPage";
+import LegalPage from "./pages/LegalPage";
+import TermsPage from "./pages/TermsPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import AboutPage from "./pages/AboutPage";
 import ScrollToTop from "./components/ScrollToTop";
 import { StickyWhatsAppButton, ReturnToTopButton} from "./components/ui"; 
 
@@ -51,12 +55,16 @@ function App() {
             <Route path="/get-started" element={<GetStartedPage />} />
             <Route path="/faq" element={<FaqPage />} />
             <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/legal" element={<LegalPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/privacy" element={<PrivacyPolicyPage />} />
+            <Route path="/about" element={<AboutPage />} />
           </Routes>
         </Box>
         <Footer />
       </Box>
       <StickyWhatsAppButton
-        phoneNumber="254712345678"
+        phoneNumber="+254114102575"
         defaultMessage="Hi! I'd like to learn more about Jiaminie."
       />
       <Zoom in={showReturnToTop}>
