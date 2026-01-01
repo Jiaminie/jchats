@@ -89,14 +89,14 @@ export default function OutcomeSection() {
                 }}
               >
                 {/* Demo Placeholder */}
+              
                 <Box
                   sx={{
                     width: "100%",
-                    maxWidth: "380px",
+                    maxWidth: "480px",
                     height: "550px",
                     bgcolor: "rgba(20, 20, 20, 0.4)",
                     backdropFilter: "blur(10px)",
-                    border: "2px dashed rgba(37, 211, 102, 0.3)",
                     borderRadius: 4,
                     display: "flex",
                     flexDirection: "column",
@@ -106,76 +106,24 @@ export default function OutcomeSection() {
                     p: 4,
                   }}
                 >
-                  <Box
-                    sx={{
-                      width: 80,
-                      height: 80,
-                      borderRadius: "50%",
-                      bgcolor: "rgba(37, 211, 102, 0.1)",
-                      border: "2px solid rgba(37, 211, 102, 0.3)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        fontSize: "2.5rem",
-                        color: "#25D366",
-                      }}
-                    >
-                      📱
-                    </Typography>
-                  </Box>
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      color: "#A0A0A0",
-                      textAlign: "center",
-                      fontWeight: 500,
-                    }}
-                  >
-                    Live Chat Demo
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      color: "#666",
-                      textAlign: "center",
-                      maxWidth: "250px",
-                    }}
-                  >
-                    Animated conversation showing instant responses & payment
-                    flow
-                  </Typography>
-                  <Box
-                    sx={{
-                      mt: 2,
-                      px: 3,
-                      py: 1,
-                      bgcolor: "rgba(37, 211, 102, 0.1)",
-                      border: "1px solid rgba(37, 211, 102, 0.3)",
-                      borderRadius: 2,
-                    }}
-                  >
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        color: "#25D366",
-                        fontWeight: 600,
-                        fontSize: "0.75rem",
-                      }}
-                    >
-                      Coming Soon
-                    </Typography>
-                  </Box>
-                </Box>
+                <Box
+                  component="img"
+                  src="/gifs/mpesa.gif" 
+                  alt="JChats retail automation demo"
+                  loading="lazy"
+                  decoding="async"
+                  sx={{
+                    width: "100%",
+                    height: "auto",
+                    display: "block",
+                  }}
+                />
 
                 {/* Floating "You're Offline" Badge */}
                 <Box
                   sx={{
                     position: "absolute",
-                    top: "10%",
+                    top: { xs: "10%", md: "-5%" },
                     right: { xs: "5%", md: "-5%" },
                     px: 3,
                     py: 1.5,
@@ -212,7 +160,7 @@ export default function OutcomeSection() {
                 <Box
                   sx={{
                     position: "absolute",
-                    bottom: "15%",
+                    bottom: { xs: "5%", md: "-15%" },
                     left: { xs: "5%", md: "-5%" },
                     px: 3,
                     py: 1.5,
@@ -255,7 +203,8 @@ export default function OutcomeSection() {
                     </Typography>
                   </Stack>
                 </Box>
-              </Box>
+                </Box>
+                </Box>
             </motion.div>
           </Grid>
 

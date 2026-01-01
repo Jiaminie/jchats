@@ -158,7 +158,7 @@ const SeeItInAction: React.FC = () => {
                 >
                   <Box
                     component="img"
-                    src="/gifs/retail.gif" // Replace with actual path
+                    src="/gifs/retail.gif" 
                     alt="JChats retail automation demo"
                     loading="lazy"
                     decoding="async"
