@@ -196,11 +196,11 @@ const HomePage: React.FC = () => {
         ]}
         contactInfo={{
           title: "Prefer to Talk First?",
-          whatsApp: { text: "WhatsApp Us", number: "+254 700 000 000" },
-          phone: { text: "Call Direct", number: "+254 700 000 001" },
-          email: { text: "Email Us", address: "enterprise@jiaminie.tech" },
+          whatsApp: { text: "WhatsApp Us", number: "+254 114 102 575" },
+          phone: { text: "Call Direct", number: "+254 114 102 575" },
+          email: { text: "Email Us", address: "info@jiaminie.co.ke" },
           availability:
-            "Available: Mon-Fri, 8AM-6PM EAT<br />Enterprise emergency: 24/7",
+            "Available: Mon-Fri, 8AM-6PM EAT Enterprise emergency: 24/7",
         }}
         background="linear-gradient(135deg, rgba(80, 200, 120, 0.1) 0%, rgba(0, 0, 0, 1) 100%)"
       />
