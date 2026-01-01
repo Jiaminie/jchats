@@ -155,6 +155,10 @@ const Hero: React.FC<HeroProps> = ({
                   <img
                     src={image}
                     alt="JChats Hero Mockup"
+                    loading="eager"
+                    decoding="async"
+                    // @ts-ignore
+                    fetchPriority="high"
                     style={{
                       width: "auto",
                       height: "100%",

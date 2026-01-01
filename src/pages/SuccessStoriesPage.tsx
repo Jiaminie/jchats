@@ -98,7 +98,7 @@ const SuccessStoriesPage: React.FC = () => {
           onClick: () => openWhatsAppChat("general"),
         }}
         showImage={true}
-        image="/images/move.png"
+        image="/images/delivery.png"
       />
 
       {/* KEY METRICS - INLINE */}
@@ -240,6 +240,7 @@ const SuccessStoriesPage: React.FC = () => {
             <Avatar
               src={featuredStory.image}
               alt={featuredStory.name}
+              imgProps={{ loading: "lazy", decoding: "async" }}
               sx={{
                 width: 80,
                 height: 80,

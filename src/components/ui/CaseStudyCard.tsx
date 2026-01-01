@@ -18,7 +18,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = (props) => {
     <Box sx={{ p: 2, border: '1px solid', borderColor: 'grey.700', borderRadius: 2 }}>
       <Grid container spacing={4}>
         <Grid item xs={12} md={4}>
-          <img src={props.photo} alt={props.name} style={{ width: '100%' }} />
+          <img src={props.photo} alt={props.name} loading="lazy" decoding="async" style={{ width: '100%' }} />
           <Typography variant="h6">{props.name}</Typography>
           <Typography color="text.secondary">{props.business}, {props.location}</Typography>
         </Grid>

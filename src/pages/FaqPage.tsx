@@ -141,6 +141,13 @@ const FAQPage: React.FC = () => {
 
   return (
     <Box>
+      <Box
+        sx={{
+          backgroundImage: "url('/images/gradient.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
       {/* HERO SECTION */}
       <Hero
         title={
@@ -158,7 +165,7 @@ const FAQPage: React.FC = () => {
         }}
         showImage={false}
       />
-
+      </Box>
       {/* FAQ SECTIONS */}
       <Box
         component="section"

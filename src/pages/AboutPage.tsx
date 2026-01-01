@@ -42,8 +42,7 @@ const AboutPage: React.FC = () => {
         }
         subtitle="We're on a mission to transform how B2B enterprises sell, scale, and govern their revenue across messaging platforms."
         showImage={false}
-        image="/images/hero.jpeg"
-      />
+       />
 
       {/* MISSION SECTION */}
       <Box
@@ -151,10 +150,42 @@ const AboutPage: React.FC = () => {
         component="section"
         sx={{
           py: { xs: 10, md: 16 },
-          backgroundColor: "background.paper",
+          background: {
+            xs: "none",
+            md: "linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('/images/founders.png')",
+          },
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundColor: { xs: "background.default", md: "transparent" },
         }}
       >
         <Container maxWidth="lg">
+          {/* Mobile Founders Image */}
+          <Box
+            sx={{
+              display: { xs: "block", md: "none" },
+              mb: 6,
+              borderRadius: 4,
+              overflow: "hidden",
+              height: { xs: 250, sm: 350 },
+              boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
+            }}
+          >
+            <Box
+              component="img"
+              src="/images/founders.png"
+              alt="Jiaminie Tech Founders"
+              loading="lazy"
+              decoding="async"
+              sx={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "center top",
+              }}
+            />
+          </Box>
+
           <Box sx={{ textAlign: "center", mb: 10 }}>
             <Typography
               variant="overline"

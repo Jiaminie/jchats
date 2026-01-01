@@ -160,6 +160,8 @@ const SeeItInAction: React.FC = () => {
                     component="img"
                     src="/gifs/retail.gif" // Replace with actual path
                     alt="JChats retail automation demo"
+                    loading="lazy"
+                    decoding="async"
                     sx={{
                       width: "100%",
                       height: "auto",

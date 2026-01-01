@@ -215,7 +215,11 @@ const UseCasesPage: React.FC = () => {
     };
 
   return (
-    <Box>
+    <Box
+      sx={{
+        mt: 4,
+      }}
+    >
       {/* HERO SECTION */}
       <Hero
         title={
@@ -579,6 +583,8 @@ const UseCasesPage: React.FC = () => {
                                 component="img"
                                 src={useCase.gifSrc}
                                 alt={`${useCase.title} automation demo`}
+                                loading="lazy"
+                                decoding="async"
                                 sx={{
                                   width: "100%",
                                   height: "auto",

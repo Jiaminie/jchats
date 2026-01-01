@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <Grid item xs={12} md={4}>
             <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
-              <img src="/logo.webp" alt="Logo" width={80} height={60} />
+              <img src="/logo.webp" alt="Logo" width={80} height={60} loading="lazy" decoding="async" />
               <Typography
                 variant="h6"
                 sx={{ fontWeight: 700, color: "text.primary" }}

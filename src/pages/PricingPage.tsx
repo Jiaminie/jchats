@@ -86,6 +86,13 @@ const PricingPage: React.FC = () => {
 
   return (
     <Box>
+       <Box
+              sx={{
+                backgroundImage: "url('/images/gradient.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
       {/* HERO SECTION */}
       <Hero
         title={
@@ -102,7 +109,8 @@ const PricingPage: React.FC = () => {
           onClick: () => console.log("Talk to an Expert"),
         }}
         showImage={false}
-      />
+        />
+        </Box>
 
       {/* SECTION 1: ONE-TIME SETUP FEE */}
       <Box

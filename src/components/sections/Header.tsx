@@ -207,11 +207,15 @@ const Header: React.FC = () => {
                 component="img"
                 src="/logo.webp"
                 alt="Logo"
+                loading="eager"
+                decoding="async"
                 sx={{
                   width: { xs: 50, sm: 60, md: 80 },
                   height: { xs: 37.5, sm: 45, md: 60 },
                   objectFit: "contain",
                 }}
+                // @ts-ignore
+                fetchPriority="high"
               />
               <Typography
                 variant="h6"

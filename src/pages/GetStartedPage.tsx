@@ -41,7 +41,7 @@ const GetStartedPage: React.FC = () => {
           onClick: () => navigate('/how-it-works'),
         }}
         showImage={true}
-        image="/images/movers.png"
+        image="/images/delivery.png"
       />
 
       {/* SECTION 1: REASSURANCE ABOVE THE FOLD */}
