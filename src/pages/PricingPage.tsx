@@ -25,7 +25,7 @@ const PricingPage: React.FC = () => {
   const plans = [
     {
       name: "Basic",
-      price: "15,000",
+      price: "26,999",
       tagline: "For businesses starting to automate customer conversations.",
       bestFor: [
         "Receive a manageable number of daily inquiries",
@@ -44,7 +44,7 @@ const PricingPage: React.FC = () => {
     },
     {
       name: "Pro",
-      price: "30,000",
+      price: "49,999",
       tagline: "For growing businesses where speed and reliability matter.",
       popular: true,
       bestFor: [
@@ -65,7 +65,7 @@ const PricingPage: React.FC = () => {
     },
     {
       name: "Advanced",
-      price: "50,000",
+      price: "89,999",
       tagline: "For high-volume operations with real operational pressure.",
       bestFor: [
         "Process large volumes of customer messages",
