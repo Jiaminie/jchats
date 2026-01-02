@@ -17,6 +17,7 @@ import {
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { openWhatsAppChat } from "../utils/whatsappService";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 const HowItWorksPage: React.FC = () => {
   const navigate = useNavigate();
@@ -26,6 +27,12 @@ const HowItWorksPage: React.FC = () => {
         marginTop: 4,
       }}
     >
+      <Helmet>
+        <title>How it Works | JChats Automation by Jiaminie Tech</title>
+        <meta name="description" content="Discover how Jiaminie Tech automates your customer engagement. Learn about our 4-phase process to connect, configure, activate, and optimize your business chat channels." />
+        <meta property="og:title" content="How it Works | JChats Automation by Jiaminie Tech" />
+        <meta property="og:description" content="Learn how Jiaminie Tech transforms your business communication with AI-driven chat automation." />
+      </Helmet>
       {/* HERO SECTION - UNTOUCHED */}
       <Hero
         title={

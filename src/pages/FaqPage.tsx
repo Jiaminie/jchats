@@ -11,6 +11,7 @@ import {
 import { Hero, MasterCTA } from "../components";
 import { ExpandMore } from "@mui/icons-material";
 import { openWhatsAppChat} from "../utils/whatsappService";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 const FAQPage: React.FC = () => {
   const [expanded, setExpanded] = useState<string | false>(false);
@@ -141,6 +142,12 @@ const FAQPage: React.FC = () => {
 
   return (
     <Box>
+      <Helmet>
+        <title>FAQ | Common Questions About Jiaminie Tech & JChats</title>
+        <meta name="description" content="Got questions about WhatsApp automation, M-Pesa integration, or social commerce? Find answers to frequently asked questions about Jiaminie Tech and JChats." />
+        <meta property="og:title" content="FAQ | Jiaminie Tech & JChats Automation" />
+        <meta property="og:description" content="Find answers to common questions about Jiaminie Tech's automation solutions." />
+      </Helmet>
       <Box
         sx={{
           backgroundImage: "url('/images/gradient.png')",

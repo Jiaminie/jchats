@@ -13,6 +13,7 @@ import {
 import { WhatsApp, Instagram, Facebook, Assessment, PlayArrow, CheckCircle } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { openWhatsAppChat } from "../utils/whatsappService";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -56,6 +57,16 @@ const HomePage: React.FC = () => {
         marginTop: 4,
       }}
     >
+      <Helmet>
+        <title>Jiaminie Tech | AI-Powered WhatsApp & Social Commerce Solutions</title>
+        <meta name="description" content="Transform your business with Jiaminie Tech. Automate WhatsApp, Instagram, and Facebook sales, collect M-Pesa payments, and engage customers 24/7 with JChats." />
+        <meta name="keywords" content="WhatsApp automation, social commerce, M-Pesa integration, AI chatbot, Jiaminie Tech, JChats, Kenya business tech" />
+        <meta property="og:title" content="Jiaminie Tech | More Chats. More Sales. Less Stress." />
+        <meta property="og:description" content="Convert conversations into revenue with JChats range of chat automations for WhatsApp, Instagram, and Facebook." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://jiaminie.co.ke" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       {/* HERO SECTION */}
       <Hero
         title={

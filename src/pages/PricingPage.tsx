@@ -17,6 +17,7 @@ import {
   KeyboardArrowRight,
 } from "@mui/icons-material";
 import { openWhatsAppChat } from "../utils/whatsappService";
+import { Helmet } from "@dr.pogodin/react-helmet";
 
 const PricingPage: React.FC = () => {
   const [businessSuiteOpen, setBusinessSuiteOpen] = useState(false);
@@ -86,6 +87,12 @@ const PricingPage: React.FC = () => {
 
   return (
     <Box>
+      <Helmet>
+        <title>Pricing | JChats Automation Plans | Jiaminie Tech</title>
+        <meta name="description" content="Simple, transparent pricing for JChats automation. Choose from Basic, Pro, or Advanced plans tailored to your business scale. No monthly subscriptions." />
+        <meta property="og:title" content="Pricing | Jiaminie Tech JChats Automation" />
+        <meta property="og:description" content="Find the perfect JChats automation plan for your business. Transparent pricing, no hidden fees." />
+      </Helmet>
        <Box
               sx={{
                 backgroundImage: "url('/images/gradient.png')",
