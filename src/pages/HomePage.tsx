@@ -10,7 +10,14 @@ import {
   MasterCTA,
   TargetAudience,
 } from "../components";
-import { WhatsApp, Instagram, Facebook, Assessment, PlayArrow, CheckCircle } from "@mui/icons-material";
+import {
+  WhatsApp,
+  Instagram,
+  Facebook,
+  Assessment,
+  PlayArrow,
+  CheckCircle,
+} from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { openWhatsAppChat } from "../utils/whatsappService";
 import { Helmet } from "@dr.pogodin/react-helmet";
@@ -30,7 +37,7 @@ const HomePage: React.FC = () => {
       description:
         "Turn WhatsApp into your best salesperson. Automatically respond to customers, show products or services, take orders, and collect M-Pesa payments — even when you’re offline.",
       icon: <WhatsApp />,
-      href: "https://wa.me/254114102575?text=Hi! I'm interested in learning about JChats for my business.",
+      href: "https://wa.me/254704696287?text=Hi! I'm interested in learning about JChats for my business.",
       buttonText: "Consult Sales",
     },
     {
@@ -45,7 +52,7 @@ const HomePage: React.FC = () => {
       title: "Facebook Messenger",
       description:
         "Handle high message volume without missing customers. Automatically answer common questions, share catalogs, and route serious buyers to checkout or human follow-up.",
-      icon: <Facebook/>,
+      icon: <Facebook />,
       href: "https://www.facebook.com/jiaminie_tech/",
       buttonText: "See Facebook",
     },
@@ -58,11 +65,25 @@ const HomePage: React.FC = () => {
       }}
     >
       <Helmet>
-        <title>Jiaminie Tech | AI-Powered WhatsApp & Social Commerce Solutions</title>
-        <meta name="description" content="Transform your business with Jiaminie Tech. Automate WhatsApp, Instagram, and Facebook sales, collect M-Pesa payments, and engage customers 24/7 with JChats." />
-        <meta name="keywords" content="WhatsApp automation, social commerce, M-Pesa integration, AI chatbot, Jiaminie Tech, JChats, Kenya business tech" />
-        <meta property="og:title" content="Jiaminie Tech | More Chats. More Sales. Less Stress." />
-        <meta property="og:description" content="Convert conversations into revenue with JChats range of chat automations for WhatsApp, Instagram, and Facebook." />
+        <title>
+          Jiaminie Tech | AI-Powered WhatsApp & Social Commerce Solutions
+        </title>
+        <meta
+          name="description"
+          content="Transform your business with Jiaminie Tech. Automate WhatsApp, Instagram, and Facebook sales, collect M-Pesa payments, and engage customers 24/7 with JChats."
+        />
+        <meta
+          name="keywords"
+          content="WhatsApp automation, social commerce, M-Pesa integration, AI chatbot, Jiaminie Tech, JChats, Kenya business tech"
+        />
+        <meta
+          property="og:title"
+          content="Jiaminie Tech | More Chats. More Sales. Less Stress."
+        />
+        <meta
+          property="og:description"
+          content="Convert conversations into revenue with JChats range of chat automations for WhatsApp, Instagram, and Facebook."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://jiaminie.co.ke" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -79,7 +100,7 @@ const HomePage: React.FC = () => {
         }
         subtitle="Use JChats range of chat automations to convert conversations into revenue"
         primaryAction={{
-            text: "Show Me How",
+          text: "Show Me How",
           onClick: () => navigate("/use-cases"),
         }}
         showImage={true}
@@ -101,7 +122,7 @@ const HomePage: React.FC = () => {
         subtitle="Experience the power of instant engagement with JChats' AI-driven automations. Never miss a lead again."
         primaryButton={{
           text: "Get Started Now",
-          action: () => openWhatsAppChat('general'),
+          action: () => openWhatsAppChat("general"),
         }}
         background="linear-gradient(135deg, rgba(80, 200, 120, 0.1) 0%, rgba(0, 0, 0, 1) 100%)"
       />
@@ -139,7 +160,7 @@ const HomePage: React.FC = () => {
         primaryButton={{
           text: "Get Your Free Demo",
           icon: <PlayArrow />,
-          action: () => openWhatsAppChat('general'),
+          action: () => openWhatsAppChat("general"),
         }}
       />
 
@@ -178,31 +199,25 @@ const HomePage: React.FC = () => {
         primaryButton={{
           text: "Request System Audit",
           icon: <Assessment />,
-          action: () => openWhatsAppChat('general'),
+          action: () => openWhatsAppChat("general"),
         }}
         secondaryButton={{
           text: "Watch Live Demo",
           icon: <PlayArrow />,
-          action: () => navigate('/use-cases'),
+          action: () => navigate("/use-cases"),
         }}
         trustSignals={[
           {
             text: "No credit card required",
-            icon: (
-              <CheckCircle sx={{ color: "primary.main", fontSize: 20 }} />
-            ),
+            icon: <CheckCircle sx={{ color: "primary.main", fontSize: 20 }} />,
           },
           {
             text: "Custom ROI analysis included",
-            icon: (
-              <CheckCircle sx={{ color: "primary.main", fontSize: 20 }} />
-            ),
+            icon: <CheckCircle sx={{ color: "primary.main", fontSize: 20 }} />,
           },
           {
             text: "Response within 4 business hours",
-            icon: (
-              <CheckCircle sx={{ color: "primary.main", fontSize: 20 }} />
-            ),
+            icon: <CheckCircle sx={{ color: "primary.main", fontSize: 20 }} />,
           },
         ]}
         contactInfo={{

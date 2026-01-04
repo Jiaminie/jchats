@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Box, Zoom } from "@mui/material"; 
+import { Box, Zoom } from "@mui/material";
 import { Header, Footer } from "./components";
 import HomePage from "./pages/HomePage";
 import HowItWorksPage from "./pages/HowItWorksPage";
@@ -14,28 +14,28 @@ import TermsPage from "./pages/TermsPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import AboutPage from "./pages/AboutPage";
 import ScrollToTop from "./components/ScrollToTop";
-import { StickyWhatsAppButton, ReturnToTopButton} from "./components/ui"; 
+import { StickyWhatsAppButton, ReturnToTopButton } from "./components/ui";
 
 function App() {
   const [showReturnToTop, setShowReturnToTop] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 200) { 
+      if (window.scrollY > 200) {
         setShowReturnToTop(true);
       } else {
         setShowReturnToTop(false);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -64,17 +64,17 @@ function App() {
         <Footer />
       </Box>
       <StickyWhatsAppButton
-        phoneNumber="+254114102575"
+        phoneNumber="+254704696287"
         defaultMessage="Hi! I'd like to learn more about Jiaminie."
       />
       <Zoom in={showReturnToTop}>
         <Box
           sx={{
             position: "fixed",
-            bottom: { xs: 80, sm: 90, md: 24 }, 
-            right: { xs: 16, sm: 20, md: 20 }, 
+            bottom: { xs: 80, sm: 90, md: 24 },
+            right: { xs: 16, sm: 20, md: 20 },
             zIndex: 1100,
-            display: showReturnToTop ? "block" : "none", 
+            display: showReturnToTop ? "block" : "none",
           }}
         >
           <ReturnToTopButton onClick={scrollToTop} />
